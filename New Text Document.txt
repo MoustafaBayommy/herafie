@@ -1,0 +1,3 @@
+ npm install @ionic/app-scripts@latest --save-dev
+npm rebuild node-sass
+

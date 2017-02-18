@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?n1ul9l');
+  src:  url('fonts/icomoon.eot?n1ul9l#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?n1ul9l') format('truetype'),
+    url('fonts/icomoon.woff?n1ul9l') format('woff'),
+    url('fonts/icomoon.svg?n1ul9l#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-air-conditionednew:before {
+  content: "\e921";
+}
+.icon-air-conditionernew:before {
+  content: "\e922";
+}
+.icon-d-buildingnew:before {
+  content: "\e900";
+}
+.icon-antnew:before {
+  content: "\e901";
+}
+.icon-antennanew:before {
+  content: "\e902";
+}
+.icon-art-painting-rollernew:before {
+  content: "\e903";
+}
+.icon-bednew:before {
+  content: "\e904";
+}
+.icon-bed-1new:before {
+  content: "\e905";
+}
+.icon-buildingnew:before {
+  content: "\e906";
+}
+.icon-building-1new:before {
+  content: "\e907";
+}
+.icon-carpetnew:before {
+  content: "\e908";
+}
+.icon-casino-cctvnew:before {
+  content: "\e909";
+}
+.icon-computernew:before {
+  content: "\e90a";
+}
+.icon-computers-network-interface-symbolnew:before {
+  content: "\e90b";
+}
+.icon-dinnernew:before {
+  content: "\e90c";
+}
+.icon-double-king-size-bednew:before {
+  content: "\e90d";
+}
+.icon-home-theater-systemnew:before {
+  content: "\e90e";
+}
+.icon-magic-wandnew:before {
+  content: "\e90f";
+}
+.icon-office-blocknew:before {
+  content: "\e910";
+}
+.icon-parquetnew:before {
+  content: "\e911";
+}
+.icon-roachnew:before {
+  content: "\e912";
+}
+.icon-roofnew:before {
+  content: "\e913";
+}
+.icon-security-cameranew:before {
+  content: "\e914";
+}
+.icon-servernew:before {
+  content: "\e915";
+}
+.icon-shopnew:before {
+  content: "\e916";
+}
+.icon-speaker-systemnew:before {
+  content: "\e917";
+}
+.icon-surveillance-video-cameranew:before {
+  content: "\e918";
+}
+.icon-system-controllernew:before {
+  content: "\e919";
+}
+.icon-tanknew:before {
+  content: "\e91a";
+}
+.icon-tank-1new:before {
+  content: "\e91b";
+}
+.icon-tank-wagonnew:before {
+  content: "\e91c";
+}
+.icon-tilesnew:before {
+  content: "\e91d";
+}
+.icon-vacuum-cleanernew:before {
+  content: "\e91e";
+}
+.icon-villanew:before {
+  content: "\e91f";
+}
+.icon-villa-1new:before {
+  content: "\e920";
+}
+

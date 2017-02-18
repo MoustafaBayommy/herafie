@@ -1,0 +1,113 @@
+page-pick-date {
+
+}
+.alert-tappable{
+    text-align: right;
+}
+
+.submit{
+    margin-top: 10%;
+    font-size: 120%;
+}
+
+.filebrowser{
+    width: 50%;
+}
+
+.ion-row{
+    text-align: center;
+    padding: 0px;
+
+    
+}
+
+.select-text{
+    width: 150%;
+    font-size: 90%;
+    color: #22b7dc;
+}
+
+ion-label{
+     font-size:140%;
+}
+
+
+
+.formcol{
+    padding: 0px;
+}
+
+
+.iteamRow{
+    margin-top: -3%;
+}
+
+ion-select.select.select-md {
+    margin-right: 30%;
+    width: 1000%;
+}
+
+.buttonRow{
+  text-align: center; 
+      margin-top: 7%;
+ 
+}
+.button{
+    margin: auto;
+}
+.select-text{
+    direction: ltr;
+}
+
+.labelRow{
+    margin-top: 5%;
+}
+
+.icon{
+    font-size: 260%;
+  color: #7f7f7f;
+}
+
+.iconCol{
+    text-align: center;    
+}
+
+.fileselectedCo{
+        text-align: center;
+    margin-right: 5%;
+    text-decoration: underline;
+    font-size: 90%;
+    margin-top: 3%;
+}
+
+.datetime-text,.select-text,textarea{
+    color:#ffa500;
+}
+
+// .toolbar-background-md,.toolbar-background{
+//   background: #fff568;
+
+// }
+
+body > ion-app > ng-component > ion-nav > page-pick-date > ion-content > div.scroll-content > ion-row.buttonRow > button > span > ion-icon{
+       color: #edb111;
+    margin-left: 5%;
+    font-size: 120%;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

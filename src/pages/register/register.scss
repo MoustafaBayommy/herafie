@@ -1,0 +1,47 @@
+page-register {
+}
+
+button{
+    
+    font-size: 15pt;
+    margin: 20px;
+    height: 20%;
+}
+
+
+ion-label{
+    border-left-style: solid;
+    border-width:2px;
+width: 33%;
+border: 2px;
+    font-size:100%;
+}
+input{
+    color: #1aaf93;
+    font-size: 80%;
+}
+.back-button{
+    width: 10%;
+}
+ion-content{
+    margin-top: 5%;
+}
+
+.headline{
+    text-align: left;
+}
+
+.labelsList{
+    margin-right: 10px;
+    font-size: 130%;
+    color: #afacac;
+}
+
+
+.message{
+  text-align: right;
+    /* margin: auto; */
+    color: red;
+    margin-top: 10px;
+    margin-right: 20px;
+}

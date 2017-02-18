@@ -1,0 +1,70 @@
+
+
+<ion-header>
+  <ion-navbar >
+   
+   <button ion-button icon-only menuToggle class="menuIcon">
+      <ion-icon name="menu" ></ion-icon> 
+    </button>
+          
+    <ion-title  >
+      <div id="myCustomeTitle">
+     <ion-row class="head-row">
+      <ion-col width-50 class="head-col headIconCol">
+       <span class="icon-icon headIcon"> </span>   
+      </ion-col>
+        <ion-col width-50 class="head-col headTitleCol">
+<ion-row class="head-row">
+  <ion-col width-100 class="head-col">
+       <span class="titleSpan">{{appTitle}}</span>
+  </ion-col>
+</ion-row>
+<ion-row class="head-row">
+    <ion-col width-100 class="head-col">
+ <span class="subtitle">{{appsubTitle}}</span>
+  </ion-col>
+</ion-row>
+      </ion-col>
+     </ion-row>
+      </div>
+  
+ 
+ </ion-title>
+               <!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="headline">
+<ion-label style="    direction: rtl;
+    width: 90%; font-size:140%;">طلبك </ion-label>
+<ion-label style="    direction: rtl;
+    width: 90%; margin-top:-20px;">حدد موقعك</ion-label>
+</div>
+<!--<script type="text/javascript"> var elms = document.getElementsByClassName("ion-col"); 
+var n = elms.length;
+ function changeColor(color) { for(var i = 0; i < n; i ++) { elms[i].style.backgroundColor = color; } } for(var i = 0; i < n; i ++) { elms[i].onmouseover = function() { changeColor("yellow"); }; elms[i].onmouseout = function() { changeColor("white"); }; } </script>-->
+
+<!--<div class="ionicrow" >-->
+<ion-row *ngFor="let row of rows" class="ionicrow">
+    <ion-col *ngFor="let col of row"   width-50  class="ion-col"  (click)="placeSelected(col);">
+<ion-row  class="ionic-icon-row">
+<i class="fa icon-{{col.iconName}}" [class.itemActive]="col.isSelected"     aria-hidden="true" style="font-size:350%;"></i>
+</ion-row>
+<ion-row class="ionic-labels-row">
+    <ion-label  class="labels apartment"  [class.itemActive]="col.isSelected" >{{col.name}}</ion-label>
+</ion-row>
+</ion-col>
+</ion-row>
+<div class="buttonDiv">
+    <button class="next" ion-button color="secondary" outline (click)="next()"> التالى   <ion-icon name="ios-arrow-dropright-outline"></ion-icon></button>
+</div>
+
+
+
+
+
+</ion-content>

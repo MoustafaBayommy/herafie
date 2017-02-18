@@ -1,0 +1,58 @@
+page-login {
+    text-align: right;
+}
+ion-label,ion-input{
+
+    text-align: right;
+direction:rtl;
+font-size: 120%;
+}
+
+
+#or{
+        margin:auto;
+    text-align:center;
+     font-size:130%;
+     margin-top:5%;
+     
+}
+
+
+
+
+
+#login,#signup{
+    font-size: 80%;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+.logRow,.logCol{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-content > div > ion-row > ion-col > ion-row:nth-child(1) > ion-col > ion-item > div.item-inner{
+    border-bottom:0px;
+}
+
+
+
+
+
+#data > input
+{    color:#ffa500;
+     font-size: 120%;
+     text-align: center;
+
+}
+#key > input
+{    color:#808080;
+     font-size: 120%;
+     text-align: center;
+
+}
+

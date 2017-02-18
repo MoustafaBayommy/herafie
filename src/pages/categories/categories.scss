@@ -1,0 +1,21 @@
+page-categories {
+
+}
+.card-title{
+    text-align: center;
+    font-size: 1.5em;
+}
+.title{
+    text-align: right;
+}
+
+body > ion-app > ng-component > ion-nav > page-categories > ion-content > div.scroll-content > div.buttonDiv > button > span > ion-icon{
+      color: #30d05f;
+    margin-left: 5%;
+    font-size: 120%;
+}
+
+
+.catCol{
+    margin: auto;
+}

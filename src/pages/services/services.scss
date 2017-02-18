@@ -1,0 +1,17 @@
+page-services {
+
+}
+
+ion-card-title{
+    text-align:  right;
+}
+img{
+    // width: 80px;
+    // height:200px;
+}
+
+body > ion-app > ng-component > ion-nav > page-services > ion-content > div.scroll-content > div.buttonDiv > button > span > ion-icon{
+       color: #30d05f;
+    margin-left: 5%;
+    font-size: 120%;
+}

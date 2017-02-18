@@ -1,0 +1,138 @@
+page-main {
+}
+.icons {
+    background-color: #fff;
+    border: 1px solid #7f8c8d;
+    color: #7f8c8d;
+    margin: 0;
+}
+ion-icon{
+    font-size:3.5em;
+
+}
+.ion-col{
+    text-align: center;
+    padding: 0px;
+}
+.labels,.row{
+      text-align: center;
+margin: auto;  
+}
+.labels{
+    font-size: 110%;
+    // padding: 10px;
+    // color: #000;
+}
+// ion-row{
+//         margin: auto;
+//     margin-top:5%;
+// }
+.ionic-icon-row,.ionic-labels-row{
+    margin-left: 0px;
+
+}
+
+.ionic-labels-row{
+        margin-top: 5%;
+}
+
+.ionicrow{
+    margin-left: 0px;
+      margin-top: 7%;
+      text-align: center;
+}
+
+
+.fa{
+    font-size: 300%;
+        color:rgb(178, 174, 174);
+        margin: auto;
+        
+
+}
+
+// .fa:hover{
+//     color : yellow;
+// }
+
+.scroll-content{
+    margin-top: 10%;
+    padding: 0px;
+}
+
+.ion-app{
+    
+}
+.headline{
+        margin-right: -5%;
+}
+
+// .ion-col::active .fa {
+//     color:#5ff24c;  
+// }
+
+// .ion-col:hover  .labels     {
+//     color:#5ff24c;  
+// }
+.button{
+    width: 80%;
+}
+.buttonDiv{
+    margin-top: 12%;
+   text-align: center;
+}
+ion-icon{
+    font-size: 130%;
+    margin-right: 5%;
+}
+
+
+.icon .icon-md .ion-ios-arrow-back-outline{
+    font-size: 100%;
+}
+
+
+
+.menuIcon{
+    width: 5%;
+}
+
+body > ion-app > ng-component > ion-nav > page-main > ion-header > ion-navbar > button.menuIcon.disable-hover.bar-buttons.bar-buttons-md.bar-button.bar-button-md.bar-button-default.bar-button-default-md.bar-button-menutoggle.bar-button-menutoggle-md > span > ion-icon{
+        // color :#fff;
+                color: #98be1d;
+
+
+}
+
+
+body > ion-app > ng-component > ion-nav > page-main > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title:nth-child(2) > div{
+    font-size: 100%;
+    color: #b2aeae;
+}
+
+
+// body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-content > div.buttonDiv > button > span > ion-icon{
+//    color: #30d05f;
+//     margin-left: 5%;
+//     font-size: 120%;
+// }
+body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-content > div.buttonDiv > button > span > ion-icon
+{
+       color: #30d05f;
+    margin-left: 5%;
+    font-size: 120%;
+}
+
+
+.itemActive{
+    color:#ffa500;
+}
+
+.itemActive.fa{
+    border-color: orange;
+    border-radius: 1000px;
+    border-width: 2px;
+    padding: 5px;
+    border-style: dashed;
+}
+

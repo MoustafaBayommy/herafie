@@ -1,0 +1,32 @@
+page-done-prop-over {
+
+}
+
+
+.divcontainer{
+    padding: 5px;
+
+}
+
+
+body > ion-app > ion-popover > div > div.popover-content > div > page-done-prop-over > div > ion-row > ion-col:nth-child(1) > ion-icon{
+
+  color: #98be1d;
+    margin: auto;
+    font-size: 760%;
+}
+
+#message{
+    color:   #ffa500;
+    font-size: 105%;
+}
+
+#meesageCol{
+    padding:0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.popover-ios .popover-content{
+    background:rgba(255, 255, 255, 0);
+}

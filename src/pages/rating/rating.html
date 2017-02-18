@@ -1,0 +1,94 @@
+<!--
+  Generated template for the Rating page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar >
+ 
+    <ion-title  >
+      <div id="myCustomeTitle">
+     <ion-row class="head-row">
+      <ion-col width-50 class="head-col headIconCol">
+       <span class="icon-icon headIcon"> </span>   
+      </ion-col>
+        <ion-col width-50 class="head-col headTitleCol">
+<ion-row class="head-row">
+  <ion-col width-100 class="head-col">
+       <span class="titleSpan">{{appTitle}}</span>
+  </ion-col>
+</ion-row>
+<ion-row class="head-row">
+    <ion-col width-100 class="head-col">
+ <span class="subtitle">{{appsubTitle}}</span>
+  </ion-col>
+</ion-row>
+      </ion-col>
+     </ion-row>
+      </div>
+  
+ 
+ </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  
+<ion-row  class="labels">
+       <ion-col width-100 class="button-container">
+         <ion-row>
+               <ion-label >تقييم التطبيق</ion-label>
+         </ion-row>
+         <ion-row class="stars">
+           <rating [(ngModel)]="rate.appRate"></rating>
+         </ion-row>
+    </ion-col> 
+</ion-row>
+
+<hr>
+
+
+<ion-row  class="labels">
+       <ion-col width-100 class="button-container">
+         <ion-row>
+    <ion-label >تقييم المندوب </ion-label>
+         </ion-row>
+         <ion-row class="stars">
+           <rating [(ngModel)]="rate.agentRate"></rating>
+         </ion-row>
+    </ion-col> 
+</ion-row>
+   <hr>
+
+
+
+<ion-row  class="labels">
+       <ion-col width-100 class="button-container">
+         <ion-row>
+    <ion-label >  تقييم الفنى  </ion-label>
+         </ion-row>
+         <ion-row class="stars">
+           <rating [(ngModel)]="rate.techRate"></rating>
+         </ion-row>
+    </ion-col> 
+</ion-row>
+
+<hr>
+
+
+<ion-row>
+ <ion-item>
+   <ion-label floating >ملاحظات</ion-label>
+   <ion-textarea [(ngModel)]="rate.notes"></ion-textarea>
+ </ion-item>  
+</ion-row>
+<ion-row class="btnrow">
+  <button ion-button color="secondary" round outline (click)="sendRate()">تقديم</button>
+</ion-row>
+
+</ion-content>

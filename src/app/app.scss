@@ -1,0 +1,184 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+ion-title {
+    text-align: right;
+}
+ion-label,ion-input,ion-select,ion-option,ion-item,.alert-title{
+    text-align: right;
+direction:rtl;
+}
+.select-icon{
+    margin-right: 10px;
+}
+
+
+
+button{
+    width: 100%;
+    margin-top: 10%;
+
+}
+
+.headTitle,.headicon,.headOfMenu{
+    text-align: center;
+
+    // padding: 0px;
+    // margin: 0px;
+
+}
+
+.headOfMenu{
+        border-bottom-width: 2px;
+    border-bottom-color: #ffb328;
+    border-bottom-style: solid;
+}
+
+.headicon,.logopic{
+    font-size: 400%;
+    color: #ffa500;
+
+}
+
+.headTitle,.logotext{
+        font-size: 180%;
+    margin-top: -1%;
+                    color: #98be1d;
+
+         position: relative;
+    bottom: 8px;
+}
+
+
+.toolbar-title-md{
+  text-align:center;
+    // color: #fff;
+    color: #98be1d;
+
+}
+
+
+.toolbar-background-md,.toolbar-background{
+//   background: #bff073;
+  background: #fff;
+
+
+}
+
+.elementRow,.iteamRow,.labelRow,.buttonRow,.fileselected{
+    padding: 0px;
+    margin: 0px;
+
+}
+.elementRow{
+    padding-right: 5%;
+   
+}
+
+.elementRow .label-md {
+    font-size: 110%;
+}
+
+ion-label{
+    color: #7f7f7f;;
+}
+
+.list-md .item-block .item-inner {
+    border-bottom: 1px solid #bff073;
+}
+
+.datetime-text,.select-text,textarea,ion-input{
+    color:#ffa500;
+}
+
+
+.back-button-icon.icon.icon-md.back-button-icon-md.ion-md-arrow-back{
+    font-size: 130%;
+        color: #98be1d;
+
+//   color: #fff;  
+
+}
+
+
+.subtitle{
+    font-size: 65%;
+    position: relative;
+       bottom:6px;
+    color: #b2aeae;
+}
+
+.next{
+    font-size: 90%;
+}
+
+.head-col,.head-row{
+    padding: 0px;
+    margin: auto;
+    text-align: center;
+    margin: 0px;
+}
+
+#myCustomeTitle{
+    width: 40%;
+        margin: auto;
+}
+
+.headIcon{
+ font-size: 280%;
+}
+
+.headIconCol{
+    text-align:right;
+}
+
+.headTitleCol{
+    margin-top: 10px;
+    margin-left: -10px;
+}
+
+
+
+.titleSpan{
+    position: relative;
+    top: 20%;}
+
+    //for costes And Offers
+    .ion-col{
+    text-align: center;
+    padding: 0px;
+}
+.labels,.row{
+      text-align: center;
+margin: auto;  
+}
+.desc>p,.desc>h2,{
+    text-align: right;
+}
+#pricCol
+{
+    background: orangered;
+        padding: 5px;
+        margin: auto;
+}
+#pricesDiv{
+color: #fff;
+}
+
+.singleUnitPrice{
+        background: #d3eeef;
+        margin-top: 5px;
+}

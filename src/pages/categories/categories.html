@@ -1,0 +1,60 @@
+<!--
+  Generated template for the Categories page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar >
+ 
+    <ion-title  >
+      <div id="myCustomeTitle">
+     <ion-row class="head-row">
+      <ion-col width-50 class="head-col headIconCol">
+       <span class="icon-icon headIcon"> </span>   
+      </ion-col>
+        <ion-col width-50 class="head-col headTitleCol">
+<ion-row class="head-row">
+  <ion-col width-100 class="head-col">
+       <span class="titleSpan">{{appTitle}}</span>
+  </ion-col>
+</ion-row>
+<ion-row class="head-row">
+    <ion-col width-100 class="head-col">
+ <span class="subtitle">{{appsubTitle}}</span>
+  </ion-col>
+</ion-row>
+      </ion-col>
+     </ion-row>
+      </div>
+  
+ 
+ </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+<div class="headline">
+<ion-label style="    direction: rtl;
+    width: 90%; font-size:140%;">طلبك </ion-label>
+<ion-label style="    direction: rtl;
+    width: 90%; margin-top:-20px;">خدمات {{mainService}} </ion-label>
+</div>
+<ion-row *ngFor="let row of rows" class="ionicrow">
+    <ion-col *ngFor="let col of row"   width-50  class="ion-col catCol"  (click)="categorySelected(col);">
+<ion-row  class="ionic-icon-row">
+  <span class="fa {{col.iconName}}" [ngClass]="col.className"></span>
+</ion-row>
+<ion-row class="ionic-labels-row">
+    <ion-label  class="labels apartment" [ngClass]="col.className" >{{col.name}}</ion-label>
+</ion-row>
+</ion-col>
+</ion-row>
+
+<div class="buttonDiv" style="margin-bottom:5%;">
+    <button class="next" ion-button color="secondary" outline (click)="next()"> التالى   <ion-icon name="ios-arrow-dropright-outline"></ion-icon></button>
+</div>
+
+</ion-content>

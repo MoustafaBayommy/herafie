@@ -1,0 +1,56 @@
+page-rating {
+
+}
+ion-label{
+    font-size:110%;
+}
+
+.button-container{
+    padding:0;
+    margin: auto;
+}
+
+ion-row{
+    margin-left:-20px;
+    border: 1px;
+}
+ion-col{
+  padding:10%;  
+}
+
+ul {
+  padding: 0px;
+margin-left: 20%;
+  &.rating li {
+    padding: 5px 10px;
+    background: none;
+    color: #8d0100;
+
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+hr{
+  width: 80%;
+  height: .5%;
+  background-color:#ea706c;
+}
+
+.btnrow{
+  text-align: center;
+  margin:auto;
+  margin-top: 8%;
+}
+
+rating{
+      margin: auto;
+    /* padding: 0px; */
+    /* margin: 0px; */
+    width: 90%;
+}
+ul.rating li ion-icon {
+    color: #839516;
+    font-size: 20px;
+}

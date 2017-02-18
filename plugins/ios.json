@@ -1,0 +1,56 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.jcesarmobile.filepicker": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-facebook-account-kit": {
+            "APP_ID": "1079156802213194",
+            "APP_NAME": "herafie",
+            "AK_TOKEN": "4e34a36b0c04795f289a033304891c5d",
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": "Herafie Need Your Location",
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-mfilechooser": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        }
+    }
+}
