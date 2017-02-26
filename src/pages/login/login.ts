@@ -13,6 +13,8 @@ import { OrderService } from '../../providers/order.server';
 import { AppSqlTableService } from '../../providers/app-sql-table-service';
 
 import { User } from '../../models/user';
+import { WelcomePage } from '../pages';
+
 
 
 
@@ -73,7 +75,6 @@ export class LoginPage {
     });
 
     LoginPage.stnavCtrl = this.navCtrl;
-
 AppSqlTableService.openDataBase().then(()=>{
     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
 
@@ -135,7 +136,7 @@ AppSqlTableService.openDataBase().then(()=>{
 
 
   static gotoNextScreen() {
-    LoginPage.stnavCtrl.setRoot(GetLocationPage);
+    LoginPage.stnavCtrl.setRoot(WelcomePage);
     // LoginPage.stnavCtrl.setRoot(MainPage);
 
   }

@@ -28,9 +28,16 @@ getAdressFromLatAndLong(latitude:number,longtitude:number):Promise<any>{
 
 
 
+
 getDestanceInMinutes(from:string,to:string):Promise<string>{
-       return this.http.get('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+from+'&destinations='+to+'&key='+this.key+'&language=ar&region=KSA')
-    .toPromise().then((response:any)=>response.json().rows.elements[0].duration.text);
+    from=this.companyLocation;
+       return this.http.get('/googlemaps/distancematrix/json?units=imperial&origins='+from+'&destinations='+to+'&key='+this.key+'&language=ar&region=KSA')
+    .toPromise().then((response:any)=>{
+        console.log(response.json());
+        console.log(response.json().rows[0].elements[0].duration.text);
+       return  response.json().rows[0].elements[0].duration.text;
+    }
+        );
             
 }
 

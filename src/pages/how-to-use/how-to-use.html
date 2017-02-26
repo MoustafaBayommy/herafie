@@ -4,45 +4,15 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
- <ion-navbar >
-   
-   <button ion-button icon-only menuToggle class="menuIcon">
-      <ion-icon name="menu" ></ion-icon> 
-    </button>
-          
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-               <!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
-
-  </ion-navbar>
-
-
+ <ion-header>
+ <herafieNav withMenu=true></herafieNav>
 </ion-header>
 
 
+
 <ion-content padding>
+
+
   <div class="headline">
 <ion-label style="    direction: rtl;
     width: 90%; font-size:140%;">طريقة الإستخدام</ion-label>
@@ -50,20 +20,40 @@
 </div>
 <ion-list>
   <button ion-item >
-          <ion-icon name="md-bulb"></ion-icon>
-    dfgsgdfg
+    
+<i class="fa fa-map-marker"  style="font-size:150%"></i>
+   حدد موقعك
   </button>  
   <button ion-item >
-          <ion-icon name="md-bulb"></ion-icon>
-
-    dfgsgdfg
+<i class="fa icon-shopnew" style="font-size:150%"></i>
+  اختر نوع المكان 
 
   </button>  
    <button ion-item >
-          <ion-icon name="md-bulb"></ion-icon>
+<i class="fa fa-wrench" style="font-size:150%"></i>
 
-    dfgsgdfg
+   اختر نوع الخدمة
 
+  </button> 
+     <button ion-item >
+<i class="fa icon-art-painting-rollernew" style="font-size:150%"></i>
+
+  اختر الخدمة
+
+  </button> 
+       <button ion-item >
+<i class="fa fa-clock-o" aria-hidden="true" style="font-size:150%"></i>
+
+حدد المعد المناسب  وارفق الوصف ثم اطلب 
+  </button> 
+         <button ion-item >
+<i class="fa fa-spinner" aria-hidden="true" style="font-size:150%"></i>
+
+انتظر مندوبنا
+  </button> 
+       <button ion-item >
+<i class="fa fa-star" aria-hidden="true" style="font-size:150%"></i>
+يمكنك بعدها تقييم ادائنا بكل سهوله
   </button> 
 </ion-list>
 </ion-content>

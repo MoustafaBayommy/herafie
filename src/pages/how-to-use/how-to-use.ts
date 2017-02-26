@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import    * as config   from '../../herafie.config.ts';
 
 /*
   Generated class for the HowToUse page.
@@ -17,9 +16,6 @@ appTitle:string;
   appsubTitle:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-
-  this.appTitle=config.data.appTitle;
-    this.appsubTitle=config.data.appSubTitle;
   }
 
   ionViewDidLoad() {

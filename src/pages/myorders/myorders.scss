@@ -1,3 +1,36 @@
 page-myorders {
 
 }
+
+
+
+.served,.rejected,.inProgress{
+    margin-top: 10px;
+}
+.inProgress{
+    background: #3fef86;
+
+}   
+
+.rejected{
+    background: orangered;
+}
+
+.served{
+    background:deepskyblue;
+}
+
+.orderiteamcol{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 7px;
+}
+
+.ordertext{
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    
+}
+

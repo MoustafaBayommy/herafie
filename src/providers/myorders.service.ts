@@ -8,7 +8,6 @@ import { Transfer } from 'ionic-native';
 
 import  * as config   from '../herafie.config.ts';
 
-            const fileTransfer = new Transfer();
 
 @Injectable()
 export class MyOrdersService {
@@ -33,6 +32,7 @@ getMyOrders(mobil:String):Promise<any>{
 
 
 sendMyOrder(order:Order):Promise<any>{
+        console.log(order);
    return this.http.post(`${this.serverUrl}orders`,order)
     .toPromise().then((response:any)=>{
 
@@ -54,12 +54,31 @@ sendRating(rate:Rate):Promise<any>{
 }
 
 uploadFile(path:string):Promise<any>{
+        
+            const fileTransfer = new Transfer();
   var options: any;
 
   options = {
-     fileKey: 'file'
+     fileKey: 'file',
+          chunkedMode: false,
+
+        //   fileName: 'name.jpg',
+mimeType:'application/octet-stream',
+        // headers: {
+        //             Connection: "close"
+
+        // }
+
   };
+
+  fileTransfer.onProgress=(progressEvent:any)=> {
+    if (progressEvent.lengthComputable) {
+        console.log(progressEvent.loaded / progressEvent.total);
+    } else {
+            console.log('uploading..');
+    }
+};
  
-   return fileTransfer.upload(path,`${this.serverUrl}orders`,Option);
+   return fileTransfer.upload(path,`${this.serverUrl}orders/uploadFile`,options,true);
 }
 }

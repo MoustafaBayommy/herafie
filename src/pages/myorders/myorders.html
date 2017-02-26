@@ -5,40 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header>
- <ion-navbar >
-   
-   <button ion-button icon-only menuToggle class="menuIcon">
-      <ion-icon name="menu" ></ion-icon> 
-    </button>
-          
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-               <!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
-
-  </ion-navbar>
-
+ <herafieNav withMenu=true></herafieNav>
 </ion-header>
+
 
 
 <ion-content padding>
@@ -49,20 +18,68 @@
 </div>
 <ion-list>
 
-  <ion-item *ngFor="let order of orders">
+  <ion-item *ngFor="let order of orders"  
+   [ngClass]="order.styleclass"
+  >
     <ion-avatar item-left>
-<i *ngIf="orders.stutes!='served'" class="fa fa-dot-circle-o" aria-hidden="true"></i>
-<i  *ngIf="orders.stutes=='served'" class="fa fa-circle" aria-hidden="true"></i>
+<i *ngIf="order.orderStutes=='serving'||order.orderStutes=='new'" class="fa fa-dot-circle-o" aria-hidden="true" style="color: white"></i>
+<i  *ngIf="order.orderStutes=='served'" class="fa fa-circle" aria-hidden="true" style="color: white"></i>
+<i  *ngIf="order.orderStutes=='rejected'" class="fa fa-times-circle-o" aria-hidden="true" style="color: white"></i>
 
     </ion-avatar>
-    <h2>Finn</h2>
-    <h3>Don't Know What To Do!</h3>
-    <p>I've had a pretty messed up day. If we just...</p>
 
+
+<ion-row>
+<ion-col width-25 class="orderiteamcol" >
+  <p class="ordertext" style="color: #fff;    font-size: 100%;">
+    تاريخ : 
+  </p>
+  <p class="ordertext" style="color: #fff;    font-size: 100%;">
+     المكان : 
+  </p>
+  <p class="ordertext" style="color: #fff;    font-size: 100%;">
+     الخدمة :  
+  </p>
+    <p class="ordertext" style="color: #fff;    font-size: 100%;">
+       ملاحظات   :   
+  </p>
+</ion-col>
+
+  <ion-col width-75   class="orderiteamcol " >
+      <p style="color: #f4f4f4;    font-size: 100%;">
+        {{(order.created_at)?order.created_at:'--'}}
+
+  </p>
+    <p style="color: #f4f4f4;    font-size: 100%;">
+      {{(order.placetype)?order.placetype:'--'}}
+  </p>
+    <p style="color: #f4f4f4;    font-size: 100%;">
+            {{(order.serviceType)?order.serviceType:'--'}}
+  </p>
+    <p style="color: #f4f4f4;    font-size: 100%;">
+                  {{(order.note)?order.note:'--'}}
+  </p>
+  </ion-col>
+</ion-row>
   </ion-item>
 
 
 </ion-list>
 
+<div [style.display]="noConnectionDisplay" id="noConnection">
+        <ion-icon name="pulse"></ion-icon>
 
+  <div style="    font-size: 120%;
+    color: brown;
+    text-align: center;
+"> لا يوجد اتصال بالانترنت تأكد من اتصال الشبكة ثم حاول مجددا  </div>
+  <button ion-button color="secondary" outline (click)='TestConnectionAgain()' style="    margin-top: 30px;
+    font-size: 90%;">  
+حاول مجددا
+<ion-icon name="refresh" style="       color: #3bad2f;
+    margin-left: 5px;
+    font-size: 130%;"></ion-icon>
+</button>
+
+</div>
 </ion-content>

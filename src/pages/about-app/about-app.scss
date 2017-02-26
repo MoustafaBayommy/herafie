@@ -1,3 +1,32 @@
 page-about-app {
+    background: #666669;
+    color: #f3f9ff;
+}
 
+.aboutApp{
+    margin: 10px;
+    direction: rtl;
+    margin-top:-3%;
+        text-align: center;
+}
+
+.rights{
+    position: absolute;
+    bottom: 20px;
+    /* margin: auto; */
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+}
+.logo{
+       margin-top: 30%;
+    padding: 20px;
+        text-align: center;
+        font-size: 500%;
+        color:#91f386;
+}
+
+.aboutcontainer{
+        background: #666669;
+    color: #f3f9ff;
 }

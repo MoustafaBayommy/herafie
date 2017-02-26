@@ -43,7 +43,7 @@ button{
 
 .headOfMenu{
         border-bottom-width: 2px;
-    border-bottom-color: #ffb328;
+    border-bottom-color: #a52a2a;
     border-bottom-style: solid;
 }
 
@@ -181,4 +181,18 @@ color: #fff;
 .singleUnitPrice{
         background: #d3eeef;
         margin-top: 5px;
+}
+
+
+.itemActive{
+    color:#a52a2a;
+}
+
+.itemActive.fa{
+    border-color: #a52a2a;
+    color: #a52a2a;;
+    border-radius: 1000px;
+    border-width: 2px;
+    padding: 5px;
+    border-style: dashed;
 }

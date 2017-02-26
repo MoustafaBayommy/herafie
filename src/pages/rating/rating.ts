@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams ,AlertController,Platform ,LoadingController,PopoverController} from 'ionic-angular';
-import    * as config   from '../../herafie.config.ts';
 import    {Rate}  from '../../models/rate';
 import    {User}  from '../../models/user';
 
@@ -37,8 +36,6 @@ export class RatingPage {
    public popoverCtrl: PopoverController,
   public ratingservice:MyOrdersService ) {
    this.rate=new Rate();
-  this.appTitle=config.data.appTitle;
-    this.appsubTitle=config.data.appSubTitle;
    this.rate.appRate=1;
    this.rate.agentRate=1;
   this.rate.techRate=1;

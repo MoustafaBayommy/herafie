@@ -1,6 +1,5 @@
 import { Component,ViewChild,ElementRef} from '@angular/core';
 import { NavController, NavParams ,LoadingController,Platform,AlertController} from 'ionic-angular';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 import { Geolocation,Diagnostic  } from 'ionic-native';
 import {AdressService} from './adress.service';
 import {MainPage} from '../pages';
@@ -38,6 +37,7 @@ noConnectionDisplay:string='none';
    appTitle:string;
   appsubTitle:string;
   static staticPlatform:Platform;
+  duration:string='';
 
   constructor(public connectivityService: ConnectivityService,
   public orderService:OrderService,
@@ -59,8 +59,18 @@ GetLocationPage.staticPlatform=this.platform;
     });
 this.loader.present();
 
+
+  if(typeof google == "undefined" || typeof google.maps == "undefined"){
+    this.loader.dismiss();
+         this.noConnectionDisplay='block';
+  }else{
+        this.showMap();
+
+    
+
+  }
     //  Diagnostic.isLocationAvailable().then(result=>{
-     this.loadMapSdk();
+    //  this.loadMapSdk();
     //  }).catch(err=>{
     //  alert('location isnt avaliable');
     //  });
@@ -128,14 +138,21 @@ let lng=position.coords.longitude;
 GetLocationPage.clientLong=lng;
 GetLocationPage.clientLat=lat;
 
+console.log('get distance ......');
+
+this.adressService.getDestanceInMinutes('',lat+','+lng).then(duration=>{
+  
+  this.duration=duration
+   console.log(duration);
 
     this.adressService.getAdressFromLatAndLong(lat,lng).then(adress=>{
       
       console.log(adress);
 
-      let regionName=adress.results[0].address_components[3].long_name;
+      let regionName=adress.results[3].address_components[0].long_name;
            console.log(regionName);
       console.log(adress);
+console.log('Displaying Map ......');
 
       let isInMecca=true;
          if(isInMecca){
@@ -201,28 +218,20 @@ var swBound = new google.maps.LatLng(lat, lng);
         div.appendChild(document.createElement("DIV"))
         this.div = div;
                 // this.div.className += "mark";
-
+// <span id="minutes">
+//   <span style="
+//    font-size: 120%;
+//     position: relative;
+//     top: -3px;
+//     right: 10px;
+   
+//   ">${GetLocationPage.duration}</span>
         // this.div.h
        this.div. innerHTML=`
   <div class="markerBodey">
-  <span id="minutes">
-  <span style="
-   font-size: 120%;
-    position: relative;
-    top: -3px;
-    right: 10px;
-   
-  "> 10 </span>
+  
 
- <span style="
-font-size: 100%;
-    position: relative;
-    top: 8px;
-    left: 9px;
-">دقيقة</span>
-
-
-  </span>
+ 
   <span style="
 font-size: 120%;
     position: relative;
@@ -272,9 +281,17 @@ font-size: 120%;
 
          }
     }
-    );
-   console.log('after');
+    ).catch((err) => {
 
+      //exception from address
+ this.showGpsAlertError();
+});
+}
+    ).catch((err) => {
+//exception from distance
+      //exception from address
+ this.showGpsAlertError();
+});
       
     // }
   }).catch((err) => {
@@ -339,8 +356,37 @@ font-size: 120%;
  
   }
 
+
+ reloadGoogleMapSdk(){
+
+       window['mapInit'] = () => {
+        if(typeof google == "undefined" || typeof google.maps == "undefined"){
+//  if(typeof google == 'undefined'||google==null){
+               this.disableMap();
+             }else{
+        this.showMap();
+             this.enableMap();
+            }
+      }
+
+     let script = document.createElement("script");
+
+
+          if(this.apiKey){
+        script.src = ' https://maps.googleapis.com/maps/api/js?key=' + this.apiKey + '&language=ar&region=KSA&callback=mapInit';
+      } else {
+        script.src = 'http://maps.google.com/maps/api/js?callback=mapInit';       
+      }
+ 
+      document.body.appendChild(script);  
+ 
+    
+ }
+
    loadMapSdk(){
-this.addConnectivityListeners();
+         console.log("Google maps DOSENT loadded Going to loade it ..");
+
+// this.addConnectivityListeners();
  
   if(typeof google == "undefined" || typeof google.maps == "undefined"){
   // alert(this.connectivityService.isOnline());
@@ -379,8 +425,7 @@ this.addConnectivityListeners();
 
       this.showMap();
       // this.enableMap();
-    }
-    else {
+    }else {
       console.log("disabling map");
      this.noConnectionDisplay='block';
 
@@ -392,15 +437,25 @@ this.addConnectivityListeners();
   }
 
     disableMap(){
+      console.log('disable Map');
+       this.loader.dismiss();
+               this.noConnectionDisplay='block';
+
   }
  
   enableMap(){
+         this.noConnectionDisplay='none';
 
     console.log("enable map");
   }
 
   TestConnectionAgain(){
-   this.loadMapSdk();
+         this.loader = this.loadingCtrl.create({
+      content: "جارى تحديد موقعك...انتظر رجاء"
+    });
+    this.loader.present();
+  //  this.loadMapSdk();
+  this.reloadGoogleMapSdk();
   }
  
  

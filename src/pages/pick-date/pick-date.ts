@@ -60,7 +60,8 @@ videoColor:string;
 imageColor:string;
 audioColor:string;
 loader:any;
-
+extention:string;
+isIncludeFile:boolean=false;
   constructor(public platform: Platform,public orderService:OrderService,
   public loadingCtrl: LoadingController,
   private toastCtrl: ToastController,
@@ -212,35 +213,24 @@ OrderService.order.onTime=this.onTime.title;
 OrderService.order.descriptionText=this.describsionText;
 // OrderService.order.descriptionFile=this.describsionFile.name;
 OrderService.order.clientMobil=OrderService.user.mobile;
-PickDatePage.describsionFilePath;
+
   //check in All Variables
 console.log(OrderService.order);
      this.loader = this.loadingCtrl.create({
       content: "جارى أرسال طلبكم...انتظر رجاء"
     });
 this.loader.present();
-
+  if(this.isIncludeFile){
 this.myordersService.uploadFile(PickDatePage.describsionFilePath)
   .then((data) => {
-console.log(data+' returned')
-  if(data.filesucess==='true'){
+console.log(data+' returned');
+
+   var response=JSON.parse(data.response);
+console.log(JSON.stringify(response)+' response');
+  if(response.filesucess==='true'){
     
-  OrderService.order.descriptionFile=  data.name;
-this.myordersService.sendMyOrder(OrderService.order).then(response=>{
-  if(response.sucess==='true'){
-  this.loader.dismiss();
-   this.doneAlert();
-  //  this.showDoneToast();
-   this.navCtrl.setRoot(RatingPage);
-  }else{
-     this.loader.dismiss();
-this.showErrorAlert('حدث خطأ اثناء ارسال طلبك  تاكد من اتصال الشبكة ثم حاول مجددا');  ;
-  }
- 
-}).catch((ex) => {
-     this.loader.dismiss();
-this.showErrorAlert('تاكد من اتصال الشبكة ثم حاول مجددا'); 
- });
+  OrderService.order.descriptionFile=response.name;
+   this.sendOrder();
   }else{
     this.showErrorAlert('خطأ اثناء ارسال الملف تاكد من اتصال الشبكة ثم حاول مجددا');    
 
@@ -248,9 +238,16 @@ this.showErrorAlert('تاكد من اتصال الشبكة ثم حاول مجد�
 
 
    }, (err) => {
+     
+     console.log(JSON.stringify(err)+ ' file error');
      this.loader.dismiss();
-this.showErrorAlert('خطأ اثناء ارسال الملف تاكد من اتصال الشبكة ثم حاول مجددا');    });
+this.showErrorAlert('خطأ اثناء ارسال الملف تاكد من اتصال الشبكة ثم حاول مجددا');
 
+});
+  }else{
+   this.sendOrder();
+
+  }
   }
   // this.navCtrl.push(RatingPage)
 }
@@ -289,14 +286,26 @@ openFileBrowser(){
 console.log('fileBrowsIos'+FilePicker);
       FilePicker.pickFile(function(data){
         PickDatePage.describsionFilePath=data;
+              this.extention= data.split('.')[1];
+
+         this.isIncludeFile=true;
       },function(error){}
       ,"public.data");
 
             } else if( this.platform.is('android')) {
+
+              FileChooser.open()
+  .then(uri => {
+  PickDatePage.describsionFilePath=uri;
+      this.extention= uri.split('.')[1];
+      console.log(uri);
+
+  this.isIncludeFile=true;
+})
+  .catch(e => console.log(e));
                 // something else
-                  fileChooser.open(function(uri) {
-           PickDatePage.describsionFilePath=uri;
-    });
+    //               fileChooser.open(function(uri) {
+    // });
             }
 
 
@@ -316,6 +325,23 @@ console.log('fileBrowsIos'+FilePicker);
 
   }
 
+  sendOrder(){
+this.myordersService.sendMyOrder(OrderService.order).then(response=>{
+  if(response.sucess==='true'){
+  this.loader.dismiss();
+   this.doneAlert();
+  //  this.showDoneToast();
+   this.navCtrl.setRoot(RatingPage);
+  }else{
+     this.loader.dismiss();
+this.showErrorAlert('حدث خطأ اثناء ارسال طلبك  تاكد من اتصال الشبكة ثم حاول مجددا');  ;
+  }
+ 
+}).catch((ex) => {
+     this.loader.dismiss();
+this.showErrorAlert('تاكد من اتصال الشبكة ثم حاول مجددا'); 
+ });
+  }
 
 
 }

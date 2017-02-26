@@ -1,4 +1,5 @@
-page-done-prop-over {
+page-done-prop-over  .popover-content{
+    background:rgba(255, 255, 255, 0);
 
 }
 
@@ -27,6 +28,6 @@ body > ion-app > ion-popover > div > div.popover-content > div > page-done-prop-
     text-align: center;
 }
 
-.popover-ios .popover-content{
+.popover-ios .popover-content ,.popover{
     background:rgba(255, 255, 255, 0);
 }

@@ -17,7 +17,7 @@ import { MainPage } from '../pages/pages';
 // import { PickDatePage } from '../pages/pages';
 import { RegisterPage } from '../pages/pages';
 // import { ServicesPage } from '../pages/pages';
-// import { WelcomePage } from '../pages/pages';
+import { WelcomePage } from '../pages/pages';
 import { RatingPage } from '../pages/pages';
 import    * as config   from '../herafie.config.ts';
 // import {SQLite} from 'ionic-native';
@@ -39,7 +39,8 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   menuIteams:Menu[]=[
-  {id:0,title:'طلب جديد',icon:'home',pageName:GetLocationPage},
+      {id:0,title:'الرئيسية',icon:'apps',pageName:WelcomePage},
+  {id:0,title:'طلب جديد',icon:'paper',pageName:GetLocationPage},
   {id:0,title:'طلباتى',icon:'cart',pageName:MyordersPage},
   // {id:0,title:'الأسعار',icon:'cash',pageName:CostsPage},
   // {id:0,title:'العروض',icon:'cash',pageName:OffersPage},
@@ -47,7 +48,7 @@ export class MyApp {
   {id:0,title:'طريقة الإستخدلم',icon:'options',pageName:HowToUsePage},
   {id:0,title:'تقييم',icon:'star-half',pageName:RatingPage},
 
-  {id:0,title:'الشروط والأحكام',icon:'list-box',pageName:RulesPage},
+  // {id:0,title:'الشروط والأحكام',icon:'list-box',pageName:RulesPage},
   {id:0,title:'إتصل بنا',icon:'map',pageName:ContactUsPage},
   {id:0,title:'الإعدادت',icon:'cog',pageName:SettingsPage},
   // {id:0,title:'تسجيل الخروج',icon:'log-out',pageName:''},
@@ -62,7 +63,7 @@ export class MyApp {
 
   appTitle:string;
   appsubTitle:string;
-  rootPage: any =LoginPage;
+  rootPage: any =MyordersPage;
 
 
   constructor(public platform: Platform) {

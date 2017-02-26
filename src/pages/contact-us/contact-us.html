@@ -5,42 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
- <ion-navbar >
-   
-   <button ion-button icon-only menuToggle class="menuIcon">
-      <ion-icon name="menu" ></ion-icon> 
-    </button>
-          
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-               <!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
-
-  </ion-navbar>
-
+<herafieNav withMenu=true></herafieNav>
 
 </ion-header>
+
 
 
 <ion-content padding>
@@ -60,19 +28,19 @@
   
 <ion-list>
   <ion-item class="con-iteam" style="    border-bottom-color: #68e61a;">
-  <ion-icon name="pin" id="contactUsIc"  style="color:#ef8617;"></ion-icon>
+  <ion-icon name="pin" id="contactUsIc"  style="color:#60c554;"></ion-icon>
     <span>حى الشرائع مخطط 3 - مكة المكرمة</span>
   </ion-item>
 
  <ion-item  class="con-iteam clickable" onclick="window.open('https://ar-ar.facebook.com/%D9%85%D9%88%D8%B3%D8%B3%D8%A9-%D8%A7%D9%84%D9%81%D9%83%D8%B1-%D8%A7%D9%84%D8%AD%D8%B1%D9%81%D9%89-%D9%84%D9%84%D9%85%D9%82%D8%A7%D9%88%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D9%87-1675194976070090/', '_system', 'location=yes'); return false;" style="    border-bottom-color: #68e61a;">
-    <ion-icon name="logo-facebook" id="contactUsIc" style="color:#ef8617;"></ion-icon>
+    <ion-icon name="logo-facebook" id="contactUsIc" style="color:#60c554;"></ion-icon>
         <span>مؤسسة الفكر الحرفى للمقاولات</span>
  </ion-item>
 
 
 
  <ion-item onclick="window.open('https://twitter.com/alfeker0', '_system', 'location=yes');" class="con-iteam clickable" style="    border-bottom-color: #68e61a;">
-  <ion-icon name="logo-twitter" id="contactUsIc" style="color:#ef8617;"></ion-icon>
+  <ion-icon name="logo-twitter" id="contactUsIc" style="color:#60c554;"></ion-icon>
         <span>@alfeker0</span>
  </ion-item>
 
@@ -80,22 +48,22 @@
 
  <ion-item  class="con-iteam clickable" style="    border-bottom-color: #68e61a;">
    
-    <ion-icon name="logo-instagram" id="contactUsIc"  style="color:#ef8617;"></ion-icon>
+    <ion-icon name="logo-instagram" id="contactUsIc"  style="color:#60c554;"></ion-icon>
         <span>alfekeralerafi</span>
  </ion-item>
  <ion-item  class="con-iteam" style="    border-bottom-color: #68e61a;">
    
-    <ion-icon name="md-mail" id="contactUsIc" style="color:#ef8617;"></ion-icon>
+    <ion-icon name="md-mail" id="contactUsIc" style="color:#60c554;"></ion-icon>
         <span>alfeker.alherafi@hotmail.com</span>
  </ion-item>
 
   <ion-item class="con-iteam" style="    border-bottom-color: #68e61a;">
-  <ion-icon name="call" id="contactUsIc" style="color:#ef8617;" ></ion-icon>
+  <ion-icon name="call" id="contactUsIc" style="color:#60c554;" ></ion-icon>
         <span>920002967</span>
  </ion-item>
 
   <ion-item class="con-iteam" style="    border-bottom-color: #68e61a;">
-  <ion-icon name="logo-whatsapp"  id="contactUsIc" style="color:#ef8617;" ></ion-icon>
+  <ion-icon name="logo-whatsapp"  id="contactUsIc" style="color:#60c554;" ></ion-icon>
         <span>0550076063</span>
  </ion-item>
 </ion-list>

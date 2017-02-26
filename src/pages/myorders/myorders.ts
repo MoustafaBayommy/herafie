@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams ,LoadingController,AlertController} from 'ionic-angular';
-import    * as config   from '../../herafie.config.ts';
 import {Order} from '../../models/order';
 import {MyOrdersService} from '../../providers/myorders.service';
+import {OrderService} from '../../providers/order.server';
+import { WelcomePage } from '../pages/pages';
+
 import {MainPage} from '../main/main';
 
 /*
@@ -20,12 +22,14 @@ appTitle:string;
   appsubTitle:string;
   orders:Order[];
   loader;
+
+  noConnectionDisplay:string='none';
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public myorders:MyOrdersService
   ,public alertCtrl: AlertController,
   public loadingCtrl: LoadingController,
   ) {
-  this.appTitle=config.data.appTitle;
-    this.appsubTitle=config.data.appSubTitle;
+    
     
   }
 
@@ -38,20 +42,7 @@ appTitle:string;
       content: "جارى تحميل احدث طلباتك..انتظر رجاء"
     });
 this.loader.present();
-    this.myorders.getMyOrders('').then(orders=>{
-
-    this.orders=orders;
-    this.loader.dismiss();
-
-  
-}, (err) => {
-           this.loader.dismiss();
-           this.showAlert();
-           this.navCtrl.push(MainPage);
-    });
-
-
-    console.log('don ');
+   this.displayOrders();
   }
 
   showAlert() {
@@ -64,5 +55,53 @@ this.loader.present();
     
   }  
  
+   TestConnectionAgain(){
+         this.loader = this.loadingCtrl.create({
+      content: "جارى تحديد موقعك...انتظر رجاء"
+    });
+    this.loader.present();
+  //  this.loadMapSdk();
+  this.displayOrders();
+  }
+
+   displayOrders(){
+     console.log('geting orders....');
+    //  OrderService.user.mobile
+ this.myorders.getMyOrders('201090965098').then(orders=>{
+     console.log('displaying orders....')
+   
+    this.orders=orders;
+    console.log(this.orders);
+ for(var i=0;i<  this.orders.length;i++){
+     if( this.orders[i].orderStutes==='served'){
+        this.orders[i].styleclass='served';
+// serving
+     }else if( this.orders[i].orderStutes==='rejected'){
+        this.orders[i].styleclass='rejected';
+     }else{
+        this.orders[i].styleclass='inProgress';
+
+     }
+    }
+    this.noConnectionDisplay='none';
+
+    this.loader.dismiss();
+
+
+  
+}, (err) => {
+
+       console.log('cant orders');
+
+           this.loader.dismiss();
+          //  this.showAlert();
+          //  this.navCtrl.push(MainPage);
+
+          this.noConnectionDisplay='block';
+    });
+
+
+    console.log('don ');
+   }
 
 }

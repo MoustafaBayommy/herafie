@@ -25,6 +25,9 @@
             "AK_TOKEN": "4e34a36b0c04795f289a033304891c5d",
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
@@ -52,7 +55,7 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
-        "cordova-plugin-file-transfer": {
+        "cordova-plugin-request-location-accuracy": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         }
     },

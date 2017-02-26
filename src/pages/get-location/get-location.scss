@@ -4,7 +4,7 @@ page-get-location {
 
 
 
-       #adress {
+       #adress{
             position: absolute;
                 width: 90%;
     right: 5%;
@@ -13,26 +13,26 @@ page-get-location {
     direction: rtl;
     text-align: right;
 
-            background-color:rgb(193, 243, 120);
+            background-color:#797972;
             line-height: 24px;
             padding: 4px 8px;
             border-radius: 8px;
         }
 
-         #ads {
-            position: absolute;
-                width: 90%;
+        #duration  {
+             position: absolute;
+    width: 90%;
     right: 5%;
     left: 5%;
-    bottom: 10%;
+    font-size: 120%;
+    bottom: 25px;
     direction: rtl;
     text-align: right;
-
-            color: white;
-            background-color:rgba(127, 210, 230, 0.88);
-            line-height: 24px;
-            padding: 4px 8px;
-            border-radius: 4px;
+    color: white;
+    background-color: #797972;
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 4px;
         }
     
 .sebm-google-map-container,#map {
@@ -53,7 +53,7 @@ page-get-location {
 }
 .markerBodey{
 border-radius: 15px;
-    background:rgb(222, 87, 29);
+    background:#a52a2a;
     position: absolute;
     top: -45px;
     right: -85px;
@@ -157,7 +157,7 @@ ion-fab{
   width: 0;
   border-width: 15px 15px 0;
   border-style: solid;
-  border-color:rgb(222, 87, 29) transparent;
+  border-color:#a52a2a transparent;
 }
    #noConnection{ 
      text-align: center;

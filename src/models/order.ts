@@ -13,7 +13,9 @@ onDate:Date;
 onTime:String;
 descriptionText:string;
 descriptionFile:string;
-stutes:string;
+orderStutes:string;
+note:string;
+styleclass:string;
 
 
 

@@ -5,34 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar >
- 
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-  </ion-navbar>
-
+<herafieNav withMenu=true></herafieNav>
 </ion-header>
 
 
@@ -88,7 +61,7 @@
  </ion-item>  
 </ion-row>
 <ion-row class="btnrow">
-  <button ion-button color="secondary" round outline (click)="sendRate()">تقديم</button>
+  <button ion-button color="secondary"  outline (click)="sendRate()" style="    font-size: 50%;">إرسال التقييم</button>
 </ion-row>
 
 </ion-content>

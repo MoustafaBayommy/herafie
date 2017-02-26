@@ -11,7 +11,6 @@ import { ServicesPage } from '../pages/pages';
 import { WelcomePage } from '../pages/pages';
 import { RatingPage } from '../pages/pages';
 import { Ionic2RatingModule } from 'ionic2-rating';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 // import { DatePickerModule } from 'ng2-datepicker';
 import {HttpModule}from '@angular/http';
 import {AdressService} from '../pages/pages';
@@ -34,7 +33,7 @@ import { AboutAppPage } from '../pages/pages';
 // import {LoadingModal} from '../components/loading-modal/loading-modal';
 
 import {DonePropOverPage} from '../pages/done-prop-over/done-prop-over';
-
+import {HerafieNavComponnent} from '../components/herafieNav/herafieNav.component'
 
 
 
@@ -59,16 +58,13 @@ MyordersPage,
 OffersPage,
 RulesPage,
 SettingsPage,
-DonePropOverPage
+DonePropOverPage,AboutAppPage
+,HerafieNavComponnent
 // LoadingModal
  ],
   imports: [
     IonicModule.forRoot(MyApp),Ionic2RatingModule, 
-     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBOExoMtPB5OGijib-q_Tm5gHmGLiWjzcA',
-      libraries: ["places"]
-    }),
-    // DatePickerModule,
+ 
     HttpModule
 
   ],
@@ -91,8 +87,9 @@ MyordersPage,
 OffersPage,
 RulesPage,
 SettingsPage,
-DonePropOverPage
-    
+WelcomePage,
+DonePropOverPage,AboutAppPage
+    ,HerafieNavComponnent
   
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AdressService,LoginService,OrderService,MyOrdersService

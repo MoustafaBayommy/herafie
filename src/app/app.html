@@ -10,33 +10,14 @@
 
 
 <div class="headOfMenu">
-   <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon" style="font-size:550%;color:#ffa500;"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol" style="    font-size: 180%;
-    /* text-align: center; */
-    margin-left: 10px;">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col"> 
-       <span class="titleSpan" style="color: #9abf20;">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
+ <herafieNav withMenU></herafieNav>
+
 
 </div>
 
     <ion-list>
       <button menuClose ion-item *ngFor="let menu of menuIteams" (click)="menuPage(menu)">
-       <ion-icon name="{{menu.icon}}"  style="color: #98be1d;font-size:160%;margin-left:5%;"></ion-icon> <span style="color:#7f7f7f;"> {{menu.title}}</span>
+       <ion-icon name="{{menu.icon}}"  style="color: #778681;font-size:160%;margin-left:5%;"></ion-icon> <span style="color:#7f7f7f;"> {{menu.title}}</span>
       </button>
     </ion-list>
   </ion-content>
