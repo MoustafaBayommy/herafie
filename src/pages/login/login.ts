@@ -75,6 +75,10 @@ export class LoginPage {
     });
 
     LoginPage.stnavCtrl = this.navCtrl;
+        this.platform.ready().then(() => {
+     
+   
+ 
 AppSqlTableService.openDataBase().then(()=>{
     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
 
@@ -93,7 +97,7 @@ AppSqlTableService.openDataBase().then(()=>{
     });
 }
 );
-
+   });
 
 
 
@@ -150,7 +154,7 @@ AppSqlTableService.openDataBase().then(()=>{
     AppSqlTableService.insertNewUser(OrderService.user).then((data) => {
 
       console.log('creat new user in database ');
-
+       LoginPage.loader.dismiss();
       LoginPage.gotoNextScreen();
 
     }, (error) => {

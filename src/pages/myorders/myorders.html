@@ -13,10 +13,23 @@
 <ion-content padding>
 <div class="headline">
 <ion-label style="    direction: rtl;
-    width: 90%; font-size:140%;">طلباتى </ion-label>
-
+    width: 90%; font-size:130%;">طلباتى<hr>  
+ </ion-label>
+<hr>  
 </div>
-<ion-list>
+
+<div *ngIf="orders?.length == 0" style="text-align:center">
+
+<ion-label style="    direction: rtl;
+    width: 90%; font-size:110%;     text-align: center;">
+        <i class="fa fa-meh-o" aria-hidden="true" style="    margin-bottom: 30px;    display: block;"></i>
+    لم تقم بأى طلبات بعد
+ </ion-label>
+   <button ion-button color="secondary"  outline (click)="newOrder()" style="    font-size: 80%;">طلب جديد</button>
+
+  </div>
+
+<ion-list *ngIf="orders?.length > 0">
 
   <ion-item *ngFor="let order of orders"  
    [ngClass]="order.styleclass"
@@ -31,33 +44,33 @@
 
 <ion-row>
 <ion-col width-25 class="orderiteamcol" >
-  <p class="ordertext" style="color: #fff;    font-size: 100%;">
+  <p class="ordertext" style="color: #fff;    font-size: 100%;    min-height: 20px;">
     تاريخ : 
   </p>
-  <p class="ordertext" style="color: #fff;    font-size: 100%;">
+  <p class="ordertext" style="color: #fff;    font-size: 100%;    min-height: 20px;">
      المكان : 
   </p>
-  <p class="ordertext" style="color: #fff;    font-size: 100%;">
+  <p class="ordertext" style="color: #fff;    font-size: 100%;    min-height: 20px;">
      الخدمة :  
   </p>
-    <p class="ordertext" style="color: #fff;    font-size: 100%;">
+    <p class="ordertext" style="color: #fff;    font-size: 100%;    min-height: 20px;">
        ملاحظات   :   
   </p>
 </ion-col>
 
   <ion-col width-75   class="orderiteamcol " >
-      <p style="color: #f4f4f4;    font-size: 100%;">
-        {{(order.created_at)?order.created_at:'--'}}
+      <p style="color: #fff;    font-size: 100%;    min-height: 20px;">
+        {{(order.created_at)?order.created_at:''}}
 
   </p>
-    <p style="color: #f4f4f4;    font-size: 100%;">
-      {{(order.placetype)?order.placetype:'--'}}
+    <p style="color: #fff;    font-size: 100%;    min-height: 20px;">
+      {{(order.placetype)?order.placetype:''}}
   </p>
-    <p style="color: #f4f4f4;    font-size: 100%;">
-            {{(order.serviceType)?order.serviceType:'--'}}
+    <p style="color: #fff;    font-size: 100%;    min-height: 20px;">
+            {{(order.serviceType)?order.serviceType:''}}
   </p>
-    <p style="color: #f4f4f4;    font-size: 100%;">
-                  {{(order.note)?order.note:'--'}}
+    <p style="color: #fff;    font-size: 100%;    min-height: 20px;">
+                  {{(order.note)?order.note:''}}
   </p>
   </ion-col>
 </ion-row>

@@ -41,7 +41,7 @@ hr{
 .btnrow{
   text-align: center;
   margin:auto;
-  margin-top: 8%;
+  margin-top: 50px;
   font-size: 150%;
 }
 
@@ -51,7 +51,15 @@ rating{
     /* margin: 0px; */
     width: 90%;
 }
+ul.rating{
+  margin: 0px;
+  padding: 0px;
+}
 ul.rating li ion-icon {
     color: #839516;
     font-size: 20px;
+}
+
+.labels{
+  margin-top: 10px;
 }

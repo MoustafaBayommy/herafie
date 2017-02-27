@@ -36624,6 +36624,10 @@ body > ion-app > ion-popover > div > div.popover-content > div > page-done-prop-
   display: none;
 }
 
+.howToUseText {
+  margin-right: 20px;
+}
+
 page-login {
   text-align: right;
 }
@@ -36765,15 +36769,15 @@ body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-c
 }
 
 .inProgress {
-  background: #3fef86;
+  background: rgba(67, 220, 129, 0.61);
 }
 
 .rejected {
-  background: orangered;
+  background: rgba(239, 82, 24, 0.54);
 }
 
 .served {
-  background: deepskyblue;
+  background: rgba(18, 149, 193, 0.54);
 }
 
 .orderiteamcol {
@@ -36942,7 +36946,7 @@ hr {
 .btnrow {
   text-align: center;
   margin: auto;
-  margin-top: 8%;
+  margin-top: 50px;
   font-size: 150%;
 }
 
@@ -36953,9 +36957,18 @@ rating {
   width: 90%;
 }
 
+ul.rating {
+  margin: 0px;
+  padding: 0px;
+}
+
 ul.rating li ion-icon {
   color: #839516;
   font-size: 20px;
+}
+
+.labels {
+  margin-top: 10px;
 }
 
 button {

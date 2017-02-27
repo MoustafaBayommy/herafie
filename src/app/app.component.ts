@@ -61,9 +61,10 @@ export class MyApp {
 
 
 
+
   appTitle:string;
   appsubTitle:string;
-  rootPage: any =MyordersPage;
+  rootPage: any =LoginPage;
 
 
   constructor(public platform: Platform) {

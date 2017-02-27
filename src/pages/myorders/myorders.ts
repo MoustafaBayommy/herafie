@@ -3,7 +3,8 @@ import { NavController, NavParams ,LoadingController,AlertController} from 'ioni
 import {Order} from '../../models/order';
 import {MyOrdersService} from '../../providers/myorders.service';
 import {OrderService} from '../../providers/order.server';
-import { WelcomePage } from '../pages/pages';
+import { WelcomePage } from '../pages';
+import { GetLocationPage } from '../pages';
 
 import {MainPage} from '../main/main';
 
@@ -102,6 +103,10 @@ this.loader.present();
 
 
     console.log('don ');
+   }
+
+   newOrder(){
+     this.navCtrl.setRoot(GetLocationPage)
    }
 
 }

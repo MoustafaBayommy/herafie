@@ -7,7 +7,7 @@ import    {MyOrdersService}  from '../../providers/myorders.service';
 import    {OrderService}  from '../../providers/order.server';
 
 import {DonePropOverPage} from '../done-prop-over/done-prop-over';
-import {ContactUsPage} from '../contact-us/contact-us';
+import { WelcomePage } from '../pages';
 /*
   Generated class for the Rating page.
 
@@ -58,7 +58,7 @@ this.ratingservice.sendRating(this.rate).then(response=>{
   if(response.sucess==='true'){
   this.loader.dismiss();
    this.doneAlert();
-   this.navCtrl.setRoot(ContactUsPage);
+   this.navCtrl.setRoot(WelcomePage);
   //  this.showDoneToast();
   }else{
      this.loader.dismiss();
