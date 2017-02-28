@@ -67,8 +67,7 @@ this.loader.present();
 
    displayOrders(){
      console.log('geting orders....');
-    //  OrderService.user.mobile
- this.myorders.getMyOrders('201090965098').then(orders=>{
+ this.myorders.getMyOrders(OrderService.user.mobile).then(orders=>{
      console.log('displaying orders....')
    
     this.orders=orders;
