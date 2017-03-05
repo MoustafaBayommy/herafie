@@ -34,3 +34,55 @@ page-myorders {
     
 }
 
+.myOrders_en,.myOrders_en>.item-inner>.input-wrapper>ion-label>ion-row{
+    direction: ltr;
+}
+
+.myOrders_en>.item-inner>.input-wrapper>ion-label>ion-row>.headers>p
+{
+text-align: right;
+}
+.myOrders_en>.item-inner>.input-wrapper>ion-label>ion-row>.headers
+{
+max-width: 30%;
+}
+ .myOrders_en>.item-inner>.input-wrapper>ion-label>ion-row>.data
+{
+text-align: left;
+}
+
+.myOrders_ar,.myOrders_ar>.item-inner>.input-wrapper>ion-label>ion-row{
+    direction: rtl;
+}
+.myOrders_ar>.item-inner>.input-wrapper>ion-label>ion-row>.headers>p
+{
+text-align: left;
+
+}
+ .myOrders_ar>.item-inner>.input-wrapper>ion-label>ion-row>.data
+{
+text-align: right;
+}
+.myOrders_ar>.item-inner>.input-wrapper>ion-label>ion-row>.headers
+{
+max-width: 30%;
+}
+.myOrders_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.myOrders_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+

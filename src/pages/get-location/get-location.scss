@@ -4,20 +4,7 @@ page-get-location {
 
 
 
-       #adress{
-            position: absolute;
-                width: 90%;
-    right: 5%;
-    left: 5%;
-    top: 1.2%;
-    direction: rtl;
-    text-align: right;
 
-            background-color:#797972;
-            line-height: 24px;
-            padding: 4px 8px;
-            border-radius: 8px;
-        }
 
         #duration  {
              position: absolute;
@@ -172,3 +159,61 @@ ion-fab{
    .hiddenItem{
      display: none;
    }
+
+   .address_ar{
+      position: absolute;
+    width: 90%;
+    right: 5%;
+    left: 5%;
+    top: 1.2%;
+    direction: rtl;
+    text-align: right;
+    background-color: #797972;
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 8px;
+   }
+
+    .address_en{
+      position: absolute;
+    width: 90%;
+    right: 5%;
+    left: 5%;
+    top: 1.2%;
+    direction: ltr;
+    text-align: left;
+    background-color: #797972;
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 8px;
+   }
+
+ .address_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+        background-color: #ffffff;
+
+}
+
+ .address_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+    //  .address_en >span{
+    //    position: relative;
+    //    left: 10px;
+
+    //  }
+
+    //     .address_ar >span{
+    //  position: relative;
+    //    right: 10px;     }

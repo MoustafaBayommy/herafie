@@ -1,28 +1,5 @@
-<ion-menu [content]="content">
-  <!--<ion-header>
-    <ion-toolbar>
-     
-      <ion-title>Safety</ion-title>
-    </ion-toolbar>
-  </ion-header>-->
 
-  <ion-content>
-
-
-<div class="headOfMenu">
- <herafieNav withMenU></herafieNav>
-
-
-</div>
-
-    <ion-list>
-      <button menuClose ion-item *ngFor="let menu of menuIteams" (click)="menuPage(menu)">
-       <ion-icon name="{{menu.icon}}"  style="color: #778681;font-size:160%;margin-left:5%;"></ion-icon> <span style="color:#7f7f7f;"> {{menu.title}}</span>
-      </button>
-    </ion-list>
-  </ion-content>
-
-</ion-menu>
+         <menuCompo [content]="content" [nav]="nav"></menuCompo>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

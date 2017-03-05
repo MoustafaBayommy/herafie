@@ -16,7 +16,33 @@ page-contact-us {
     border-bottom-color: #d4d1d1;
 }
 
+.contactus_ar{
+    direction: rtl;
+    text-align: right;
+}
 
+.contactus_en{
+        direction: ltr;
+    text-align: left;
+}
+.contactus_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.contactus_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
 // .clickable span{
 //     text-decoration: underline;
 //     color: #568ca7;;

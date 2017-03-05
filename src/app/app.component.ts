@@ -14,49 +14,25 @@ import { AboutAppPage } from '../pages/pages';
 // import { CategoriesPage } from '../pages/pages';
 import { GetLocationPage } from '../pages/pages';
 import { MainPage } from '../pages/pages';
-// import { PickDatePage } from '../pages/pages';
+import { PickDatePage } from '../pages/pages';
 import { RegisterPage } from '../pages/pages';
 // import { ServicesPage } from '../pages/pages';
 import { WelcomePage } from '../pages/pages';
 import { RatingPage } from '../pages/pages';
 import    * as config   from '../herafie.config.ts';
 // import {SQLite} from 'ionic-native';
+import {TranslateService} from 'ng2-translate/ng2-translate';
+import {OrderService} from '../providers/order.server';
 
 
 
-interface Menu{
-  id:number,
-  title:string,
-  icon:string,
-  pageName:any
-
-}
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
 })
 export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
-  menuIteams:Menu[]=[
-      {id:0,title:'الرئيسية',icon:'apps',pageName:WelcomePage},
-  {id:0,title:'طلب جديد',icon:'paper',pageName:GetLocationPage},
-  {id:0,title:'طلباتى',icon:'cart',pageName:MyordersPage},
-  // {id:0,title:'الأسعار',icon:'cash',pageName:CostsPage},
-  // {id:0,title:'العروض',icon:'cash',pageName:OffersPage},
-  // {id:0,title:'إحصل على رصيد مجانى',icon:'md-checkbox-outline',pageName:GetFreeChargePage},
-  {id:0,title:'طريقة الإستخدلم',icon:'options',pageName:HowToUsePage},
-  {id:0,title:'تقييم',icon:'star-half',pageName:RatingPage},
-
-  // {id:0,title:'الشروط والأحكام',icon:'list-box',pageName:RulesPage},
-  {id:0,title:'إتصل بنا',icon:'map',pageName:ContactUsPage},
-  {id:0,title:'الإعدادت',icon:'cog',pageName:SettingsPage},
-  // {id:0,title:'تسجيل الخروج',icon:'log-out',pageName:''},
-    {id:0,title:'عن التطبيق',icon:'sunny',pageName:AboutAppPage}
-
-
-
-  ];
 
 
 
@@ -64,10 +40,14 @@ export class MyApp {
 
   appTitle:string;
   appsubTitle:string;
-  rootPage: any =LoginPage;
+  rootPage: any =MainPage;
 
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public translate: TranslateService) {
+    console.log(navigator.language.split('-')[0]);
+    OrderService.lang=navigator.language.split('-')[0];
+// OrderService.lang="ar";
+this.translate.use(OrderService.lang);
     this.appTitle=config.data.appTitle;
     this.appsubTitle=config.data.appSubTitle;
     this.initializeApp();
@@ -87,11 +67,7 @@ export class MyApp {
     });
   }
 
-  menuPage(menu:Menu) {
-         
-         this.nav.setRoot(menu.pageName);
 
-  }
 
 
   

@@ -124,3 +124,25 @@ body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-c
 }
 
 
+ .pagessubTitlr_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+        background-color: #ffffff;
+
+}
+
+ .pagessubTitlr_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+
+

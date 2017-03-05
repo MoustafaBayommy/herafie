@@ -4,23 +4,29 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-<herafieNav withMenu=true></herafieNav>
 
+<ion-header [@bounce]="bounceState">
+<herafieNav   withMenu=true></herafieNav>
+   <ion-toolbar >
+<ion-label  class="title"   ngClass="{{titlestyelClass}}">{{'menu.aboutApp'| translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
 
 
-<ion-content class="aboutcontainer" >       
-  <div class="logo">
+
+<ion-content class="aboutcontainer"   padding>       
+  <div class="logo" [@bounce]="bounceState">
 
         <span class="icon-icon headIcon"> </span>   
 
   </div>
 
-<div class="aboutApp">
-تم تطوير هذا التطبيق بواسطة شركة
- <span>TawwarTech	&copy;</span>
- <div>لصالح شركة الفكر الحرفى</div>
+<div class="aboutApp" >
+    {{'aboutaPP.desc' | translate }}
+  <span>    {{'aboutaPP.tawwar' | translate }}
+</span>
+  <div>{{'aboutaPP.elfekr' | translate }}</div>
 </div>
-<div class="rights">جميع الحقوق محفوظة 	2017 &copy;</div>
+<div class="rights">    {{'aboutaPP.copy' | translate }}&copy;</div>
 </ion-content>

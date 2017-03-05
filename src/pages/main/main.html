@@ -1,33 +1,33 @@
 
- <ion-header>
+ <ion-header   [@bounce]="bounceState">
  <herafieNav withMenu=true></herafieNav>
+   <ion-toolbar >
+<ion-label  class="title"  ngClass="{{titlestyelClass}}">{{'places.title' | translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
 
 <ion-content >
-<div class="headline">
-<ion-label style="    direction: rtl;
-    width: 90%; font-size:140%;">طلبك </ion-label>
-<ion-label style="    direction: rtl;
-    width: 90%; margin-top:-20px;">حدد موقعك</ion-label>
-</div>
+
+
 <!--<script type="text/javascript"> var elms = document.getElementsByClassName("ion-col"); 
 var n = elms.length;
  function changeColor(color) { for(var i = 0; i < n; i ++) { elms[i].style.backgroundColor = color; } } for(var i = 0; i < n; i ++) { elms[i].onmouseover = function() { changeColor("yellow"); }; elms[i].onmouseout = function() { changeColor("white"); }; } </script>-->
 
 <!--<div class="ionicrow" >-->
 <ion-row *ngFor="let row of rows" class="ionicrow">
-    <ion-col *ngFor="let col of row"   width-50  class="ion-col"  (click)="placeSelected(col);">
+    <ion-col *ngFor="let col of row"   width-50  class="ion-col"  (click)="placeSelected(col);" [@fade]="fadeState">
 <ion-row  class="ionic-icon-row">
 <i class="fa icon-{{col.iconName}}" [class.itemActive]="col.isSelected"     aria-hidden="true" style="font-size:350%;"></i>
 </ion-row>
 <ion-row class="ionic-labels-row">
-    <ion-label  class="labels apartment"  [class.itemActive]="col.isSelected" >{{col.name}}</ion-label>
+    <ion-label  class="labels apartment"  [class.itemActive]="col.isSelected" >{{ col.title | translate }}</ion-label>
 </ion-row>
 </ion-col>
 </ion-row>
-<div class="buttonDiv">
+<!--<div class="buttonDiv">
     <button class="next" ion-button color="secondary" outline (click)="next()"> التالى   <ion-icon name="ios-arrow-dropright-outline"></ion-icon></button>
-</div>
+</div>-->
 
 
 

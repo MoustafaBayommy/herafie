@@ -6,3 +6,59 @@ page-how-to-use {
 .howToUseText{
     margin-right:20px;
 }
+
+.usage_ar,.usage_en{
+    font-size: 90%;
+}
+
+.usage_ar{
+ justify-content: flex-start;
+    direction: rtl;
+}
+
+.usage_en{
+       justify-content: flex-start;
+    direction: ltr;
+}
+
+.usage_en >.usageText{
+  margin-left: 20px;
+}
+.usage_ar >.usageText{
+  margin-right: 20px;
+}
+
+.usage_en_title{
+    text-align: left;
+   direction: rtl;
+    width: 90%;
+    font-size:120%;
+}
+.usage_ar_title{
+    text-align: right;
+   direction: ltr;
+    width: 90%;
+    font-size:120%;
+}
+
+.usageText{
+    font-size: 110%;
+}
+.usage_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.usage_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}

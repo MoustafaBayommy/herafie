@@ -1,0 +1,44 @@
+<style>
+@font-face {
+    font-family: Lalezar-Regular;
+    src: url('assets/fonts/Lalezar-Regular.ttf');
+}
+
+@font-face {
+    font-family: ReemKufi-Regular;
+    src: url('assets/fonts/ReemKufi-Regular.ttf');
+}
+
+</style>
+<ion-navbar style="    height: 70px;
+    /* height: 150%; */
+    
+    padding: 20px;">
+
+<button ion-button icon-only menuToggle class="menuIcon" *ngIf="withMenu">
+      <ion-icon name="menu" ></ion-icon> 
+    </button>
+
+<ion-title style="    padding-right: 10%;">
+  <div  style="      padding: 0px;
+    margin: 0px;
+    text-align: right;
+    position: relative;
+top: 15px;
+  
+color: #2da720; 
+    font-size: 130%;
+    font-family:  Lalezar-Regular;
+
+    ">
+<span>{{appTitle}} </span>
+  </div>
+  <div style="text-align: right;  color: #b7b6b4;
+    font-size: 90%;
+    font-family: ReemKufi-Regular;
+   padding-top: 4px;">
+<span >{{appsubTitle}}</span>
+  </div>
+</ion-title>
+<!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
+</ion-navbar>

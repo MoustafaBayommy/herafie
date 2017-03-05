@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler} from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CategoriesPage } from '../pages/pages';
@@ -33,9 +33,15 @@ import { AboutAppPage } from '../pages/pages';
 // import {LoadingModal} from '../components/loading-modal/loading-modal';
 
 import {DonePropOverPage} from '../pages/done-prop-over/done-prop-over';
-import {HerafieNavComponnent} from '../components/herafieNav/herafieNav.component'
+import {HerafieNavComponnent} from '../components/herafieNav/herafieNav.component';
+import {MenuComponent} from '../components/menu/menu.component';
+import {TranslateModule,TranslateStaticLoader,TranslateLoader} from 'ng2-translate/ng2-translate';
+import {Http}from '@angular/http';
 
 
+export function createTranslateLoader(http: Http) {
+    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -59,13 +65,21 @@ OffersPage,
 RulesPage,
 SettingsPage,
 DonePropOverPage,AboutAppPage
-,HerafieNavComponnent
+,HerafieNavComponnent,
+MenuComponent
 // LoadingModal
  ],
   imports: [
     IonicModule.forRoot(MyApp),Ionic2RatingModule, 
- 
-    HttpModule
+    HttpModule,
+        TranslateModule.forRoot(
+          {
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    }
+        )
+
 
   ],
   bootstrap: [IonicApp],
@@ -90,7 +104,7 @@ SettingsPage,
 WelcomePage,
 DonePropOverPage,AboutAppPage
     ,HerafieNavComponnent
-  
+  ,MenuComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AdressService,LoginService,OrderService,MyOrdersService
   ,ConnectivityService,AppSqlTableService

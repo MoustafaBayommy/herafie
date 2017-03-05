@@ -111,3 +111,59 @@ body > ion-app > ng-component > ion-nav > page-pick-date > ion-content > div.scr
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+.pick_en>.labelRow>ion-label{
+   text-align: left;
+   margin-left: 35px;
+}
+.pick_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-textarea{
+direction: ltr;
+padding-left: 20px;
+}
+.pick_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
+    direction: ltr;
+}
+.pick_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-datetime{
+    direction: ltr;
+    margin: auto;
+}
+
+.pick_ar>.labelRow>ion-label{
+   text-align: right;
+   margin-left: 20px;
+   font-size: 110%;
+}
+.pick_ar>.iteamRow>ion-item>ion-textarea{
+direction: rtl;
+}
+.pick_ar>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
+    direction: rtl;
+}
+.pick_ar>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-datetime{
+    direction: rtl;
+    margin: auto;
+}
+
+.pick_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.pick_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+
+.action-sheet-md .action-sheet-button{
+    margin:0px;
+    color:#18859e;
+}

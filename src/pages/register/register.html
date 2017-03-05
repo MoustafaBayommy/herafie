@@ -1,59 +1,27 @@
-<!--
-  Generated template for the Register page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-  
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-  </ion-navbar>
-
+ <ion-header  [@bounce]="bounceState" >
+ <herafieNav withMenu=true></herafieNav>
+  <ion-toolbar>
+<ion-label class="title"  ngClass="{{titlestyelClass}}">  {{'register.title' | translate }}
+</ion-label>  </ion-toolbar>
 </ion-header>
 
 
 <ion-content >
-  <div class="headline">
-<ion-label style="    direction: rtl;
-    width: 90%; font-size:140%;">حساب جديد </ion-label>
-<ion-label style="    direction: rtl;
-    width: 90%; margin-top:-20px;">بياناتك</ion-label>
-</div>
+    <!--<ion-toolbar>
+
+  </ion-toolbar>-->
+
 
 <form [formGroup]="myForm" (ngSubmit)="register(myForm.value)">
 
- <ion-row class="elementRow">
+ <ion-row class="elementRow" [@flyInOut]="flayState0">
   <ion-col width-100 class=" formcol">
-    <ion-item>
-    <ion-label floating>الإسم</ion-label>
+    <ion-item ngClass="{{titlestyelClass}}">
+    <ion-label floating>{{'register.name' | translate }}</ion-label>
     <ion-input type="text" [formControl]="myForm.controls['name']"></ion-input>
   </ion-item>
   <div *ngIf="name.hasError('required')"
- class="ui error message"> *   مطلوب
+ class="ui error message">{{'register.required' | translate }}
 </div>
   </ion-col>
 </ion-row>
@@ -73,20 +41,20 @@
 
 
 
- <ion-row class="elementRow">
-  <ion-col width-100 class=" formcol labelsList">
+ <ion-row class="elementRow" [@flyInOut]="flayState1">
+  <ion-col width-100 class=" formcol labelsList" ngClass="{{titlestyelClass}}">
     <ion-row class="labelRow">
-    <ion-label>المدينة </ion-label>
+    <ion-label>{{'register.city' | translate }}</ion-label>
     </ion-row>
     <ion-row class="iteamRow">
-      <ion-item>
-   <ion-select  [formControl]="myForm.controls['city']">
-      <ion-option  *ngFor="let city of cityies" value="{{city}}"  >{{city}}</ion-option>
+      <ion-item >
+   <ion-select  [formControl]="myForm.controls['city']" okText="{{'select'| translate}}" cancelText="{{'cancel'| translate}}"  placeholder="{{'register.cities.mecca'| translate}}"> 
+      <ion-option  *ngFor="let city of cityies" value="{{city.name}}"  >{{city.title | translate }}</ion-option>
     </ion-select>
       </ion-item>
     </ion-row>
        <div *ngIf="city.hasError('required')"
- class="ui error message"> *   مطلوب
+ class="ui error message">{{'register.required' | translate }}
 </div>
   </ion-col>
 </ion-row>
@@ -95,54 +63,54 @@
 
 
 
- <ion-row class="elementRow">
-  <ion-col width-100 class=" formcol labelsList">
+ <ion-row class="elementRow" [@flyInOut]="flayState2">
+  <ion-col width-100 class=" formcol labelsList" ngClass="{{titlestyelClass}}">
     <ion-row class="labelRow">
-    <ion-label >الحى</ion-label>
+    <ion-label >{{'register.neigh' | translate }}</ion-label>
     </ion-row>
     <ion-row class="iteamRow">
-      <ion-item>
-   <ion-select   [formControl]="myForm.controls['neighborhood']">
-      <ion-option *ngFor="let neighbour of neigbouhoods" value="{{neighbour.name}}" >{{neighbour.name}}</ion-option>
+      <ion-item ngClass="{{titlestyelClass}}">
+   <ion-select  interface="action-sheet"  [formControl]="myForm.controls['neighborhood']" okText="{{'select'| translate}}" cancelText="{{'cancel'| translate}}" placeholder="{{'register.neighs.almusaffala'| translate}}">
+      <ion-option *ngFor="let neighbour of neigbouhoods" value="{{neighbour.name}}" >{{neighbour.title | translate }}</ion-option>
     </ion-select>
       </ion-item>
     </ion-row>
            <div *ngIf="neighborhood.hasError('required')"
- class="ui error message"> *   مطلوب
+ class="ui error message">{{'register.required' | translate }}
 </div>
   </ion-col>
 </ion-row>
 
 
-<ion-row class="elementRow">
-  <ion-col width-100 class=" formcol">
-    <ion-item>
-    <ion-label floating>الإيميل</ion-label>
+<ion-row class="elementRow" [@flyInOut]="flayState3">
+  <ion-col width-100 class=" formcol" ngClass="{{titlestyelClass}}">
+    <ion-item ngClass="{{titlestyelClass}}">
+    <ion-label floating>{{'register.email' | translate }}</ion-label>
     <ion-input type="email" [formControl]="myForm.controls['email']"></ion-input>
   </ion-item>
   <div *ngIf="email.hasError('required')"
- class="ui error message"> *   مطلوب
+ class="ui error message">{{'register.required' | translate }}
 </div>
   </ion-col>
 </ion-row>
 
 
-
-<ion-row class="elementRow">
-  <ion-col width-100 class=" formcol labelsList">
+ 
+<ion-row class="elementRow" [@flyInOut]="flayState4">
+  <ion-col width-100 class=" formcol labelsList"  ngClass="{{titlestyelClass}}">
     <ion-row class="labelRow">
-    <ion-label>كيف سمعت عنا</ion-label>
+    <ion-label>{{'register.howmethod' | translate }}</ion-label>
     </ion-row>
     <ion-row class="iteamRow">
         <ion-item>
 
-<ion-select [formControl]="myForm.controls['knownFrom']" >
-      <ion-option  *ngFor="let method of knowFromWays" value="{{method}}">{{method}}</ion-option>
+<ion-select [formControl]="myForm.controls['knownFrom']" okText="{{'select'| translate}}" cancelText="{{'cancel'| translate}}" placeholder="{{'register.howmethods.friend'| translate}}">
+      <ion-option  *ngFor="let way of knowFromWays" value="{{way.name}}">{{way.title | translate }}</ion-option>
     </ion-select>
         </ion-item>
     </ion-row>
       <div *ngIf="knownFrom.hasError('required')"
- class="ui error message"> *   مطلوب
+ class="ui error message"> {{'register.required' | translate }}
 </div>
   </ion-col>
 </ion-row>
@@ -159,8 +127,9 @@
 
     <!--</ion-item>-->
 
-<ion-row  class="buttonRow">
-   <button   ion-button color="safety" outline round type="submit">حساب جديد</button>
+<ion-row  class="buttonRow" style="margin-bottom: 30px;margin-top: 50px;">
+   <button   ion-button color="safety" clear  type="submit" style="font-size: 80%;">
+     {{'register.button' | translate }}</button>
 
 </ion-row>
 </form>

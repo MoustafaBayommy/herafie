@@ -4,22 +4,21 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
- <herafieNav withMenu=true></herafieNav>
+<ion-header [@bounce]="bounceState">
+<herafieNav   withMenu=true></herafieNav>
+   <ion-toolbar >
+<ion-label  class="title"   ngClass="{{titlestyelClass}}">{{'setting.title'| translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
 
-
 <ion-content padding>
-        <div class="headline">
-<ion-label style="    direction: rtl;
-    width: 90%; font-size:140%;">الإعدادات</ion-label>
 
-</div>
-<ion-list>
+<ion-list style="margin-top:20px; ">
   <ion-item style="border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: #e8e5e4;">
-  <ion-label> إستقبال إشعارات</ion-label>
+    border-bottom-color: #e8e5e4;"  ngClass="{{titlestyelClass}}" [@fade]="fadState">
+  <ion-label> {{'setting.notification'| translate }}</ion-label>
   <ion-toggle color="secondary" [(ngModel)]="notifiy"></ion-toggle>
 </ion-item>
 </ion-list>

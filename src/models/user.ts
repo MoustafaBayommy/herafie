@@ -14,5 +14,18 @@ knownFrom:string;
 
 export interface Neigbouhood{
   id :number,
-name:string
+name:string,
+title:string
+} ;
+
+export interface City{
+  id :number,
+name:string,
+title:string
+} ;
+
+export interface ways{
+  id :number,
+name:string,
+title:string
 } ;

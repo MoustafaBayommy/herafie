@@ -1,0 +1,212 @@
+{
+  "services": "Services ",
+     "ok":"Ok",
+    "select":"Select",
+    "cancel":"Cancel",
+  "places": {
+    "title": "select your Place",
+    "shops": "shops",
+    "Restaurants": "Restaurants",
+    "Apartment": "Apartment",
+    "Villa": "Villa",
+    "building": "building",
+    "Hotel": "Hotel"
+ 
+  },
+  "mainservices": {
+    "title": "select Service Category",
+    "Clean": {
+      "title": "Clean",
+      "services": {
+        "Genral_Clean": "Genral Clean",
+        "Laminate_Floor": "Laminate Flooring",
+        "Anti_Bugs": "Anti Bugs",
+        "Inlay_Tanks": "Inlay Tanks",
+        "Furniture_Clean": "Furniture Clean",
+        "others": "others"
+      }
+    },
+    "Maintenance": {
+      "title": "Maintenance",
+      "services": {
+        "Foundries": "Foundries",
+        "Electricity": "Electricity",
+        "air_conditioning": "Air conditioning",
+        "others": "others"
+      }
+    },
+    "Restoration_finishing": {
+      "title": "Restoration and finishing",
+      "services": {
+        "Installing_floors": "Installing floors",
+        "Paint": "Paints",
+        "roof_scenery": "Roofs&Scenery",
+        "others": "others"
+      }
+    },
+    "Electronics": {
+      "title": "Electronics",
+      "services": {
+        "security_cameras": "security cameras",
+        "Networks_phone": "Networks&Telephone Systems",
+        "sound_systems": "Sound Systems",
+        "computers": "Computers",
+        "others": "others"
+      }
+    }
+  },
+  "menu": {
+    "home": "Home",
+    "newOrder": "New Order",
+    "myOrders": "My Orders",
+    "howToUse": "Usage",
+    "rate": "Rating",
+    "contactUs": "Contact Us",
+    "settings": "settings",
+    "aboutApp": "About App"
+  },
+  "welcome": {
+    "welcome": "welcome",
+    "text": "7erafi App  lets yoy access All  services of Elfekr Elherafie  company with all ease and speed",
+    "order": "Order Now",
+    "usage": "Usage",
+    "contact": "Contact Us"
+  },
+  "usage": {
+    "title": "How To Use 7erafi",
+    "getLocation": "Accept Your Location",
+    "selectplaceType": "Select Your Place Type",
+    "selectServiceType": "Select Service Category",
+    "selectService": "Select Service",
+    "pickDate": "Pick Date and Time",
+    "order": "Order",
+    "wait": "Wait for Our Representative",
+    "evaluate": "Evalute Us"
+  },
+  "aboutaPP": {
+    "desc": "This App Powerd by Tawwar Company ",
+    "tawwar": "",
+    "elfekr": "For ElfekrElHerafie Company",
+    "copy": " Tawwar 2017 "
+  },
+  "getLocation": {
+    "title":"your location",
+    "startLoading":"Getting Your Location...wait please",
+    "acceptLocation":"Confirm this Location",
+        "outSideMeccaAlert":"you Cant Make  Orders from locations  out side Mecca",
+        "gpsError":"Error on getting your location, verifiy your connection and enable your Gps then Try Again",
+   "noConnectionMessage":"There is no Connection make sure you hava internet connection then try again",
+   "tryAgain":"Try Again"
+  },
+  "contactUs": {
+    "address":"alsharayie planner3- Mecca",
+    "facebook":"مؤسسة الفكر الحرفى للمقاولات",
+    "twitter":"@alfeker0",
+    "phone":"920002967",
+    "email":"alfeker.alherafi@hotmail.com",
+    "whats":"0550076063",
+    "instigram":"alfekeralerafi"
+  },
+  "rate":{
+    "app":"App Rating",
+    "representative":"Representative Rating",
+    "technician":"Technician Rating",
+    "notes":"Notes",
+    "send":"Send Rating",
+    "loading":"Sending Your Rating ...",
+    "alert":{
+      "error":"Error, make sure you have aconnection then try again",
+    "alertButton":"Ok"
+    }
+  },
+  "register":{
+    "title":"Register",
+    "name":"Name",
+    "city":"Region",
+    "neigh":"Neighbourhood",
+    "email":"Email",
+    "howmethod":"How You hear about us",
+    "required":"requied*",
+    "button":"Register",
+    "loading":"Creating your new account...",
+   "neighs":{
+     "almusaffala":"Almusaffala",
+      "alkaakih":"Alkaakih",
+      "almalawaa":"Almalawaa",
+      "butaha_quraysh":"Butaha' Quraysh",
+      "aleawala":"Aleawala",
+      "aliiskan":"Al'iiskan",
+      "alshshawqia":"Alshshawqia",
+      "kudaa":"kudaa",
+      "alssubhana":"Alssubhana",
+      "alhamra":"Alhamra",
+      "alshshuhada":"Alshshuhada'",
+      "alemr":"Alemrah",
+      "albuhayrat":"Albuhayrat",
+      "alnnawaria":"Alnnawaria",
+      "alfayaha":"Alfayaha",
+      "sharie_alhajj":"Sharie alhajj",
+      "alghasala":"Alghasala",
+      "wadda_jalil":"Wa'adda jalil",
+      "alkhinsa":"Alkhinsa",
+      "rie_dhakhir":"Rie Dhakhir",
+      "jarwal":"Jarwal",
+      "alotaibih":"Alotaibih",
+      "rie_alkihl":"Rie Alkihl",
+      "alzzahir":"Alzzahir",
+      "milqayh":"milqayh",
+      "alssafla":"Alssafla",
+      "alhijra":"Alhijra",
+      "alddayiree":"Alddayiree",
+      "al_iiskan":"Al'iiskan",
+      "sharie_mansur":"Sharie Mansur",
+      "alhafayir":"Alhafayir",
+      "altndbawa":"Altndbawa",
+      "alhindawia":"Alhindawia",
+      "albayban":"Albayban",
+      "alqashla":"Alqashla",
+      "mukhattatat_alshsharayie":"Mukhattatat Alshsharayie",
+      "sharayie_almujahidin":"Sharayie Almujahidin",
+      "jabal_alnnur":"Jabal alnnur'"
+
+    },
+       "cities":{
+          "mecca":"Mecca"
+    },
+    "howmethods":{
+          "friend":"From Friend"
+    }
+  },
+  "pickDate":{
+    "title":"Picke Date",
+  "date":"Date",
+  "time":"Time",
+  "desc":"Description",
+  "attach":"Attaching",
+  "order":"Order Now",
+  "hint":"Pick Time",
+  "loading":"Sending your Order...",
+  "timeMissed":"you must select appropriate time",
+  "descMissed":"you must Write appropriate description",
+  "both":"you must Write appropriate  time and description",
+  "fileError":"error while sending file  test your connection ",
+  "dateerror":"Friday is our weekend select another day",
+  "sent":"your order sent succesfully we will call you soon"
+    },
+  "myOrders":{
+    "title":"My Latest Orders",
+    "date":"Date",
+    "location":"Location",
+    "Service":"Service",
+    "notes":"Notes",
+    "noOrders":"You havent make Any Order yet",
+    "ordeNow":"Order Now",
+    "loadingMessage":"We now getting your latest orders please wait",
+     "alert":{  "networkError":"Connection error ,test your connection then try again",
+    "alertButton":"Back"}
+  },
+  "setting":{
+    "title":"Setting",
+    "notification":"Notifications"
+  }
+}

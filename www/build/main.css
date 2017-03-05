@@ -36238,7 +36238,7 @@ button {
 
 .headOfMenu {
   border-bottom-width: 2px;
-  border-bottom-color: #a52a2a;
+  border-bottom-color: #2ca71f;
   border-bottom-style: solid;
 }
 
@@ -36377,6 +36377,34 @@ ion-label {
   border-style: dashed;
 }
 
+.pagessubTitlr_ar {
+  direction: rtl;
+  text-align: right;
+  width: 90%;
+  margin-top: 30px;
+}
+
+.pagessubTitlr_en {
+  width: 90%;
+  margin-top: 30px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.iteam_en {
+  direction: ltr;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.iteam_ar {
+  direction: rtl;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
 page-about-app {
   background: #666669;
   color: #f3f9ff;
@@ -36390,9 +36418,8 @@ page-about-app {
 }
 
 .rights {
-  position: absolute;
-  bottom: 20px;
-  /* margin: auto; */
+  position: relative;
+  top: 15%;
   width: 100%;
   text-align: center;
   text-decoration: underline;
@@ -36407,8 +36434,25 @@ page-about-app {
 }
 
 .aboutcontainer {
-  background: #666669;
-  color: #f3f9ff;
+  color: #3d9033;
+}
+
+.about_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.about_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
 }
 
 .card-title {
@@ -36430,6 +36474,24 @@ body > ion-app > ng-component > ion-nav > page-categories > ion-content > div.sc
   margin: auto;
 }
 
+.pagessubTitlcat_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.pagessubTitlcat_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
 #contactUsIc {
   font-size: 200%;
   margin-left: 20px;
@@ -36439,6 +36501,34 @@ body > ion-app > ng-component > ion-nav > page-categories > ion-content > div.sc
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #d4d1d1;
+}
+
+.contactus_ar {
+  direction: rtl;
+  text-align: right;
+}
+
+.contactus_en {
+  direction: ltr;
+  text-align: left;
+}
+
+.contactus_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.contactus_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
 }
 
 page-done-prop-over .popover-content {
@@ -36468,20 +36558,6 @@ body > ion-app > ion-popover > div > div.popover-content > div > page-done-prop-
 
 .popover-ios .popover-content, .popover {
   background: rgba(255, 255, 255, 0);
-}
-
-#adress {
-  position: absolute;
-  width: 90%;
-  right: 5%;
-  left: 5%;
-  top: 1.2%;
-  direction: rtl;
-  text-align: right;
-  background-color: #797972;
-  line-height: 24px;
-  padding: 4px 8px;
-  border-radius: 8px;
 }
 
 #duration {
@@ -36624,8 +36700,117 @@ body > ion-app > ion-popover > div > div.popover-content > div > page-done-prop-
   display: none;
 }
 
+.address_ar {
+  position: absolute;
+  width: 90%;
+  right: 5%;
+  left: 5%;
+  top: 1.2%;
+  direction: rtl;
+  text-align: right;
+  background-color: #797972;
+  line-height: 24px;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.address_en {
+  position: absolute;
+  width: 90%;
+  right: 5%;
+  left: 5%;
+  top: 1.2%;
+  direction: ltr;
+  text-align: left;
+  background-color: #797972;
+  line-height: 24px;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.address_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+  background-color: #ffffff;
+}
+
+.address_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
 .howToUseText {
   margin-right: 20px;
+}
+
+.usage_ar, .usage_en {
+  font-size: 90%;
+}
+
+.usage_ar {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  direction: rtl;
+}
+
+.usage_en {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  direction: ltr;
+}
+
+.usage_en > .usageText {
+  margin-left: 20px;
+}
+
+.usage_ar > .usageText {
+  margin-right: 20px;
+}
+
+.usage_en_title {
+  text-align: left;
+  direction: rtl;
+  width: 90%;
+  font-size: 120%;
+}
+
+.usage_ar_title {
+  text-align: right;
+  direction: ltr;
+  width: 90%;
+  font-size: 120%;
+}
+
+.usageText {
+  font-size: 110%;
+}
+
+.usage_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.usage_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
 }
 
 page-login {
@@ -36764,6 +36949,25 @@ body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-c
   font-size: 120%;
 }
 
+.pagessubTitlr_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+  background-color: #ffffff;
+}
+
+.pagessubTitlr_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
 .served, .rejected, .inProgress {
   margin-top: 10px;
 }
@@ -36791,6 +36995,56 @@ body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-c
   text-align: left;
   padding: 0px;
   margin: 0px;
+}
+
+.myOrders_en, .myOrders_en > .item-inner > .input-wrapper > ion-label > ion-row {
+  direction: ltr;
+}
+
+.myOrders_en > .item-inner > .input-wrapper > ion-label > ion-row > .headers > p {
+  text-align: right;
+}
+
+.myOrders_en > .item-inner > .input-wrapper > ion-label > ion-row > .headers {
+  max-width: 30%;
+}
+
+.myOrders_en > .item-inner > .input-wrapper > ion-label > ion-row > .data {
+  text-align: left;
+}
+
+.myOrders_ar, .myOrders_ar > .item-inner > .input-wrapper > ion-label > ion-row {
+  direction: rtl;
+}
+
+.myOrders_ar > .item-inner > .input-wrapper > ion-label > ion-row > .headers > p {
+  text-align: left;
+}
+
+.myOrders_ar > .item-inner > .input-wrapper > ion-label > ion-row > .data {
+  text-align: right;
+}
+
+.myOrders_ar > .item-inner > .input-wrapper > ion-label > ion-row > .headers {
+  max-width: 30%;
+}
+
+.myOrders_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.myOrders_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
 }
 
 .pricesDiv {
@@ -36904,6 +37158,67 @@ body > ion-app > ng-component > ion-nav > page-pick-date > ion-content > div.scr
   filter: alpha(opacity=0);
 }
 
+.pick_en > .labelRow > ion-label {
+  text-align: left;
+  margin-left: 35px;
+}
+
+.pick_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-textarea {
+  direction: ltr;
+  padding-left: 20px;
+}
+
+.pick_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
+  direction: ltr;
+}
+
+.pick_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-datetime {
+  direction: ltr;
+  margin: auto;
+}
+
+.pick_ar > .labelRow > ion-label {
+  text-align: right;
+  margin-left: 20px;
+  font-size: 110%;
+}
+
+.pick_ar > .iteamRow > ion-item > ion-textarea {
+  direction: rtl;
+}
+
+.pick_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
+  direction: rtl;
+}
+
+.pick_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-datetime {
+  direction: rtl;
+  margin: auto;
+}
+
+.pick_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.pick_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.action-sheet-md .action-sheet-button {
+  margin: 0px;
+  color: #18859e;
+}
+
 ion-label {
   font-size: 110%;
 }
@@ -36971,6 +37286,66 @@ ul.rating li ion-icon {
   margin-top: 10px;
 }
 
+.rate_ar {
+  direction: ltr;
+}
+
+.rate_en {
+  direction: rtl;
+}
+
+.rate_en > .button-container > ion-row > ion-label {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.rate_ar > .button-container > ion-row > ion-label {
+  text-align: right;
+}
+
+.rate_en > ion-item > .item-inner > .input-wrapper > ion-label {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.rate_ar > ion-item > .item-inner > .input-wrapper > ion-label {
+  text-align: right;
+}
+
+.rate_en > ion-item > .item-inner > .input-wrapper > ion-textarea {
+  padding-left: 20px;
+  direction: ltr;
+}
+
+.rate_ar > ion-item > .item-inner > .input-wrapper > ion-textarea {
+  direction: rtl;
+}
+
+.rate_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.rate_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.btnrow > button > .button-inner {
+  border-bottom-style: solid;
+  border-bottom-color: #d4d0cc;
+  border-bottom-width: 2px;
+  border-bottom-left-radius: 50px;
+}
+
 button {
   font-size: 15pt;
   margin: 20px;
@@ -37004,7 +37379,7 @@ ion-content {
 
 .labelsList {
   margin-right: 10px;
-  font-size: 130%;
+  font-size: 110%;
   color: #afacac;
 }
 
@@ -37014,6 +37389,65 @@ ion-content {
   color: red;
   margin-top: 10px;
   margin-right: 20px;
+}
+
+.reg_ar > .item-inner > .input-wrapper > ion-label, .reg_ar > .labelRow > ion-label {
+  text-align: right;
+}
+
+.reg_ar > .item-inner > .input-wrapper > ion-input, .reg_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
+  direction: rtl;
+}
+
+.reg_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
+  margin-left: 0px;
+  padding: 0px;
+}
+
+.reg_en > .item-inner > .input-wrapper > ion-label, .reg_en > .labelRow > ion-label {
+  text-align: left;
+  font-size: 100%;
+}
+
+.reg_en > .labelRow > ion-label {
+  margin-left: 20px;
+  color: #908e8e;
+}
+
+.reg_en > .item-inner > .input-wrapper > ion-input, .reg_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
+  direction: ltr;
+}
+
+.reg_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
+  margin-right: 0px;
+  padding: 0px;
+}
+
+.reg_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.reg_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.buttonRow > button > .button-inner {
+  color: #56deff;
+  font-size: 130%;
+  border-bottom-style: solid;
+  border-bottom-color: #d4d0cc;
+  border-bottom-width: 2px;
+  border-bottom-left-radius: 50px;
 }
 
 .rulesText {
@@ -37032,4 +37466,109 @@ body > ion-app > ng-component > ion-nav > page-services > ion-content > div.scro
   color: #30d05f;
   margin-left: 5%;
   font-size: 120%;
+}
+
+.servicesubTitlr_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.servicesubTitlr_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.setting_ar {
+  direction: rtl;
+}
+
+.setting_en {
+  direction: ltr;
+}
+
+.setting_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.setting_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.setting_en > .item-inner > .input-wrapper > ion-label {
+  text-align: left;
+}
+
+.welcome_ar, .welcome_en {
+  font-size: 100%;
+}
+
+.welcome_ar {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  direction: rtl;
+  margin-right: 20%;
+}
+
+.welcome_en {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  direction: ltr;
+  margin-left: 20%;
+}
+
+.easyAcess {
+  font-size: 80%;
+  padding: 5px;
+}
+
+.welcome_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.welcome_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.button-inner.welcome_ar {
+  border-bottom-style: solid;
+  border-bottom-color: #d4d0cc;
+  border-bottom-width: 2px;
+  border-bottom-left-radius: 50px;
+}
+
+.button-inner.welcome_en {
+  border-bottom-style: solid;
+  border-bottom-color: #d4d0cc;
+  border-bottom-width: 2px;
+  border-bottom-right-radius: 50px;
 }

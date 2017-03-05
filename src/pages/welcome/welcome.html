@@ -4,29 +4,36 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
- <ion-header>
- <herafieNav withMenu=true></herafieNav>
+
+ <ion-header [@bounce]="bounceState" >
+ <herafieNav  withMenu=true></herafieNav>
+   <ion-toolbar >
+<ion-label  class="title"  ngClass="{{titlestyelClass}}">{{'menu.home'| translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content [@fade]="fadeState" padding style="text-align:center">
+
 <div>
-  <div style="margin-top: 10px;">
-         <span class="icon-icon " style="    color: brown;
+  <div   style="margin-top: 10px;">
+         <span  class="icon-icon " style="    color: brown;
     font-size: 1000%;
     display: block;
     text-align: center;">
      </span>   
-         <div style="text-align: center; margin-top: 20px;">
+         <div  style="text-align: center; margin-top: 20px;">
 
 <span style=" 
     text-align: center;
     font-size: 130%;
     color: #54c349;
-    margin-top: 20px;">أهلا بك</span>    <ion-icon name="compass" style="    font-size: 150%;    color: #80d278;"></ion-icon>
+    margin-top: 20px;">{{'welcome.welcome' | translate }}</span>  
+      <ion-icon name="compass" style="    font-size: 150%;    color: #80d278;"></ion-icon>
 
   </div>
   </div>
-<div style="    margin-top: 10px;
+<div  style="    margin-top: 10px;
     font-size: 120%;
     direction: rtl;
     padding-right: 10px;
@@ -34,26 +41,51 @@
     color: #908787;
         text-align: center;
     ">
-يتيح لك تطبيق حرّفى  الوصول لخدمات شركة الفكر الحرفى بكل سهوله وسرعة  
+                   {{'welcome.text' | translate }}
+
 </div>
 </div>
 
-<div style="margin-top: 30px; text-align:center">
+<div  style="margin-top:10%;">
   <span>
-<button ion-button color="secondary" outline small style="    margin-top: 20px;    height: 35px;
-    font-size: 80%;" (click)="goToNewOrder()">إطلب الأن 
+<button ion-button color="secondary" clear small style="     height: 35px;
+    font-size: 70%;
+    margin-top: 10px;" (click)="goToNewOrder()">
+                        <span class="button-inner" ngClass="{{titlestyelClass}}">            
+
+      <ion-icon name="paper" style="    font-size: 150%;   color: #2da720;">               
+             <span class="easyAcess">  {{'welcome.order'| translate }}</span>
+               </ion-icon>
+                        </span>
 
 </button>
 </span>
   <span>
-<button ion-button  outline small style="    margin-top: 20px;    height: 35px;
-    font-size: 80%;" (click)="goToHowToUse()">طريقة الإستخدام
+<button ion-button  clear small style="        height: 35px;
+    font-size: 70%;
+    margin-top: 10px;
+    " (click)="goToHowToUse()">
+                <span class="button-inner" ngClass="{{titlestyelClass}}">            
+
+          <ion-icon name="options" style="    font-size: 150%; color: #2da720;">
+              <span class="easyAcess"> {{'welcome.usage' | translate }}</span>
+              </ion-icon>
+
+                </span>
   
 </button>
 </span>
   <span>
-<button ion-button color="danger" outline small style="    margin-top: 20px;    height: 35px;
-    font-size: 80%;" (click)="goToContactUs()">إتصل بنا</button>
+<button ion-button color="danger" clear small style="       height: 35px;
+    font-size: 70%;
+    margin-top: 10px;" (click)="goToContactUs()">
+                    <span class="button-inner" ngClass="{{titlestyelClass}}">            
+
+              <ion-icon name="map" style="    font-size: 150%; color:#2da720;">
+                             <span class="easyAcess">    {{'welcome.contact' | translate }}</span>
+                   </ion-icon>
+                    </span>
+    </button>
 </span>
 </div>
 

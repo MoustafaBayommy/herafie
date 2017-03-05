@@ -9,6 +9,8 @@ import    * as config   from '../../herafie.config.ts';
 import {OrderService} from '../../providers/order.server';
 import {MyOrdersService} from '../../providers/myorders.service';
 import {DonePropOverPage} from '../done-prop-over/done-prop-over';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/core';//for animation
+import { TranslateService } from 'ng2-translate';
 
 
 // import { PolymerElement } from '@vaadin/angular2-polymer';
@@ -36,7 +38,42 @@ interface Times {
 
 @Component({
   selector: 'page-pick-date',
-  templateUrl: 'pick-date.html'
+  templateUrl: 'pick-date.html',
+   animations: [trigger('bounce', [
+    state('bouncing', style({
+      transform: 'translate3d(0,0,0)'
+    })),
+    transition('* => bouncing', [
+      animate('700ms ease-in', keyframes([
+        style({ transform: 'translate3d(0,0,0)', offset: 0 }),
+        style({ transform: 'translate3d(0,-10px,0)', offset: 0.5 }),
+        style({ transform: 'translate3d(0,0,0)', offset: 1 })
+      ]))
+    ]),
+
+  ])
+       ,
+      trigger('fade', [
+      state('visible', style({
+        opacity: 1
+      })),
+      state('invisible', style({
+        opacity: 0.1
+      })),
+      transition('visible <=> invisible', animate('200ms linear'))
+    ]),
+      trigger('flyInOut', [
+    state('in', style({
+      transform: 'translate3d(0, 0, 0)'
+    })),
+    state('out', style({
+      transform: 'translate3d(150%, 0, 0)'
+    })),
+    transition('in => out', animate('100ms ease-in')),
+    transition('out => in', animate('100ms ease-out'))
+  ])
+  ]
+  
 })
 export class PickDatePage {
    
@@ -62,29 +99,50 @@ audioColor:string;
 loader:any;
 extention:string;
 isIncludeFile:boolean=false;
+titlestyelClass:string;
+lang:string;
+ bounceState: String = "noBounce";
+  fadeState: String = "invisible";
+  flayState0: string = "out";
+  flayState1: string = "out";
+  flayState2: string = "out";
+  flayState3: string = "out";
+  flayState4: string = "out";
   constructor(public platform: Platform,public orderService:OrderService,
   public loadingCtrl: LoadingController,
   private toastCtrl: ToastController,
   public myordersService:MyOrdersService,
   public alertCtrl: AlertController,
    public popoverCtrl: PopoverController,
-  public navCtrl: NavController, public navParams: NavParams) {
- 
+  public navCtrl: NavController, public navParams: NavParams,
+    public translate: TranslateService
+  ) {
+    this.lang=OrderService.lang;
+         this.titlestyelClass="pick_"+OrderService.lang;
  console.log(OrderService.order);
  this.appTitle=config.data.appTitle;
     this.appsubTitle=config.data.appSubTitle;;
     //setting Date Picker
     this.onDate=new Date();
+    console.log(this.onDate.getDay());
+    
     if(this.onDate.getDay()==5){
+      alert('fdfgdf');
 this.onDate=new Date(this.onDate.getTime()-1000*60*60*24);
     }
-
-   this.selectedDate = this.onDate.toISOString();
+var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0,-1);
+    this.selectedDate =localISOTime;
+    console.log(this.selectedDate);
 
     console.log(this.navParams);
+    if( this.lang=="ar"){
     this.monthNames = ['يناير', 'فبراير', 'مارس', 'إبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-    this.daysOfTheWeek = ['الأحد', 'الأثنين', 'الثلاثاء', 'الأريعاء', 'الخميس', 'الجمعة', 'السبت'];
-
+    this.daysOfTheWeek = ['الأحد', 'الأثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+    }else{
+    this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    this.daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    }
 
     //setting avaliable Days
     this.startTime = 9;
@@ -92,26 +150,36 @@ this.onDate=new Date(this.onDate.getTime()-1000*60*60*24);
     this.increments = 2;
     for (var i = 0; i < (this.endTime - this.startTime) / this.increments; i++) {
       var startTimetemp: number = this.startTime + (i * 2);
-      var startString: string = 'ص';
+      var startString: string = this.lang=="ar"?'ص':'AM';
       var endTimetemp: number = this.startTime + ((i + 1) * 2);
-      var endString: string = 'ص';
+      var endString: string = this.lang=="ar"?'ص':'AM';;
 
 
 
       if (startTimetemp > 12) {
         startTimetemp = startTimetemp - 12;
-        startString = 'م';
+        startString = this.lang=="ar"?'م':'PM';
       }
       if (endTimetemp > 12) {
         endTimetemp = endTimetemp - 12;
-        endString = 'م';
+        endString =this.lang=="ar"?'م':'PM';
 
       }
 
-      var titltes: string = endTimetemp + ' من ' + startTimetemp + startString + ' الى';
+      var titltes: string = this.lang=="ar"?endTimetemp + ' من ' + startTimetemp + startString + ' الى':' From ' + startTimetemp + startString + ' To '+endTimetemp;
    
       this.times.push({ id: i, title: titltes });
    
+
+   translate.get('pickDate.loading').subscribe(
+      value => {
+        this.loader = this.loadingCtrl.create({
+          content: value
+        });
+      }
+    )
+
+
     }
 
 
@@ -123,6 +191,23 @@ this.onDate=new Date(this.onDate.getTime()-1000*60*60*24);
 
 
   ionViewDidLoad() {
+            this.bounceState ='bouncing';
+   setTimeout(() => {
+      this.flayState0 = 'in';
+      setTimeout(() => {
+        this.flayState1 = 'in';
+        setTimeout(() => {
+          this.flayState2 = 'in';
+          setTimeout(() => {
+            this.flayState3 = 'in';
+            setTimeout(() => {
+  this.fadeState='visible';
+
+            }, 150);
+          }, 150);
+        }, 150);
+      }, 150);
+    }, 150);
     console.log('ionViewDidLoad PickDatePage');
   }
   dateChange(event: any) {
@@ -148,40 +233,25 @@ this.showAlert();
 
   }
    showAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'اختيار غير مناسب',
-      subTitle: '(يوافق يوم جمعة (عطلة رسمية',
-      buttons: ['عُلم']
-    });
-    alert.present();
+       this.translate.get('pickDate.dateerror').subscribe(
+      value => {
+   this.presentToast(value);
+      }
+    )
   }
 
   showDoneToast(){
-     let toast = this.toastCtrl.create({
-    message: 'تم إرسال طلبكم بنجاح مندوبنا فى الطريق إليكم',
-    duration: 3000,
-    position: 'middle'
-  });
+       this.translate.get('pickDate.sent').subscribe(
+      value => {
+   
+   this.presentToast(value);
+      }
+    )
   }
 
-     showErrorAlert(message:string) {
-    let alert = this.alertCtrl.create({
-      title: 'خطأ',
-      subTitle:message,
-      buttons: ['عُلم']
-    });
-    alert.present();
-  }
-  
 
-       showUnCompleteAlert() {
-      let alert = this.alertCtrl.create({
-      title: 'بيانات غير مكتمله',
-      subTitle: 'بجب تحديد وقت مناسب وكتابة توصيف',
-      buttons: ['عُلم']
-    });
-    alert.present();
-  }
+
+
   
 
   getTimeStringById(id:number):Times{
@@ -197,13 +267,35 @@ this.showAlert();
 
 oredrNow(){
 
+let timeError:boolean=(typeof this.onTime=='undefined'||this.onTime==null);
+let descError:boolean=(typeof this.describsionText=='undefined'||this.describsionText==null||this.describsionText.length==0);
 
-  if((typeof this.onTime=='undefined'||this.onTime==null)||
-  (typeof this.describsionText=='undefined'||this.describsionText==null)
-  ){
-
-this.showUnCompleteAlert();
-  }else{
+  if(timeError||descError){
+    if(timeError&&descError){
+          this.translate.get('pickDate.both').subscribe(
+      value => {
+        this.loader.dismiss();
+   this.presentToast(value);
+      }
+    )
+    }else if(timeError){
+          this.translate.get('pickDate.timeMissed').subscribe(
+      value => {
+        this.loader.dismiss();
+   this.presentToast(value);
+      }
+    )
+    }else{
+       this.translate.get('pickDate.descMissed').subscribe(
+      value => {
+        this.loader.dismiss();
+   this.presentToast(value);
+      }
+    )
+    }
+ 
+ 
+    }else{
 
     let datePipe = new DatePipe('GMT');
     let ondateSql = datePipe.transform(this.onDate, 'yyyy-MM-dd 00:00:00');
@@ -216,9 +308,6 @@ OrderService.order.clientMobil=OrderService.user.mobile;
 
   //check in All Variables
 console.log(OrderService.order);
-     this.loader = this.loadingCtrl.create({
-      content: "جارى أرسال طلبكم...انتظر رجاء"
-    });
 this.loader.present();
   if(this.isIncludeFile){
 this.myordersService.uploadFile(PickDatePage.describsionFilePath)
@@ -232,17 +321,24 @@ console.log(JSON.stringify(response)+' response');
   OrderService.order.descriptionFile=response.name;
    this.sendOrder();
   }else{
-    this.showErrorAlert('خطأ اثناء ارسال الملف تاكد من اتصال الشبكة ثم حاول مجددا');    
-
+      this.translate.get('pickDate.fileError').subscribe(
+      value => {
+   
+   this.presentToast(value);
+      }
+    );
   }
 
 
    }, (err) => {
      
      console.log(JSON.stringify(err)+ ' file error');
-     this.loader.dismiss();
-this.showErrorAlert('خطأ اثناء ارسال الملف تاكد من اتصال الشبكة ثم حاول مجددا');
-
+      this.translate.get('pickDate.fileError').subscribe(
+      value => {
+        this.loader.dismiss();
+   this.presentToast(value);
+      }
+    )
 });
   }else{
    this.sendOrder();
@@ -333,16 +429,34 @@ this.myordersService.sendMyOrder(OrderService.order).then(response=>{
   //  this.showDoneToast();
    this.navCtrl.setRoot(RatingPage);
   }else{
-     this.loader.dismiss();
-this.showErrorAlert('حدث خطأ اثناء ارسال طلبك  تاكد من اتصال الشبكة ثم حاول مجددا');  ;
+    this.translate.get('myOrders.alert.networkError').subscribe(
+      value => {
+  this.loader.dismiss();
+  this.presentToast(value);
+
+      }
+    ) ;
   }
  
 }).catch((ex) => {
-     this.loader.dismiss();
-this.showErrorAlert('تاكد من اتصال الشبكة ثم حاول مجددا'); 
+   this.translate.get('myOrders.alert.networkError').subscribe(
+      value => {
+  this.loader.dismiss();
+  this.presentToast(value);
+
+      }
+    ) 
  });
   }
 
+
+ presentToast(message) {
+    let toast = this.toastCtrl.create({
+      message:message,
+      duration: 3000
+    });
+    toast.present();
+  }
 
 }
 

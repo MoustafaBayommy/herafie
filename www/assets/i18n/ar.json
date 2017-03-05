@@ -1,0 +1,214 @@
+{
+    "services": "خدمات ",
+    "ok": "عُلم",
+    "select": "إختيار",
+    "cancel": "إلغاء",
+    "places": {
+        "title": "حدد نوع موقعك",
+        "shops": "محلات تجارية",
+        "Restaurants": "مطاعم",
+        "Apartment": "شقة",
+        "Villa": "فيلا",
+        "building": "مبنى سكنى",
+        "Hotel": "فندق"
+    },
+    "mainservices": {
+        "title": "اختر نوع الخدمه",
+        "Clean": {
+            "name": "قسم النظافه",
+            "services": {
+                "Genral_Clean": "نظافة عامة",
+                "Laminate_Floor": "تلميع أرضيات",
+                "Anti_Bugs": "مكافحة الحشرات",
+                "Inlay_Tanks": "تقعيم خزانات",
+                "Furniture_Clean": "تنظيف أساس",
+                "others": "أخرى"
+            }
+        },
+        "Maintenance": {
+            "title": "قسم الصيانه",
+            "services": {
+                "Foundries": "سباكة",
+                "Electricity": "كهرباء",
+                "air_conditioning": "تكييف",
+                "others": "اخرى"
+            }
+        },
+        "Restoration_finishing": {
+            "title": "قسم الترميم  والتشطيب",
+            "services": {
+                "Installing_floors": "تركيب أرضيات",
+                "Paint": "دهانات",
+                "roof_scenery": "اسقف ودیكور",
+                "others": "اخرى"
+            }
+        },
+        "Electronics": {
+            "title": "قسم الإلكترونيات",
+            "services": {
+                "security_cameras": "'أنظمة مراقبة كامیرات",
+                "Networks_phone": "'شبكات و سنترالات",
+                "sound_systems": "أنظمة صوت",
+                "computers": "الحاسب وتوابعة",
+                "others": "اخرى"
+            }
+        }
+    },
+    "menu": {
+        "home": "الرئيسيه",
+        "newOrder": "طلب جديد",
+        "myOrders": "طلباتى",
+        "howToUse": "طريقة الإستخدام",
+        "rate": "تقييم",
+        "contactUs": "إتصل بنا",
+        "settings": "الإعدادات",
+        "aboutApp": "عن التطبيق"
+    },
+    "welcome": {
+        "welcome": "أهلا بك",
+        "text": "يتيح لك تطبيق حرّفى  الوصول لخدمات شركة الفكر الحرفى بكل سهوله وسرعة",
+        "order": "إطلب الان",
+        "usage": "طريقة الإستخدام",
+        "contact": "إتصل بنا"
+    },
+    "usage": {
+        "title": "طريقة إستخدام تطبيق حرّفى",
+        "getLocation": "إعتمد موقعك الجغرافى",
+        "selectplaceType": "حدد نوع موقعك ",
+        "selectServiceType": "اختر نوع الخدمة",
+        "selectService": "اختر الخدمة",
+        "pickDate": "اختر ميعاد مناسب وارفق وصف",
+        "order": "اطلب ",
+        "wait": "انتظر مندوبنا",
+        "evaluate": "قيم أدائنا"
+    },
+    "aboutaPP": {
+        "desc": " تم تطوير هذا التطبيق بواسطة شركة",
+        "tawwar": "Tawwar ",
+        "elfekr": "لصالح شركة الفكر الحرفى",
+        "copy": "جميع الحقوق محفوظة2017 "
+    },
+    "getLocation": {
+            "title":" موقعك",
+        "startLoading": "جارى تحديد موقعك...انتظر رجاء",
+        "acceptLocation": "إعتمد هذا الموقع",
+        "outSideMeccaAlert": "لايمكنك عمل طلب ما دمت خارج حدود منطقة  مكة الكرمة",
+        "gpsError": " خطأ اثناء تحديدالموقع تأكد من تفغيل موقعك ثم حاول  مجددا",
+        "noConnectionMessage": "لا يوجد اتصال بالانترنت تأكد من اتصال الشبكة ثم حاول مجددا",
+        "tryAgain": "حاول مجددا"
+    },
+    "contactUs": {
+        "address": "حى الشرائع مخطط 3 - مكة المكرمة",
+        "facebook": "مؤسسة الفكر الحرفى للمقاولات",
+        "twitter": "@alfeker0",
+        "phone": "920002967",
+        "email": "alfeker.alherafi@hotmail.com",
+        "whats": "0550076063",
+        "instigram": "alfekeralerafi"
+    },
+    "rate": {
+        "app": "تقييم التطبيق",
+        "representative": "تقييم المندوب",
+        "technician": "تقييم الفنى",
+        "notes": "ملاحظات",
+        "send": "إرسال التقييم",
+    "loading":"جارى إرسال طلبكم ....",
+        "alert":{
+    "error":"تأكد من اتصال الشبكة ثم حاول مجددا",
+    "alertButton":"عُلم"
+        }
+    },
+    "register": {
+        "title": "حساب جديد",
+        "name": "اللإسم",
+        "city": "المدينه",
+        "neigh": "الحى",
+        "email": "الإيميل",
+        "howmethod": "كيف سمعت عنا",
+        "required": "*مطلوب",
+        "button": "إنشاء حساب",
+            "loading":"....جارى إنشاء حساب جديد",
+        "neighs": {
+            "almusaffala": "المسفلة",
+            "alkaakih": "الكعكية",
+            "almalawaa": "الملاوى",
+            "butaha_quraysh": "بطحاء قريش",
+            "aleawala": "العوالى",
+            "aliiskan": "الاسكان",
+            "alshshawqia": "الشوقية",
+            "kudaa": "كدى",
+            "alssubhana": "السبهانى",
+            "alhamra": "الحمراء",
+            "alshshuhada": "الشهداء'",
+            "alemr": "العمرة",
+            "albuhayrat": "البحيرات",
+            "alnnawaria": "النوارية",
+            "alfayaha": "الفيحاء",
+            "sharie_alhajj": "شارع الحج",
+            "alghasala": "الغسالة",
+            "wadda_jalil": "وادى جليل",
+            "alkhinsa": "الخنساء",
+            "rie_dhakhir": "ريع زاخر",
+            "jarwal": "جرول",
+            "alotaibih": "العتيبيه",
+            "rie_alkihl": "ريع الكحل",
+            "alzzahir": "الزاهر",
+            "milqayh": "ملقيه",
+            "alssafla": "السفلة",
+            "alhijra": "الهجرة",
+            "alddayiree": "الدائرى",
+            "al_iiskan": "الإسكان",
+            "sharie_mansur": "شارع منصور",
+            "alhafayir": "الحفاير",
+            "altndbawa": "الطندباوى",
+            "alhindawia": "الهنداوية",
+            "albayban": "البيبان",
+            "alqashla": "القشلة",
+            "mukhattatat_alshsharayie": "مخططات الشرائع",
+            "sharayie_almujahidin": "شرائع المجاهدين",
+            "jabal_alnnur": "جبل النور"
+        },
+        "cities": {
+            "mecca": "مكة المكرمه"
+        },
+        "howmethods": {
+            "friend": "من صديق"
+        }
+    },
+    "pickDate": {
+        "title": "حدد موعد مناسب",
+        "date": "تاريخ",
+        "time": "وقت",
+        "desc": "وصف",
+        "attach": "إرفاق",
+        "order": "أطلب الأن",
+        "hint": "أختر توقيت",
+  "loading":"جارى إرسال طلبك....",
+  "timeMissed":"لابد من تحديد ميعاد مناسب",
+  "descMissed":"لابد من كتابة توصيف ",
+  "both":"لابد من  تحديد وقت وتوصيف مناسبين",
+  "fileError":"خطأ اثناء إرسال الملف تأكد من الإتصال ",
+    "dateerror":"الجمعة أجازة رسميه ..اختر تاريخ اخر",
+      "sent":"تم إرسال الطلب بنجاح  سوف نتصل بكم قريبا"
+
+
+    },
+    "myOrders": {
+        "title": "أحدث طلباتى",
+        "date": "التاريخ",
+        "location": "الموقع",
+        "Service": "الخدمة",
+        "notes": "ملاحظات",
+        "noOrders": "لم تقم بأى طلب بعد",
+        "ordeNow": "أطلب الأن",
+        "loadingMessage": "جارى تحميل أحدث طلباتك برجاء الإنتظار",
+        "alert": {
+            "networkError": "خطأ أثناء الإتصال تأكد من الإتصال ثم حاول مجددا",
+            "alertButton": "رجوع"
+        }
+    },
+      "setting":{
+    "title":"الإعدادت",
+    "notification":"إستقبال إشعارات"
+  }
+}

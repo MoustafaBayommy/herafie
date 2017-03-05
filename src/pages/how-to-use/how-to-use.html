@@ -4,68 +4,88 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
- <ion-header>
+<ion-header [@bounce]="bounceState">
  <herafieNav withMenu=true></herafieNav>
+  <ion-toolbar>
+<ion-label class="title"  ngClass="{{titlestyelClass}}">{{'usage.title'| translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
+
 
 
 
 <ion-content padding>
 
 
-  <div class="headline">
-<ion-label style="    direction: rtl;
-    width: 90%; font-size:130%;">طريقة الإستخدام</ion-label>
-</div>
+  <!--<div class="headline">
+    <ion-label  ngClass="{{titlestyelClass}}_title">{{'usage.title'| translate }}</ion-label>
+</div>-->
 <ion-list>
-  <button ion-item >
-    
-<i class="fa fa-map-marker"  style="font-size:150%;    color: #ff7f7f;"></i>
-  <span class="howToUseText" style="margin-right: 30px;">
-   حدد موقعك
-  </span>
+  <button  [@flyInOut]="flayState0" ion-item>
+                        <span class="button-inner" ngClass="{{titlestyelClass}}">            
+<i class="fa fa-map-marker"  style="font-size:150%;    margin: 0px;   color: #ff7f7f;"> 
+</i>
+<span class="usageText">{{'usage.getLocation'| translate }}</span>
+
+</span>
+
   </button>  
-  <button ion-item >
-<i class="fa icon-shopnew" style="font-size:150%;color: #5aa9c1;"></i>
-<span class="howToUseText">
-  اختر نوع المكان 
+  <button ion-item   [@flyInOut]="flayState1">
+                            <span class="button-inner" ngClass="{{titlestyelClass}}">            
+<i class="fa icon-shopnew" style="font-size:150%;   margin: 0px;color: #5aa9c1;">
+</i>
+<span class="usageText"> {{'usage.selectplaceType'| translate }}</span>
+
 </span>
-  </button>  
-   <button ion-item >
-<i class="fa fa-wrench" style="font-size:150%;    color: #7b7014;"></i>
-<span class="howToUseText">
-   اختر نوع الخدمة
+</button>
+<button ion-item  [@flyInOut]="flayState2">
+                             <span class="button-inner" ngClass="{{titlestyelClass}}">            
+<i class="fa fa-wrench" style="font-size:150%;    margin: 0px;   color: #7b7014;"> 
+</i>
+<span class="usageText">{{'usage.selectServiceType'| translate }}</span>
 </span>
-  </button> 
-     <button ion-item >
-<i class="fa icon-art-painting-rollernew" style="font-size:150%;    color: #e41dc1;"></i>
-<span class="howToUseText">
-  اختر الخدمة
+</button>
+<button ion-item  [@flyInOut]="flayState3">
+                               <span class="button-inner" ngClass="{{titlestyelClass}}">            
+<i class="fa icon-art-painting-rollernew" style="font-size:150%;    margin: 0px;   color: #e41dc1;">
+</i>
+<span class="usageText"> {{'usage.selectService'| translate }}</span>
+
 </span>
-  </button> 
-       <button ion-item >
-<i class="fa fa-clock-o" aria-hidden="true" style="font-size:150% ;    color: #fd8419;"></i>
-<span class="howToUseText">
-حدد المعد المناسب  وارفق الوصف  
-</span> 
-  </button> 
-         <button ion-item >
-<i class="fa fa-check" aria-hidden="true" style="font-size:150% ;    color: #9c2713;"></i>
- <span class="howToUseText">
- اطلب 
- </span>
-  </button> 
-         <button ion-item >
-<i class="fa fa-spinner" aria-hidden="true" style="font-size:150%;    color: #3cd0e0;"></i>
-<span class="howToUseText">
-انتظر مندوبنا
+</button>
+<button ion-item  [@flyInOut]="flayState4">
+   <span class="button-inner" ngClass="{{titlestyelClass}}">            
+
+<i class="fa fa-clock-o" aria-hidden="true" style="font-size:150% ;     margin: 0px;  color: #fd8419;"> 
+</i>
+<span class="usageText">{{'usage.pickDate'| translate }}</span>
+
 </span>
-  </button> 
-       <button ion-item >
-<i class="fa fa-star" aria-hidden="true" style="font-size:150%;    color: #cae021;"></i>
-<span class="howToUseText">
-قيّم أدائنا
+</button>
+<button ion-item  [@flyInOut]="flayState5">
+   <span class="button-inner" ngClass="{{titlestyelClass}}">            
+
+<i class="fa fa-check" aria-hidden="true" style="font-size:150% ;    margin: 0px;   color: #9c2713;"> 
+</i>
+<span class="usageText">{{'usage.order'| translate }}</span>
 </span>
-  </button> 
+</button>
+<button ion-item [@flyInOut]="flayState6">
+ <span class="button-inner" ngClass="{{titlestyelClass}}">            
+<i class="fa fa-spinner" aria-hidden="true" style="font-size:150%;     margin: 0px;  color: #3cd0e0;"> 
+</i>
+<span class="usageText">{{'usage.wait'| translate }}</span>
+
+</span>
+</button>
+<button ion-item [@flyInOut]="flayState7">
+ <span class="button-inner" ngClass="{{titlestyelClass}}">            
+<i class="fa fa-star" aria-hidden="true" style="font-size:150%;    margin: 0px;   color: #cae021;"> 
+</i>
+<span class="usageText">{{'usage.evaluate'| translate }}</span>
+
+</span>
+</button>
 </ion-list>
 </ion-content>

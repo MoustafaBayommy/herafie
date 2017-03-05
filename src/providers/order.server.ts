@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
  export class OrderService{
     public static order:Order;
     public static user:User;
+    public static lang:string;
     constructor(){
     }
      

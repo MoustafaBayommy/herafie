@@ -33,7 +33,7 @@ ion-content{
 
 .labelsList{
     margin-right: 10px;
-    font-size: 130%;
+    font-size: 110%;
     color: #afacac;
 }
 
@@ -44,4 +44,60 @@ ion-content{
     color: red;
     margin-top: 10px;
     margin-right: 20px;
+}
+
+.reg_ar>.item-inner>.input-wrapper>ion-label,.reg_ar>.labelRow>ion-label{
+    text-align: right;
+}
+
+.reg_ar>.item-inner>.input-wrapper>ion-input,.reg_ar>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
+        direction: rtl;
+}
+.reg_ar>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
+    margin-left: 0px;
+    padding: 0px;
+}
+.reg_en>.item-inner>.input-wrapper>ion-label,.reg_en>.labelRow>ion-label{
+    text-align: left;
+    font-size: 100%;
+}
+.reg_en>.labelRow>ion-label{
+    margin-left: 20px;
+    color: #908e8e;
+}
+.reg_en>.item-inner>.input-wrapper>ion-input,.reg_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
+    direction: ltr;
+}
+.reg_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
+    margin-right: 0px;
+    padding: 0px;
+}
+
+.reg_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.reg_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+
+
+.buttonRow>button>.button-inner{
+    color: #56deff;
+    font-size: 130%;
+         border-bottom-style: solid;
+    border-bottom-color: #d4d0cc;
+    border-bottom-width: 2px;
+    border-bottom-left-radius: 50px;
 }

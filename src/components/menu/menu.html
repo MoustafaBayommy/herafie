@@ -1,0 +1,32 @@
+<ion-menu [swipeEnabled]="false" [content]="content">
+  <!--<ion-header>
+    <ion-toolbar>
+     
+      <ion-title>Safety</ion-title>
+    </ion-toolbar>
+  </ion-header>-->
+
+  <ion-content>
+
+
+<div class="headOfMenu">
+ <herafieNav withMenU logoOnly="true"></herafieNav>
+
+
+</div>
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let menu of menuIteams" (click)="menuPage(menu)">
+            <span class="button-inner "  ngClass="{{titlestyelClass}}" style="font-size: 110%;">            
+
+       <ion-icon name="{{menu.icon}}"  style="color: #778681;font-size:160%;margin-left:5%;">   
+            <span style="color:#7f7f7f;font-size: 70%">
+                   {{menu.title | translate }}
+          </span>
+          </ion-icon> 
+            </span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>

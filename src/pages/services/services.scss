@@ -15,3 +15,22 @@ body > ion-app > ng-component > ion-nav > page-services > ion-content > div.scro
     margin-left: 5%;
     font-size: 120%;
 }
+
+.servicesubTitlr_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.servicesubTitlr_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}

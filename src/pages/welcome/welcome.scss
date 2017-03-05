@@ -1,3 +1,58 @@
 page-welcome {
 
 }
+
+.welcome_ar,.welcome_en{
+    font-size: 100%;
+}
+.welcome_ar{
+
+    justify-content: flex-start;
+    direction: rtl;
+    margin-right:20%;
+}
+
+.welcome_en{
+    justify-content: flex-start;
+    direction: ltr;
+        margin-left:20%;
+
+}
+
+.easyAcess{
+    font-size: 80%;
+    padding: 5px;
+}
+
+.welcome_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.welcome_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+
+
+.button-inner.welcome_ar{
+     border-bottom-style: solid;
+    border-bottom-color: #d4d0cc;
+    border-bottom-width: 2px;
+    border-bottom-left-radius: 50px;
+}
+.button-inner.welcome_en{
+     border-bottom-style: solid;
+    border-bottom-color: #d4d0cc;
+    border-bottom-width: 2px;
+    border-bottom-right-radius: 50px;
+}

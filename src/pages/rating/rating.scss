@@ -63,3 +63,64 @@ ul.rating li ion-icon {
 .labels{
   margin-top: 10px;
 }
+
+.rate_ar{
+direction: ltr;
+}
+
+.rate_en{
+direction: rtl;
+}
+
+.rate_en>.button-container>ion-row>ion-label{
+    margin-left: 10px;
+  text-align: left;
+}
+
+.rate_ar>.button-container>ion-row>ion-label{
+  text-align: right;
+}
+
+
+.rate_en>ion-item>.item-inner>.input-wrapper>ion-label{
+  margin-left: 10px;
+  text-align: left;
+}
+.rate_ar>ion-item>.item-inner>.input-wrapper>ion-label{
+  text-align: right;
+}
+
+
+.rate_en>ion-item>.item-inner>.input-wrapper>ion-textarea{
+padding-left: 20px;
+  direction: ltr;
+}
+.rate_ar>ion-item>.item-inner>.input-wrapper>ion-textarea{
+  direction: rtl;
+}
+
+.rate_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.rate_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+
+.btnrow>button>.button-inner{
+     border-bottom-style: solid;
+    border-bottom-color: #d4d0cc;
+    border-bottom-width: 2px;
+    border-bottom-left-radius: 50px;
+}

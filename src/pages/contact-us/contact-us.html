@@ -4,16 +4,19 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-<herafieNav withMenu=true></herafieNav>
-
+<ion-header [@bounce]="bounceState">
+<herafieNav  withMenu=true></herafieNav>
+   <ion-toolbar >
+<ion-label  class="title"  ngClass="{{titlestyelClass}}">{{'menu.contactUs'| translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
 
 
 
 <ion-content padding>
 
-  <div #map id="cnotactusmap" style="width: 100%;
+  <div  [@flyInOut]="flayState5" #map id="cnotactusmap" style="width: 100%;
     height: 40%;"></div>  
 
 
@@ -27,44 +30,56 @@
   </ion-fab>-->
   
 <ion-list>
-  <ion-item class="con-iteam" style="    border-bottom-color: #68e61a;">
+  <ion-item [@flyInOut]="flayState0" class="con-iteam" style="    border-bottom-color: #68e61a;">
+       <ion-label ngClass="{{titlestyelClass}}">
   <ion-icon name="pin" id="contactUsIc"  style="color:#f75b50;"></ion-icon>
-    <span>حى الشرائع مخطط 3 - مكة المكرمة</span>
+    <span> {{'contactUs.address'| translate }}</span>
+       </ion-label>
   </ion-item>
 
- <ion-item  class="con-iteam clickable" onclick="window.open('https://ar-ar.facebook.com/%D9%85%D9%88%D8%B3%D8%B3%D8%A9-%D8%A7%D9%84%D9%81%D9%83%D8%B1-%D8%A7%D9%84%D8%AD%D8%B1%D9%81%D9%89-%D9%84%D9%84%D9%85%D9%82%D8%A7%D9%88%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D9%87-1675194976070090/', '_system', 'location=yes'); return false;" style="    border-bottom-color: #68e61a;">
+ <ion-item  [@flyInOut]="flayState1"  class="con-iteam clickable" onclick="window.open('https://ar-ar.facebook.com/%D9%85%D9%88%D8%B3%D8%B3%D8%A9-%D8%A7%D9%84%D9%81%D9%83%D8%B1-%D8%A7%D9%84%D8%AD%D8%B1%D9%81%D9%89-%D9%84%D9%84%D9%85%D9%82%D8%A7%D9%88%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D9%87-1675194976070090/', '_system', 'location=yes'); return false;" style="    border-bottom-color: #68e61a;">
+    <ion-label ngClass="{{titlestyelClass}}">
     <ion-icon name="logo-facebook" id="contactUsIc" style="color:#54a0c5;"></ion-icon>
-        <span>مؤسسة الفكر الحرفى للمقاولات</span>
+        <span> {{'contactUs.facebook'| translate }}</span>
+    </ion-label>
  </ion-item>
 
 
 
- <ion-item onclick="window.open('https://twitter.com/alfeker0', '_system', 'location=yes');" class="con-iteam clickable" style="    border-bottom-color: #68e61a;">
+ <ion-item [@flyInOut]="flayState2" onclick="window.open('https://twitter.com/alfeker0', '_system', 'location=yes');" class="con-iteam clickable" style="    border-bottom-color: #68e61a;">
+     <ion-label ngClass="{{titlestyelClass}}">
   <ion-icon name="logo-twitter" id="contactUsIc" style="color:#3dcffd;"></ion-icon>
-        <span>@alfeker0</span>
+        <span>{{'contactUs.twitter'| translate }}</span>
+     </ion-label>
  </ion-item>
 
 
 
- <ion-item  class="con-iteam clickable" style="    border-bottom-color: #68e61a;">
-   
+ <ion-item   [@flyInOut]="flayState3" class="con-iteam clickable " style="    border-bottom-color: #68e61a;">
+   <ion-label ngClass="{{titlestyelClass}}">
     <ion-icon name="logo-instagram" id="contactUsIc"  style="color:#373c37;"></ion-icon>
-        <span>alfekeralerafi</span>
+        <span>{{'contactUs.instigram'| translate }}</span>
+   </ion-label>
  </ion-item>
- <ion-item  class="con-iteam" style="    border-bottom-color: #68e61a;">
-   
+ <ion-item  [@flyInOut]="flayState4" class="con-iteam" style="    border-bottom-color: #68e61a;">
+      <ion-label ngClass="{{titlestyelClass}}">
     <ion-icon name="md-mail" id="contactUsIc" style="color:#8654c5;"></ion-icon>
-        <span>alfeker.alherafi@hotmail.com</span>
+        <span>{{'contactUs.email'| translate }}</span>
+      </ion-label>
  </ion-item>
 
-  <ion-item class="con-iteam" style="    border-bottom-color: #68e61a;">
+  <ion-item  [@flyInOut]="flayState5" class="con-iteam" style="    border-bottom-color: #68e61a;">
+       <ion-label ngClass="{{titlestyelClass}}">
   <ion-icon name="call" id="contactUsIc" style="color:#67754c;" ></ion-icon>
-        <span>920002967</span>
+        <span>{{'contactUs.phone'| translate }}</span>
+       </ion-label>
  </ion-item>
 
-  <ion-item class="con-iteam" style="    border-bottom-color: #68e61a;">
+  <ion-item [@flyInOut]="flayState5" class="con-iteam" style="    border-bottom-color: #68e61a;">
+       <ion-label ngClass="{{titlestyelClass}}">
   <ion-icon name="logo-whatsapp"  id="contactUsIc" style="color:#60c554;" ></ion-icon>
-        <span>0550076063</span>
+        <span>{{'contactUs.whats'| translate }}</span>
+       </ion-label>
  </ion-item>
 </ion-list>
 
