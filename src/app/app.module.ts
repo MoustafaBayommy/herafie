@@ -18,6 +18,8 @@ import {PlaceDirective} from '../components/place/place'
 import {LoginService} from '../pages/login/login.service.ts'
 import {OrderService} from '../providers/order.server';
 import {MyOrdersService} from '../providers/myorders.service';
+import {VerifiyNumberService} from '../providers/verifiyNumber.service';
+
 import {ConnectivityService} from '../providers/connectivity-service';
 import { AppSqlTableService } from '../providers/app-sql-table-service';
 
@@ -30,6 +32,8 @@ import { OffersPage } from '../pages/pages';
 import { RulesPage } from '../pages/pages';
 import { SettingsPage } from '../pages/pages';
 import { AboutAppPage } from '../pages/pages';
+import { LoadingPagePage } from '../pages/pages';
+
 // import {LoadingModal} from '../components/loading-modal/loading-modal';
 
 import {DonePropOverPage} from '../pages/done-prop-over/done-prop-over';
@@ -66,7 +70,8 @@ RulesPage,
 SettingsPage,
 DonePropOverPage,AboutAppPage
 ,HerafieNavComponnent,
-MenuComponent
+MenuComponent,
+LoadingPagePage
 // LoadingModal
  ],
   imports: [
@@ -104,10 +109,11 @@ SettingsPage,
 WelcomePage,
 DonePropOverPage,AboutAppPage
     ,HerafieNavComponnent
-  ,MenuComponent
+  ,MenuComponent,
+  LoadingPagePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AdressService,LoginService,OrderService,MyOrdersService
-  ,ConnectivityService,AppSqlTableService
+  ,ConnectivityService,AppSqlTableService,VerifiyNumberService
   ]
 })
 export class AppModule {}

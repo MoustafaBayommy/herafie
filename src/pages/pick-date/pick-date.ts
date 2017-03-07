@@ -416,6 +416,7 @@ console.log('fileBrowsIos'+FilePicker);
 
     setTimeout(()=>{
     popover.dismiss();
+    this.showDoneToast();
 
     },2000);
 

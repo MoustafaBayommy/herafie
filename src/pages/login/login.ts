@@ -7,15 +7,18 @@ import { MainPage } from '../pages';
 
 import { Order } from '../order';
 import { LoginService } from './login.service';
-import { SQLite } from 'ionic-native';
+import { SQLite,Splashscreen } from 'ionic-native';
 
 import { OrderService } from '../../providers/order.server';
+import { VerifiyNumberService } from '../../providers/verifiyNumber.service';
+
 import { AppSqlTableService } from '../../providers/app-sql-table-service';
 
 import { User } from '../../models/user';
 import { WelcomePage } from '../pages';
 
-
+import { trigger, state, style, transition, animate, keyframes } from '@angular/core';//for animation
+import { TranslateService } from 'ng2-translate';
 
 
 import * as config from '../../herafie.config.ts';
@@ -34,8 +37,21 @@ declare var FacebookAccountKit: any;
 */
 @Component({
   selector: 'page-login',
-  template: ''
-  // templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  animations: [trigger('bounce', [
+    state('bouncing', style({
+      transform: 'translate3d(0,0,0)'
+    })),
+    transition('* => bouncing', [
+      animate('700ms ease-in', keyframes([
+        style({ transform: 'translate3d(0,0,0)', offset: 0 }),
+        style({ transform: 'translate3d(0,-10px,0)', offset: 0.5 }),
+        style({ transform: 'translate3d(0,0,0)', offset: 1 })
+      ]))
+    ]),
+
+  ])
+  ]
 })
 export class LoginPage {
   appTitle: string;
@@ -52,6 +68,9 @@ export class LoginPage {
   static stnavCtrl;
   static staticPlatForm: Platform;
   static sstaticAlert: AlertController;
+  titlestyelClass:string;
+  lang:string;
+ bounceState: String = "noBounce";
 
   constructor(
     public alertCtrl: AlertController,
@@ -61,8 +80,11 @@ export class LoginPage {
     public loginService: LoginService,
     public platform: Platform,
     orderService: OrderService,
-    public appSqlTableService: AppSqlTableService
+    public appSqlTableService: AppSqlTableService,
+    public verifyService:VerifiyNumberService
   ) {
+      this.lang=OrderService.lang;
+         this.titlestyelClass="login_"+OrderService.lang;
     this.appTitle = config.data.appTitle;
     this.appsubTitle = config.data.appSubTitle;
 
@@ -75,35 +97,39 @@ export class LoginPage {
     });
 
     LoginPage.stnavCtrl = this.navCtrl;
-        this.platform.ready().then(() => {
+//         this.platform.ready().then(() => {
      
    
  
-AppSqlTableService.openDataBase().then(()=>{
-    AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
+// AppSqlTableService.openDataBase().then(()=>{
+//     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
 
-      console.log('open database and test if table exist ' + data);
+//       console.log('open database and test if table exist ' + data);
 
-      if (typeof FacebookAccountKit != 'undefined' && FacebookAccountKit != null) {
-        this.isUserAlreadyLogged();
-      } else {
-        this.showAlert();
-        this.platform.exitApp();
-      }
-    }, (error) => {
-      console.error("Unable to execute sql", error);
-      this.showAlert();
-      this.platform.exitApp();
-    });
-}
-);
-   });
+//       if (typeof FacebookAccountKit != 'undefined' && FacebookAccountKit != null) {
+//         this.isUserAlreadyLogged();
+//       } else {
+//         this.showAlert();
+//         this.platform.exitApp();
+//       }
+//     }, (error) => {
+//       console.error("Unable to execute sql", error);
+//       this.showAlert();
+//       this.platform.exitApp();
+//     });
+// }
+// );
+//    });
 
 
 
   }
 
   ionViewDidLoad() {
+                this.bounceState ='bouncing';
+
+          Splashscreen.hide(); 
+
     console.log('ionViewDidLoad LoginPage');
 
   }

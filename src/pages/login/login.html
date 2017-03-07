@@ -4,76 +4,59 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-        
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-
- 
-  </ion-navbar>
-
+<ion-header [@bounce]="bounceState">
+    <herafieNav withMenu=true></herafieNav>
+    <ion-toolbar>
+        <ion-label class="title" ngClass="{{titlestyelClass}}"> {{'login.title' | translate }}
+        </ion-label>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding >
- <div>
+         <span class="icon-saudi-arabia">
+                </span>
+ <div class="sendingNumber" style="display: none">
 
 
+ </div>
+
+ <div class="enterCode" style="display:none">
+    <!--<input id="partitioned" type="text" maxlength="4" />-->
+ </div>
+
+
+    <div class="hint" ngClass="{{titlestyelClass}}">
+      <div>
+            <i class="fa fa-check-circle-o" aria-hidden="true" style="font-size: 600%; margin-bottom: 10px;"></i>
+      </div>
+
+       {{'login.verifyMobile' | translate }}   
+    </div>
+ <div class="inputes" ngClass="{{titlestyelClass}}">    
 <ion-row class="logRow">
     <ion-col width-100 class="logCol">
 <ion-row class="logRow">
-  <ion-col width-100 class="logCol">
-    <ion-item >  
-          <ion-label  >
-            أدخل رقم الجوال
-             </ion-label>
-    </ion-item>
-    </ion-col>
-</ion-row>
-<ion-row class="logRow">
-       <ion-col width-33 class="logCol">
-         <ion-item>
+ 
+          <ion-item class="phone" ngClass="{{titlestyelClass}}">
+    <ion-label ngClass="{{titlestyelClass}}" floating >       {{'login.mobile' | translate }}   
+</ion-label>
+    <ion-input ngClass="{{titlestyelClass}}"  [(ngModel)]="number" type="number"  id="data" ></ion-input>
+  </ion-item>
+         <ion-item  class="counry" ngClass="{{titlestyelClass}}">
     <ion-input   [(ngModel)]="countryCode" readonly type="text" id="key"  class="data">
+   
     </ion-input>
          </ion-item>
-       </ion-col>
-          <ion-col width-67 class="logCol">
-            <ion-item>
-    <ion-input  [(ngModel)]="phone"  type="number"  id="data">
-    </ion-input>
-        </ion-item>
-       </ion-col>
 </ion-row>
     </ion-col>
 </ion-row>
 
       </div>
-
- <button ion-button round  color="custome3" outline style="margin-top:30%;" id="login" (click)="login()">  
+<div class="send">
+ <button ion-button round  color="custome3" clear style="margin-top:30%;" id="login" (click)="login()">  
   <!--<ion-icon  style="font-size:120%; margin-right:10%;" name="ios-arrow-dropleft-outline"></ion-icon>-->
-  التالى</button>
-
+  {{'login.send' | translate }}</button>
+</div>
 </ion-content>

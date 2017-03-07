@@ -3,6 +3,15 @@
      "ok":"Ok",
     "select":"Select",
     "cancel":"Cancel",
+    "loadingPage":{
+      "title":"Perpare App"
+    },
+    "login":{
+  "title":"Mobile number verification",
+  "verifyMobile":"verification messange will  be sent to your phone",
+  "mobile":"Phone Number",
+  "send":"Send"
+    },
   "places": {
     "title": "select your Place",
     "shops": "shops",
@@ -67,7 +76,7 @@
   },
   "welcome": {
     "welcome": "welcome",
-    "text": "7erafi App  lets yoy access All  services of Elfekr Elherafie  company with all ease and speed",
+    "text": "7erafi App  lets you access All  services of Elfekr Elherafie  company with all ease and speed",
     "order": "Order Now",
     "usage": "Usage",
     "contact": "Contact Us"
@@ -129,6 +138,7 @@
     "required":"requied*",
     "button":"Register",
     "loading":"Creating your new account...",
+    "done":"your account created sucessfully",
    "neighs":{
      "almusaffala":"Almusaffala",
       "alkaakih":"Alkaakih",

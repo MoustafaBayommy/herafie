@@ -23,6 +23,7 @@ import    * as config   from '../herafie.config.ts';
 // import {SQLite} from 'ionic-native';
 import {TranslateService} from 'ng2-translate/ng2-translate';
 import {OrderService} from '../providers/order.server';
+import { LoadingPagePage } from '../pages/pages';
 
 
 
@@ -40,13 +41,13 @@ export class MyApp {
 
   appTitle:string;
   appsubTitle:string;
-  rootPage: any =MainPage;
+  rootPage: any =LoginPage;
 
 
   constructor(public platform: Platform, public translate: TranslateService) {
     console.log(navigator.language.split('-')[0]);
     OrderService.lang=navigator.language.split('-')[0];
-// OrderService.lang="ar";
+OrderService.lang="ar";
 this.translate.use(OrderService.lang);
     this.appTitle=config.data.appTitle;
     this.appsubTitle=config.data.appSubTitle;
@@ -61,7 +62,7 @@ this.translate.use(OrderService.lang);
       
     this.platform.ready().then(() => {
        StatusBar.styleDefault();
-      Splashscreen.hide(); 
+      // Splashscreen.hide(); 
 
    
     });

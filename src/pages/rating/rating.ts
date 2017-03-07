@@ -25,7 +25,7 @@ import { TranslateService } from 'ng2-translate';
       transform: 'translate3d(0,0,0)'
     })),
     transition('* => bouncing', [
-      animate('700ms ease-in', keyframes([
+      animate('1000ms ease-in', keyframes([
         style({ transform: 'translate3d(0,0,0)', offset: 0 }),
         style({ transform: 'translate3d(0,-10px,0)', offset: 0.5 }),
         style({ transform: 'translate3d(0,0,0)', offset: 1 })
@@ -93,9 +93,9 @@ export class RatingPage {
         setTimeout(() => {
           this.flayState2 = 'in';
 
-        }, 150);
-      }, 150);
-    }, 150);
+        }, 200);
+      }, 200);
+    }, 300);
     console.log('ionViewDidLoad RatingPage');
   }
 

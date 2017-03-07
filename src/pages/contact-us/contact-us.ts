@@ -36,8 +36,8 @@ declare var google;
       state('out', style({
         transform: 'translate3d(150%, 0, 0)'
       })),
-      transition('in => out', animate('100ms ease-in')),
-      transition('out => in', animate('100ms ease-out'))
+      transition('in => out', animate('150ms ease-in')),
+      transition('out => in', animate('150ms ease-out'))
     ])
     ]
 
@@ -55,7 +55,8 @@ export class ContactUsPage {
   flayState3: string = "out";
   flayState4: string = "out";
   flayState5: string = "out";
-
+  apiKey: any = 'AIzaSyASdic7DWMaptQh7ESsdRNqaXh2mNMCcvQ';
+  mapReady:string='block';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.titlestyelClass = "contactus_" + OrderService.lang;
 
@@ -87,8 +88,11 @@ this.flayState5='in';
     }, 150);
     }, 100);
     this.bounceState = 'bouncing';
-
+      if (typeof google == "undefined" || typeof google.maps == "undefined") {
+        this.reloadGoogleMapSdk();
+      }else{
     this.loadmap();
+      }
   }
 
   loadmap() {
@@ -114,6 +118,43 @@ this.flayState5='in';
       // alert('jhjhs');
       // // infowindow.open(map, marker);
     });
+    this.mapReady="none";
   }
+
+   reloadGoogleMapSdk() {
+
+    window['mapInit'] = () => {
+      //  if (typeof google === 'object' && typeof google.maps === 'object'){
+      //                              alert('loaddes');
+
+      //  }
+      if (typeof google == "undefined" || typeof google.maps == "undefined") {
+        //  if(typeof google == 'undefined'||google==null){
+      } else {
+        // alert('mapIntiateed000');
+    this.loadmap();
+
+  
+      }
+    }
+
+    let script = document.createElement("script");
+    let att1 = document.createAttribute("async");
+    let att2 = document.createAttribute("defer");
+
+    script.setAttributeNode(att1);
+    script.setAttributeNode(att2);
+
+    // if(this.apiKey){
+    script.src = ' https://maps.googleapis.com/maps/api/js?key=' + this.apiKey + '&language=' + OrderService.lang + '&region=KSA&callback=mapInit';
+    // } else {
+    //   script.src = 'http://maps.google.com/maps/api/js?callback=mapInit';       
+    // }
+
+    document.body.appendChild(script);
+
+
+  }
+
 
 }

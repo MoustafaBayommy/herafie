@@ -36426,11 +36426,11 @@ page-about-app {
 }
 
 .logo {
-  margin-top: 30%;
+  margin-top: 10%;
   padding: 20px;
   text-align: center;
   font-size: 500%;
-  color: #91f386;
+  color: #666669;
 }
 
 .aboutcontainer {
@@ -36813,6 +36813,24 @@ body > ion-app > ion-popover > div > div.popover-content > div > page-done-prop-
   color: #70ca12;
 }
 
+.loading_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.loading_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
 page-login {
   text-align: right;
 }
@@ -36848,14 +36866,124 @@ body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-
 
 #data > input {
   color: #ffa500;
-  font-size: 120%;
-  text-align: center;
+  font-size: 100%;
 }
 
 #key > input {
   color: #808080;
-  font-size: 120%;
+  font-size: 100%;
   text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.login_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.login_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.login_en.hint {
+  margin-top: 30px;
+  color: #6b716f;
+  direction: ltr;
+  text-align: center;
+  font-size: 90%;
+}
+
+.login_ar.hint {
+  margin-top: 30px;
+  color: #6b716f;
+  direction: rtl;
+  text-align: center;
+  font-size: 90%;
+}
+
+.login_ar ion-label, .login_en ion-label {
+  text-align: right;
+}
+
+ion-input.login_en > input, ion-input.login_ar > input {
+  text-align: left;
+}
+
+#partitioned {
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+}
+
+.login_ar.inputes, .login_en.inputes {
+  margin-top: 30px;
+  direction: rtl;
+}
+
+.login_ar.mobileLabel {
+  text-align: right;
+}
+
+.login_en.mobileLabel {
+  text-align: left;
+}
+
+.login_ar.phone {
+  direction: rtl;
+  text-align: right;
+}
+
+.login_en.phone {
+  direction: ltr;
+  text-align: left;
+}
+
+.login_en.counry {
+  direction: ltr;
+  width: 37%;
+}
+
+.login_ar.counry {
+  direction: rtl;
+  width: 30%;
+}
+
+.send > button > .button-inner {
+  color: #2da720;
+  font-size: 130%;
+  border-bottom-style: solid;
+  border-bottom-color: #d4d0cc;
+  border-bottom-width: 2px;
+  border-bottom-left-radius: 50px;
+}
+
+.enterCode {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+}
+
+.sendingNumber {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
 }
 
 .icons {
@@ -37047,6 +37175,14 @@ body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-c
   color: #70ca12;
 }
 
+item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-ios ion-avatar[item-left], .item-ios ion-thumbnail[item-left] {
+  margin: 0px;
+}
+
+.item-md [item-left], .item-md [item-right], .item-ios [item-left] {
+  margin: 0px;
+}
+
 .pricesDiv {
   color: #fff;
 }
@@ -37077,6 +37213,10 @@ body > ion-app > ng-component > ion-nav > page-main > ion-content > div.scroll-c
   width: 150%;
   font-size: 90%;
   color: #22b7dc;
+}
+
+.select-md, .select-ios {
+  padding: 0px;
 }
 
 ion-label {
@@ -37170,6 +37310,7 @@ body > ion-app > ng-component > ion-nav > page-pick-date > ion-content > div.scr
 
 .pick_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
   direction: ltr;
+  margin: auto;
 }
 
 .pick_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-datetime {
@@ -37189,6 +37330,7 @@ body > ion-app > ng-component > ion-nav > page-pick-date > ion-content > div.scr
 
 .pick_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
   direction: rtl;
+  margin: auto;
 }
 
 .pick_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-datetime {
@@ -37402,6 +37544,7 @@ ion-content {
 .reg_ar > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
   margin-left: 0px;
   padding: 0px;
+  margin: auto;
 }
 
 .reg_en > .item-inner > .input-wrapper > ion-label, .reg_en > .labelRow > ion-label {
@@ -37421,6 +37564,7 @@ ion-content {
 .reg_en > .iteamRow > ion-item > .item-inner > .input-wrapper > ion-select {
   margin-right: 0px;
   padding: 0px;
+  margin: auto;
 }
 
 .reg_en.title {

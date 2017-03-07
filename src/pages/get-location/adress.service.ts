@@ -33,8 +33,8 @@ getAdressFromLatAndLong(latitude:number,longtitude:number):Promise<any>{
 
 getDestanceInMinutes(from:string,to:string):Promise<string>{
     from=this.companyLocation;
-    // let googleUrl="https://maps.googleapis.com/maps/api"
-        let googleUrl="/googlemaps";//proxcey
+    let googleUrl="https://maps.googleapis.com/maps/api"
+        // let googleUrl="/googlemaps";//proxcey
 
        return this.http.get(googleUrl+'/distancematrix/json?units=imperial&origins='+from+'&destinations='+to+'&key='+this.key+'&language='+this.lang+'&region=KSA')
     .toPromise().then((response:any)=>{

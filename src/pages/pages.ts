@@ -17,3 +17,5 @@ export * from './offers/offers';
 export * from './rules/rules';
 export * from './settings/settings';
 export * from './about-app/about-app';
+export * from './loading-page/loading-page';
+

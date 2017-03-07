@@ -45,14 +45,138 @@ body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-
 
 #data > input
 {    color:#ffa500;
-     font-size: 120%;
-     text-align: center;
+     font-size: 100%;
 
 }
 #key > input
 {    color:#808080;
-     font-size: 120%;
+     font-size: 100%;
      text-align: center;
+     margin:0px;
+     padding: 0px;
 
 }
 
+
+
+.login_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.login_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}
+
+.login_en.hint{
+    margin-top: 30px;
+        color: #6b716f;
+           direction: ltr;
+     text-align: center;
+        font-size: 90%;
+}
+ 
+
+ .login_ar.hint{
+         margin-top: 30px;
+    color: #6b716f;
+           direction: rtl;
+     text-align: center;
+        font-size: 90%;
+}
+
+
+
+.login_ar ion-label,.login_en ion-label  {
+text-align: right;
+}
+
+ ion-input.login_en> input,ion-input.login_ar>input {
+    text-align: left;
+}
+
+
+#partitioned {
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+}
+
+
+
+.login_ar.inputes,.login_en.inputes{
+    margin-top: 30px;
+        direction: rtl;
+
+
+}
+
+.login_ar.mobileLabel{
+    text-align: right;
+
+}
+
+.login_en.mobileLabel{
+    text-align: left;
+}
+
+.login_ar.phone{
+direction: rtl;
+text-align: right;
+}
+
+.login_en.phone{
+direction: ltr;
+text-align: left;
+
+}
+
+.login_en.counry{
+    direction: ltr;
+            width: 37%;
+
+}
+.login_ar.counry{
+        direction: rtl;
+        width: 30%;
+}
+
+.send>button>.button-inner{
+    color: #2da720;
+    font-size: 130%;
+         border-bottom-style: solid;
+    border-bottom-color: #d4d0cc;
+    border-bottom-width: 2px;
+    border-bottom-left-radius: 50px;
+}
+
+.enterCode{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+}
+
+
+.sendingNumber{
+    width: 100%;
+    height: 100%;
+        z-index: 3;
+
+}

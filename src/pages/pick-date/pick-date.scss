@@ -27,6 +27,9 @@ page-pick-date {
     color: #22b7dc;
 }
 
+.select-md,.select-ios {
+    padding:0px;
+}
 ion-label{
      font-size:140%;
 }
@@ -122,6 +125,7 @@ padding-left: 20px;
 }
 .pick_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
     direction: ltr;
+        margin: auto;
 }
 .pick_en>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-datetime{
     direction: ltr;
@@ -138,6 +142,7 @@ direction: rtl;
 }
 .pick_ar>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-select{
     direction: rtl;
+        margin: auto;
 }
 .pick_ar>.iteamRow>ion-item>.item-inner>.input-wrapper>ion-datetime{
     direction: rtl;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController, PopoverController, ToastController } from 'ionic-angular';
 import * as config from '../../herafie.config.ts';
 import { User, Neigbouhood, City, ways } from '../../models/user';
 import { LoginService } from '../login/login.service';
@@ -85,6 +85,7 @@ export class RegisterPage {
   constructor(public loginservice: LoginService,
     public loadingCtrl: LoadingController,
     public navCtrl: NavController,
+      private toastCtrl: ToastController,
     public navParams: NavParams,
     private alertCtrl: AlertController,
     public popoverCtrl: PopoverController,
@@ -214,7 +215,7 @@ export class RegisterPage {
       this.translate.get('rate.alert').subscribe(
         value => {
           this.loader.dismiss();
-          this.showErrorAlert(value.error, value.alertButton);
+          this.presentToast(value.error);
         });
     });
 
@@ -232,6 +233,11 @@ export class RegisterPage {
 
     let popover = this.popoverCtrl.create(DonePropOverPage);
     popover.present();
+       this.translate.get('register.done').subscribe(
+        value => {
+          this.loader.dismiss();
+          this.presentToast(value);
+        });
     this.gotoNextScreen();
 
     setTimeout(() => {
@@ -261,6 +267,14 @@ export class RegisterPage {
       buttons: [button]
     });
     alert.present();
+  }
+
+ presentToast(message) {
+    let toast = this.toastCtrl.create({
+      message:message,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

@@ -86,3 +86,12 @@ max-width: 30%;
 
 }
 
+item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left],.item-ios ion-avatar[item-left], .item-ios ion-thumbnail[item-left] {
+    margin: 0px;
+
+}
+
+.item-md [item-left], .item-md [item-right],.item-ios [item-left] {
+        margin: 0px;
+
+}
