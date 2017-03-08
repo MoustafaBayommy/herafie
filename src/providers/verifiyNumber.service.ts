@@ -19,10 +19,10 @@ constructor(private http:Http){
       this.serverUrl=config.data.serverUrl;
 
 }
-sendVeifyCode(mobil:String,lang:string):Promise<any>{
+sendVeifyCode(mobile:String,lang:string):Promise<any>{
     
     
-   return this.http.get(`${this.serverUrl}clients/sendVerifyMessage?mobile=${mobil}&&lang=${lang}`)
+   return this.http.get(`${this.serverUrl}clients/sendVerifyMessage?mobile=${mobile}&&lang=${lang}`)
     .toPromise().then((response:any)=>{
 
        return  response.json();

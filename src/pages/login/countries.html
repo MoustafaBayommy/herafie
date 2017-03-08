@@ -1,0 +1,38 @@
+<!--<div style="widt">
+
+</div>-->
+
+<ion-content padding style="    margin-top: 90%;border-style: ridge;">
+  <div style="    text-align: center;
+    font-size: 120%;
+    color: #787e7c;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;">
+           {{'login.selectcountry' | translate }}   
+  </div>
+  <ion-list>
+    <button ion-item (click)="select('+966')">
+          <span class="button-inner" style="justify-content: flex-start;">
+  
+       <img src="assets/svg/saudi.svg" style=" width: 50px;" >
+<span style="    direction: ltr;
+    margin-right: 10px;">(+966)
+</span>
+         </span>
+     </button>
+    <button ion-item (click)="select('+20')">
+         <span class="button-inner" style="justify-content: flex-start;">
+  
+       <img src="assets/svg/egypt.svg" style=" width: 50px;" >
+<span style="    direction: ltr;
+    margin-right: 10px;">(+20)
+</span>         </span>
+     </button>
+         <button ion-item (click)="dismiss('0')">
+             <span class="button-inner" style="font-size: 120%;text-align: center;    border-bottom-style: inset;">
+       {{'login.dismiss' | translate }}   
+       </span>
+     </button>
+  </ion-list>
+
+</ion-content>

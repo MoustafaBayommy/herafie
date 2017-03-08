@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, AlertController, Platform } from 'ionic-angular';
+import { NavController,ViewController, NavParams, LoadingController, AlertController, Platform,ModalController} from 'ionic-angular';
 import { RegisterPage } from '../pages';
 // import {LoadingModal} from '../../components/loading-modal/loading-modal';
 import { GetLocationPage } from '../pages';
 import { MainPage } from '../pages';
+import { Countries } from './countries';
 
 import { Order } from '../order';
 import { LoginService } from './login.service';
-import { SQLite,Splashscreen } from 'ionic-native';
+import { SQLite, Splashscreen } from 'ionic-native';
 
 import { OrderService } from '../../providers/order.server';
 import { VerifiyNumberService } from '../../providers/verifiyNumber.service';
@@ -68,23 +69,29 @@ export class LoginPage {
   static stnavCtrl;
   static staticPlatForm: Platform;
   static sstaticAlert: AlertController;
-  titlestyelClass:string;
-  lang:string;
- bounceState: String = "noBounce";
-
+  titlestyelClass: string;
+  lang: string;
+  bounceState: String = "noBounce";
+  loadingDisplay: string = "none";
+  verifiyDisplay: string = "none";
+  mainDisplay: string = "block";
+  code: string;
+  loadingsrc: string = "assets/svg/ring.svg";
+  verifybuttonEnabled: boolean = true;
   constructor(
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     public navCtrl: NavController,
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     public loginService: LoginService,
     public platform: Platform,
     orderService: OrderService,
     public appSqlTableService: AppSqlTableService,
-    public verifyService:VerifiyNumberService
+    public verifyService: VerifiyNumberService
   ) {
-      this.lang=OrderService.lang;
-         this.titlestyelClass="login_"+OrderService.lang;
+    this.lang = OrderService.lang;
+    this.titlestyelClass = "login_" + OrderService.lang;
     this.appTitle = config.data.appTitle;
     this.appsubTitle = config.data.appSubTitle;
 
@@ -97,38 +104,38 @@ export class LoginPage {
     });
 
     LoginPage.stnavCtrl = this.navCtrl;
-//         this.platform.ready().then(() => {
-     
-   
- 
-// AppSqlTableService.openDataBase().then(()=>{
-//     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
+    //         this.platform.ready().then(() => {
 
-//       console.log('open database and test if table exist ' + data);
 
-//       if (typeof FacebookAccountKit != 'undefined' && FacebookAccountKit != null) {
-//         this.isUserAlreadyLogged();
-//       } else {
-//         this.showAlert();
-//         this.platform.exitApp();
-//       }
-//     }, (error) => {
-//       console.error("Unable to execute sql", error);
-//       this.showAlert();
-//       this.platform.exitApp();
-//     });
-// }
-// );
-//    });
+
+    // AppSqlTableService.openDataBase().then(()=>{
+    //     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
+
+    //       console.log('open database and test if table exist ' + data);
+
+    //       if (typeof FacebookAccountKit != 'undefined' && FacebookAccountKit != null) {
+    //         this.isUserAlreadyLogged();
+    //       } else {
+    //         this.showAlert();
+    //         this.platform.exitApp();
+    //       }
+    //     }, (error) => {
+    //       console.error("Unable to execute sql", error);
+    //       this.showAlert();
+    //       this.platform.exitApp();
+    //     });
+    // }
+    // );
+    //    });
 
 
 
   }
 
   ionViewDidLoad() {
-                this.bounceState ='bouncing';
+    this.bounceState = 'bouncing';
 
-          Splashscreen.hide(); 
+    Splashscreen.hide();
 
     console.log('ionViewDidLoad LoginPage');
 
@@ -180,7 +187,7 @@ export class LoginPage {
     AppSqlTableService.insertNewUser(OrderService.user).then((data) => {
 
       console.log('creat new user in database ');
-       LoginPage.loader.dismiss();
+      LoginPage.loader.dismiss();
       LoginPage.gotoNextScreen();
 
     }, (error) => {
@@ -234,16 +241,16 @@ export class LoginPage {
 
   isUserAlreadyLogged() {
     AppSqlTableService.selectAll().then((data) => {
-      console.log('returned Data from sqlLite '+data.rows);
-      if (data.rows.length  > 0) {
-    //  for(var i = 0; i < data.rows.length; i++) {
-    //                 this.people.push({firstname: data.rows.item(0).firstname, lastname: data.rows.item(i).lastname});
-    //             }
-        console.log('user ',  data.rows.item(0).mobil, ' Logged In Before');
+      console.log('returned Data from sqlLite ' + data.rows);
+      if (data.rows.length > 0) {
+        //  for(var i = 0; i < data.rows.length; i++) {
+        //                 this.people.push({firstname: data.rows.item(0).firstname, lastname: data.rows.item(i).lastname});
+        //             }
+        console.log('user ', data.rows.item(0).mobil, ' Logged In Before');
         //so user loged before
         //set current user data
         var currentUser: User = new User();
-        currentUser.mobile =  data.rows.item(0).mobil;
+        currentUser.mobile = data.rows.item(0).mobil;
         // currentUser
         OrderService.user = currentUser;
         LoginPage.loader.dismiss();
@@ -285,17 +292,52 @@ export class LoginPage {
       LoginPage.staticPlatForm.exitApp();
     }, 5000)
   }
+
+  sendMessage() {
+ let mobile=this.countryCode+this.mobilNumber;
+    console.log(this.countryCode+""+this.mobilNumber)
+          this.loadingsrc = "assets/svg/ring.svg";
+    this.mainDisplay = "none";
+    this.loadingDisplay = "block";
+    // setTimeout(() => {
+    //   this.loadingsrc = "assets/svg/correct.svg";
+    //   this.verifiyDisplay = "block";
+    //   this.loadingDisplay = "none";
+
+    // }, 1000)
+    this.verifyService.sendVeifyCode(mobile,this.lang);
+  }
+
+  enableverifyButton() {
+    console.log(this.code);
+    if (this.code.length == 4) {
+      this.verifybuttonEnabled = false;
+    } else {
+      this.verifybuttonEnabled = true;
+    }
+  }
+
+
+  resent() {
+    this.verifiyDisplay = "none";
+    this.loadingDisplay = "none";
+    this.mainDisplay = "block";
+
+  }
+
+  viewCountries(){
+    console.log('fgdh');
+  let modal = this.modalCtrl.create(Countries);
+    modal.onDidDismiss(code => {
+      console.log(code);
+            if(code=='0'){
+
+      }else{
+        this.countryCode=code;
+      }
+   });
+    modal.present();
+  }
 }
 
 
-
-
-var AccountKit_OnInteractive = function () {
-  AccountKit.init(
-    {
-      appId: 1079156802213194,
-      state: "Y1234",
-      version: "v1.1" // We are using Account Kit which is version 1.0
-    }
-  );
-};

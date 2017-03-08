@@ -10,7 +10,13 @@
   "title":"Mobile number verification",
   "verifyMobile":"verification messange will  be sent to your phone",
   "mobile":"Phone Number",
-  "send":"Send"
+  "send":"Send",
+  "sending":"sending your verification code",
+  "enter":"Enter you  verification code",
+  "verifiy":"Verifiy",
+  "resend":"Resend",
+  "selectcountry":"Select Country",
+  "dismiss":"cancel"
     },
   "places": {
     "title": "select your Place",

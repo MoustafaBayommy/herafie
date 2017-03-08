@@ -36919,18 +36919,6 @@ ion-input.login_en > input, ion-input.login_ar > input {
   text-align: left;
 }
 
-#partitioned {
-  padding-left: 15px;
-  letter-spacing: 42px;
-  border: 0;
-  background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
-  background-position: bottom;
-  background-size: 50px 1px;
-  background-repeat: repeat-x;
-  background-position-x: 35px;
-  width: 220px;
-}
-
 .login_ar.inputes, .login_en.inputes {
   margin-top: 30px;
   direction: rtl;
@@ -36961,7 +36949,7 @@ ion-input.login_en > input, ion-input.login_ar > input {
 
 .login_ar.counry {
   direction: rtl;
-  width: 30%;
+  width: 50%;
 }
 
 .send > button > .button-inner {
@@ -36976,14 +36964,33 @@ ion-input.login_en > input, ion-input.login_ar > input {
 .enterCode {
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: 5;
+  text-align: center;
 }
 
 .sendingNumber {
   width: 100%;
   height: 100%;
-  z-index: 3;
+  text-align: center;
+}
+
+#code {
+  display: block;
+  margin: 1em auto;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom-style: dotted;
+  border-bottom-color: #69c060;
+  padding: 0;
+  border-color: #9ada58;
+  width: 12ch;
+  font: 5ch droid sans mono, consolas, monospace;
+  letter-spacing: 2ch;
+}
+
+#code:focus {
+  outline: none;
+  color: #ffa500;
+  border-bottom-color: #9ada58;
 }
 
 .icons {

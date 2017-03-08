@@ -33,6 +33,7 @@ import { RulesPage } from '../pages/pages';
 import { SettingsPage } from '../pages/pages';
 import { AboutAppPage } from '../pages/pages';
 import { LoadingPagePage } from '../pages/pages';
+import { Countries } from '../pages/login/countries';
 
 // import {LoadingModal} from '../components/loading-modal/loading-modal';
 
@@ -71,7 +72,8 @@ SettingsPage,
 DonePropOverPage,AboutAppPage
 ,HerafieNavComponnent,
 MenuComponent,
-LoadingPagePage
+LoadingPagePage,
+Countries
 // LoadingModal
  ],
   imports: [
@@ -110,7 +112,8 @@ WelcomePage,
 DonePropOverPage,AboutAppPage
     ,HerafieNavComponnent
   ,MenuComponent,
-  LoadingPagePage
+  LoadingPagePage,
+  Countries
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AdressService,LoginService,OrderService,MyOrdersService
   ,ConnectivityService,AppSqlTableService,VerifiyNumberService
