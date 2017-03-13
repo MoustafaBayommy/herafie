@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild  } from '@angular/core';
 import { DatePipe  } from '@angular/common';
 
 import { NavController, NavParams,AlertController,Platform ,LoadingController,ToastController,PopoverController} from 'ionic-angular';
@@ -11,6 +11,8 @@ import {MyOrdersService} from '../../providers/myorders.service';
 import {DonePropOverPage} from '../done-prop-over/done-prop-over';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/core';//for animation
 import { TranslateService } from 'ng2-translate';
+import { Camera } from 'ionic-native';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions, CaptureAudioOptions, CaptureVideoOptions } from 'ionic-native';
 
 
 // import { PolymerElement } from '@vaadin/angular2-polymer';
@@ -76,7 +78,10 @@ interface Times {
   
 })
 export class PickDatePage {
-   
+   @ViewChild ('video') video:any;
+      @ViewChild ('image') image:any;
+   @ViewChild ('audio') audio:any;
+
  appTitle:string;
   appsubTitle:string;
     onTime:Times;
@@ -108,6 +113,18 @@ lang:string;
   flayState2: string = "out";
   flayState3: string = "out";
   flayState4: string = "out";
+  imageDisplay:string="none";
+  audioDisplay:string="none";
+  videoDisplay:string="none";
+
+  imagUrl:string="";
+  audioUrl:string="";
+  videoUrl:string="";
+
+    public base64File: string;
+
+
+
   constructor(public platform: Platform,public orderService:OrderService,
   public loadingCtrl: LoadingController,
   private toastCtrl: ToastController,
@@ -117,6 +134,9 @@ lang:string;
   public navCtrl: NavController, public navParams: NavParams,
     public translate: TranslateService
   ) {
+
+
+
     this.lang=OrderService.lang;
          this.titlestyelClass="pick_"+OrderService.lang;
  console.log(OrderService.order);
@@ -214,15 +234,25 @@ var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0,-1);
 
     var date:Date=new Date(event.year.value,event.month.value-1,event.day.value,0,0,0,0);
    
-   event.year.value=2020;
-   if(date.getDay()==5){
+  //  event.year.value=2020;
+  if(date.getTime>new Date().getTime){
+   if(date.getDay()!=5){
+      this.onDate=date;
+
     //  this.onDate= new Date();
-     this.selectedDate=this.onDate.toISOString();
-this.showAlert();
+    //  this.selectedDate=this.onDate.toISOString();
         
    }else{
-      this.onDate=date;
+
+      this.onDate= new Date(new Date().getTime()-60*60*24);
+     this.showAlert(1);
    }
+  }else{
+         this.onDate= new Date();
+         this.showAlert(0);
+  }
+       this.selectedDate=this.onDate.toISOString();
+
        console.log(this.selectedDate);
 
     console.log(this.onDate);
@@ -232,12 +262,21 @@ this.showAlert();
         this.onTime=this.getTimeStringById(id);
 
   }
-   showAlert() {
-       this.translate.get('pickDate.dateerror').subscribe(
+   showAlert(code:number) {
+     if(code==0){
+      this.translate.get('pickDate.invalied').subscribe(
       value => {
    this.presentToast(value);
       }
     )
+     }else{
+      this.translate.get('pickDate.dateerror').subscribe(
+      value => {
+   this.presentToast(value);
+      }
+    )
+     }
+ 
   }
 
   showDoneToast(){
@@ -309,6 +348,18 @@ OrderService.order.clientMobil=OrderService.user.mobile;
   //check in All Variables
 console.log(OrderService.order);
 this.loader.present();
+
+  this.isIncludeFile=true;
+  if(this.imagUrl.length>1){
+PickDatePage.describsionFilePath=this.imagUrl;
+  }else if(this.videoUrl.length>1){
+PickDatePage.describsionFilePath=this.videoUrl;
+  }else if(this.audioUrl.length>1){
+PickDatePage.describsionFilePath=this.audioUrl;
+  }else{
+this.isIncludeFile=false;
+  }
+
   if(this.isIncludeFile){
 this.myordersService.uploadFile(PickDatePage.describsionFilePath)
   .then((data) => {
@@ -349,7 +400,23 @@ console.log(JSON.stringify(response)+' response');
 }
 
 selectVideo(){
-this.openFileBrowser();
+
+  let options: CaptureVideoOptions = {    limit: 1,
+      duration: 120};
+MediaCapture.captureVideo(options)
+  .then(
+    (data: MediaFile[]) =>{
+  this.imageDisplay='none';
+            this.audioDisplay='none';
+      this.videoDisplay='block';
+      this.imagUrl='';
+      this.audioUrl='';
+      this.videoUrl='';
+      this.videoUrl=data[0].fullPath
+    },
+    (err: CaptureError) => console.error(err)
+  );
+// this.openFileBrowser();
 
 this.videoColor='#ffa500';
 this.audioColor='#7f7f7f';
@@ -357,14 +424,54 @@ this.imageColor='#7f7f7f';
 }
 
 selectImage(){
-  this.openFileBrowser();
+      let options: CaptureImageOptions = { limit: 1 };
+MediaCapture.captureImage(options)
+  .then(
+    (data: MediaFile[]) =>{
+
+      this.imageDisplay='block';
+            this.audioDisplay='none';
+      this.videoDisplay='none';
+      this.imagUrl='';
+      this.audioUrl='';
+      this.videoUrl='';
+      this.imagUrl=data[0].fullPath;
+    },
+    (err: CaptureError) => console.error(err)
+  );
+  // this.openFileBrowser();
 this.videoColor='#7f7f7f';
 this.audioColor='#7f7f7f';
 this.imageColor='#ffa500';
+// Camera.getPicture({destinationType: Camera.DestinationType.DATA_URL,
+//         targetWidth: 1000,
+//         targetHeight: 1000}).then((imageData) => {
+//  // imageData is either a base64 encoded string or a file URI
+//  // If it's base64:
+//  let base64Image = 'data:image/jpeg;base64,' + imageData;
+// }, (err) => {
+//  // Handle error
+// });
 }
 
 selectAudio(){
- this.openFileBrowser();
+
+    let options: CaptureAudioOptions = {   limit: 1,
+      duration: 120 };
+MediaCapture.captureAudio(options)
+  .then(
+    (data: MediaFile[]) => {
+        this.imageDisplay='none';
+            this.audioDisplay='block';
+      this.videoDisplay='none';
+      this.imagUrl='';
+      this.audioUrl='';
+      this.videoUrl='';
+      this.audioUrl=data[0].fullPath
+    },
+    (err: CaptureError) => console.error(err)
+  );
+//  this.openFileBrowser();
 this.videoColor='#7f7f7f';
 this.audioColor='#ffa500';
 this.imageColor='#7f7f7f';

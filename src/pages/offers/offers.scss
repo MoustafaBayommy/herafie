@@ -10,3 +10,30 @@ page-offers {
 .oldprice{
     text-decoration: line-through;
 }
+
+.offers_en{
+direction: ltr;
+}
+
+.offers_ar{
+    direction: rtl;
+}
+
+.offers_en.title{
+           direction: ltr;
+    width: 90%;
+     text-align: center;
+        font-size: 130%;
+        margin: auto;
+    color: #70ca12;
+}
+
+.offers_ar.title{
+       direction: rtl;
+    width: 90%; 
+         text-align: center;
+         font-size: 130%;
+             margin: auto;
+    color: #70ca12;
+
+}

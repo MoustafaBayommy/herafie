@@ -36867,6 +36867,8 @@ body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-
 #data > input {
   color: #ffa500;
   font-size: 100%;
+  text-align: center;
+  direction: ltr;
 }
 
 #key > input {
@@ -36896,19 +36898,19 @@ body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-
 }
 
 .login_en.hint {
-  margin-top: 30px;
+  margin-top: 10px;
   color: #6b716f;
   direction: ltr;
   text-align: center;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 .login_ar.hint {
-  margin-top: 30px;
+  margin-top: 10px;
   color: #6b716f;
   direction: rtl;
   text-align: center;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 .login_ar ion-label, .login_en ion-label {
@@ -36920,7 +36922,7 @@ ion-input.login_en > input, ion-input.login_ar > input {
 }
 
 .login_ar.inputes, .login_en.inputes {
-  margin-top: 30px;
+  margin-top: 10px;
   direction: rtl;
 }
 
@@ -36944,12 +36946,12 @@ ion-input.login_en > input, ion-input.login_ar > input {
 
 .login_en.counry {
   direction: ltr;
-  width: 37%;
+  width: 60%;
 }
 
 .login_ar.counry {
   direction: rtl;
-  width: 50%;
+  width: 60%;
 }
 
 .send > button > .button-inner {
@@ -36978,10 +36980,10 @@ ion-input.login_en > input, ion-input.login_ar > input {
   margin: 1em auto;
   margin-bottom: 10px;
   border: none;
-  border-bottom-style: dotted;
-  border-bottom-color: #69c060;
+  border-style: solid;
   padding: 0;
-  border-color: #9ada58;
+  border-color: #aeb5ae;
+  color: #ffa500;
   width: 12ch;
   font: 5ch droid sans mono, consolas, monospace;
   letter-spacing: 2ch;
@@ -36989,8 +36991,8 @@ ion-input.login_en > input, ion-input.login_ar > input {
 
 #code:focus {
   outline: none;
-  color: #ffa500;
-  border-bottom-color: #9ada58;
+  color: #fff;
+  background: #aeb5ae;
 }
 
 .icons {
@@ -37198,6 +37200,32 @@ item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-ios ion-
   text-decoration: line-through;
 }
 
+.offers_en {
+  direction: ltr;
+}
+
+.offers_ar {
+  direction: rtl;
+}
+
+.offers_en.title {
+  direction: ltr;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
+.offers_ar.title {
+  direction: rtl;
+  width: 90%;
+  text-align: center;
+  font-size: 130%;
+  margin: auto;
+  color: #70ca12;
+}
+
 .alert-tappable {
   text-align: right;
 }
@@ -37366,6 +37394,12 @@ body > ion-app > ng-component > ion-nav > page-pick-date > ion-content > div.scr
 .action-sheet-md .action-sheet-button {
   margin: 0px;
   color: #18859e;
+}
+
+.media {
+  text-align: center;
+  padding-left: 15px;
+  padding-top: 15px;
 }
 
 ion-label {
@@ -37722,4 +37756,102 @@ body > ion-app > ng-component > ion-nav > page-services > ion-content > div.scro
   border-bottom-color: #d4d0cc;
   border-bottom-width: 2px;
   border-bottom-right-radius: 50px;
+}
+
+.counter {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /* padding: 10px; */
+  background: #eb0f1d;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.notifications {
+  background: rgba(197, 236, 121, 0.38);
+}
+
+.notifications.welcome_ar {
+  margin-right: 0px;
+  direction: rtl;
+}
+
+.notifications.welcome_en {
+  margin-left: 0px;
+  direction: ltr;
+}
+
+h2.welcome_ar, p.welcome_ar {
+  text-align: right;
+}
+
+h2.welcome_en, p.welcome_en {
+  text-align: left;
+}
+
+.notifications.welcome_en {
+  direction: ltr;
+}
+
+.nheader.welcome_ar {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  direction: rtl;
+  padding: 0px;
+  margin: 0px;
+}
+
+.nheader.welcome_en {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  direction: ltr;
+  padding: 0px;
+  margin: 0px;
+}
+
+.date {
+  text-align: center;
+  margin-right: 0px;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #80d278;
+}
+
+body > ion-app > ng-component > ion-nav > page-welcome > ion-content > div.fixed-content > ion-fab > button > ion-icon {
+  color: #fff;
+}
+
+.welcome_ar.counter {
+  text-align: center;
+  left: 20%;
+}
+
+.welcome_en.counter {
+  text-align: center;
+}
+
+.welcome_ar.lastNotification {
+  background: transparent;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #80d278;
+  font-size: 110%;
+  padding: 10px;
+  direction: rtl;
+}
+
+.welcome_en.lastNotification {
+  background: transparent;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #80d278;
+  font-size: 110%;
+  padding: 10px;
+  direction: rtl;
 }

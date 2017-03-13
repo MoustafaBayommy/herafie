@@ -56,3 +56,115 @@ page-welcome {
     border-bottom-width: 2px;
     border-bottom-right-radius: 50px;
 }
+
+
+.counter{
+position: absolute;
+    // top: 0px;
+    width: 20px;
+    height: 20px;
+    /* padding: 10px; */
+    background: #eb0f1d;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    // left: 20%;
+}
+
+
+.notifications{
+       background: rgba(197, 236, 121, 0.38);
+
+}
+
+
+.notifications.welcome_ar{
+margin-right: 0px;
+    direction: rtl;
+
+}
+.notifications.welcome_en{
+margin-left: 0px;
+    direction: ltr;
+
+}
+
+h2.welcome_ar,p.welcome_ar{
+text-align: right;
+}
+
+h2.welcome_en,p.welcome_en{
+    text-align: left;
+}
+.notifications.welcome_en{
+    direction: ltr;
+
+}
+
+
+.nheader.welcome_ar{
+    justify-content: flex-start;
+         direction: rtl;
+             padding: 0px;
+    margin: 0px;
+
+
+}
+
+.nheader.welcome_en{
+    justify-content: flex-end;
+     direction: ltr;
+         padding: 0px;
+    margin: 0px;
+
+}
+
+
+.date{
+    text-align: center;
+    margin-right: 0px;
+    font-weight: 700;
+    text-decoration: underline;
+    color:#80d278;
+    }
+
+
+body > ion-app > ng-component > ion-nav > page-welcome > ion-content > div.fixed-content > ion-fab > button > ion-icon{
+    color: #fff;
+}
+
+.welcome_ar.counter{
+    text-align: center;
+    left: 20%;
+}
+
+.welcome_en.counter{
+    text-align: center;
+    // right: 20%;
+}
+
+
+.welcome_ar.lastNotification{
+    background: transparent;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #80d278;
+    font-size: 110%;
+    padding: 10px;
+    direction: rtl;
+}
+
+
+.welcome_en.lastNotification{
+    background: transparent;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #80d278;
+    font-size: 110%;
+    padding: 10px;
+        direction: rtl;
+
+}
+

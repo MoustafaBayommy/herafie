@@ -16,7 +16,13 @@
   "verifiy":"Verifiy",
   "resend":"Resend",
   "selectcountry":"Select Country",
-  "dismiss":"cancel"
+    "errorduringSending":"Sending error",
+  "dismiss":"cancel",
+       "alert":{  "networkError":"Connection error ,test your connection then try again",
+    "alertButton":"Back"},
+    "loading":{
+    "message":"log in..."
+    }
     },
   "places": {
     "title": "select your Place",
@@ -85,7 +91,8 @@
     "text": "7erafi App  lets you access All  services of Elfekr Elherafie  company with all ease and speed",
     "order": "Order Now",
     "usage": "Usage",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "prices":"prices / offers"
   },
   "usage": {
     "title": "How To Use 7erafi",
@@ -207,6 +214,7 @@
   "both":"you must Write appropriate  time and description",
   "fileError":"error while sending file  test your connection ",
   "dateerror":"Friday is our weekend select another day",
+  "invalied":"You must select Date grater than today",
   "sent":"your order sent succesfully we will call you soon"
     },
   "myOrders":{
@@ -224,5 +232,9 @@
   "setting":{
     "title":"Setting",
     "notification":"Notifications"
-  }
+  },
+"offers":{
+    "title":"Notifications",
+    "back":"back to Notifications "
+}
 }

@@ -44,8 +44,11 @@ body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-
 
 
 #data > input
-{    color:#ffa500;
-     font-size: 100%;
+{ 
+         color: #ffa500;
+    font-size: 100%;
+    text-align: center;
+    direction: ltr;
 
 }
 #key > input
@@ -79,20 +82,20 @@ body > ion-app > ng-component > ion-nav > page-login > ion-content > div.scroll-
 }
 
 .login_en.hint{
-    margin-top: 30px;
+    margin-top: 10px;
         color: #6b716f;
            direction: ltr;
      text-align: center;
-        font-size: 90%;
+        font-size: 95%;
 }
  
 
  .login_ar.hint{
-         margin-top: 30px;
+         margin-top: 10px;
     color: #6b716f;
            direction: rtl;
      text-align: center;
-        font-size: 90%;
+        font-size: 95%;
 }
 
 
@@ -111,7 +114,7 @@ text-align: right;
 
 
 .login_ar.inputes,.login_en.inputes{
-    margin-top: 30px;
+    margin-top: 10px;
         direction: rtl;
 
 
@@ -139,13 +142,11 @@ text-align: left;
 
 .login_en.counry{
     direction: ltr;
-            width: 37%;
-
+    width: 60%;
 }
 .login_ar.counry{
         direction: rtl;
-        width: 50%;
-}
+    width: 60%;}
 
 .send>button>.button-inner{
     color: #2da720;
@@ -185,11 +186,12 @@ $in-w: $n-char*($char-w + $gap);
 	margin: 1em auto;
         margin-bottom: 10px;
 	 border: none;
-        border-bottom-style: dotted;
-    border-bottom-color: #69c060;
+        border-style: solid;
 	padding: 0;
         // padding-left: .5em;
-    border-color: #9ada58;
+border-color: #aeb5ae;
+		color: #ffa500;
+
 	width: $in-w;
 	// background: repeating-linear-gradient(90deg, 
 	// 	dimgrey 0, dimgrey $char-w, 
@@ -200,8 +202,8 @@ $in-w: $n-char*($char-w + $gap);
 	
 	&:focus {
 		outline: none;
-		color: #ffa500;
-            border-bottom-color: #9ada58;
+		color: #fff;
+            background:  #aeb5ae;
 
 	}
 }

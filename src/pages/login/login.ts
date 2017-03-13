@@ -25,16 +25,10 @@ import { TranslateService } from 'ng2-translate';
 import * as config from '../../herafie.config.ts';
 
 
-declare var AccountKit: any;
-declare var FacebookAccountKit: any;
-//  declare var AccountKit_OnInteractive:any;
+
 
 
 /*
-  Generated class for the Login page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
 */
 @Component({
   selector: 'page-login',
@@ -77,7 +71,12 @@ export class LoginPage {
   mainDisplay: string = "block";
   code: string;
   loadingsrc: string = "assets/svg/ring.svg";
+    flagName: string = "assets/svg/egypt.svg";
+
   verifybuttonEnabled: boolean = true;
+  sendingError:boolean=false;
+  sendEnabled:boolean=false;
+ static translateStatic:TranslateService;
   constructor(
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
@@ -88,45 +87,34 @@ export class LoginPage {
     public platform: Platform,
     orderService: OrderService,
     public appSqlTableService: AppSqlTableService,
-    public verifyService: VerifiyNumberService
+    public verifyService: VerifiyNumberService,
+     public  translate:TranslateService
   ) {
     this.lang = OrderService.lang;
     this.titlestyelClass = "login_" + OrderService.lang;
     this.appTitle = config.data.appTitle;
     this.appsubTitle = config.data.appSubTitle;
-
+     
 
     LoginPage.staticPlatForm = this.platform;
     LoginPage.sstaticAlert = this.alertCtrl;
+LoginPage.translateStatic=this.translate;
 
-    LoginPage.loader = this.loadingCtrl.create({
-      content: "جارى تسجيل الدخول...انتظر رجاء"
+      LoginPage.translateStatic.get('login.loading.message').subscribe(
+  value => {
+   LoginPage.loader = this.loadingCtrl.create({
+      content:value
     });
+
+        });
+  
 
     LoginPage.stnavCtrl = this.navCtrl;
     //         this.platform.ready().then(() => {
 
 
 
-    // AppSqlTableService.openDataBase().then(()=>{
-    //     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
-
-    //       console.log('open database and test if table exist ' + data);
-
-    //       if (typeof FacebookAccountKit != 'undefined' && FacebookAccountKit != null) {
-    //         this.isUserAlreadyLogged();
-    //       } else {
-    //         this.showAlert();
-    //         this.platform.exitApp();
-    //       }
-    //     }, (error) => {
-    //       console.error("Unable to execute sql", error);
-    //       this.showAlert();
-    //       this.platform.exitApp();
-    //     });
-    // }
-    // );
-    //    });
+    
 
 
 
@@ -142,29 +130,6 @@ export class LoginPage {
   }
 
 
-
-  showFaceBookAccountKit() {
-
-    OrderService.user = new User();
-
-    //native
-    FacebookAccountKit.mobileLogin(function (response) {
-      console.log(JSON.stringify(response));
-      LoginPage.loginCallback(response);
-    }, function (error) {
-
-      console.log(error);
-
-    });
-
-
-    //web
-    // // AccountKit_OnInteractive();
-    // //     AccountKit.login("PHONE",{
-    // //        countryCode: this.countryCode, phoneNumber: this.mobilNumber
-    // //     },this.loginCallback);
-
-  }
 
 
   static signup() {
@@ -199,10 +164,11 @@ export class LoginPage {
   }
 
 
-  static loginCallback(response) {
-    if (typeof response != 'undefined' && response != null) {
-      if (typeof response.mobile != 'undefined' && response.mobile != null && response.mobile.length > 0) {
-        OrderService.user.mobile = response.mobile.substring(1);
+  static loginCallback(mobile) {
+    if(typeof OrderService.user=='undefined'||OrderService.user==null){
+       OrderService.user=new User();
+    }
+        OrderService.user.mobile =mobile.substring(1);
         LoginPage.loader.present();
         LoginService.isUser(`${OrderService.user.mobile}`).then(result => {
           console.log('result returned From Server ' + result);
@@ -218,70 +184,31 @@ export class LoginPage {
           }
 
         }, err => {
-          LoginPage.fbAccountFailedAlert('تاكد من اتصال الإنترنت ... جارى الخروج من التطبيق');
+
+
+       LoginPage.translateStatic.get('login.alert').subscribe(
+  value => {
+ LoginPage.loader.dismiss();
+ LoginPage.erroralert(value.networkError);
+
+        });
         })
 
 
-      } else {
-        //do some thing when response not defined
-        LoginPage.fbAccountFailedAlert('لم يتم تأكيد الجوال بصوره صحيحة ... جارى الخروج من التطبيق');
-
-      }
-    } else {
-      //do some thing when mobil not defined mean he hit cancel in try again in fb acount
-      LoginPage.fbAccountFailedAlert('لم يتم تأكيد الجوال بصوره صحيحة ... جارى الخروج من التطبيق');
-
-    }
-
+    
+ 
 
   }
 
 
 
 
-  isUserAlreadyLogged() {
-    AppSqlTableService.selectAll().then((data) => {
-      console.log('returned Data from sqlLite ' + data.rows);
-      if (data.rows.length > 0) {
-        //  for(var i = 0; i < data.rows.length; i++) {
-        //                 this.people.push({firstname: data.rows.item(0).firstname, lastname: data.rows.item(i).lastname});
-        //             }
-        console.log('user ', data.rows.item(0).mobil, ' Logged In Before');
-        //so user loged before
-        //set current user data
-        var currentUser: User = new User();
-        currentUser.mobile = data.rows.item(0).mobil;
-        // currentUser
-        OrderService.user = currentUser;
-        LoginPage.loader.dismiss();
-        LoginPage.gotoNextScreen();
-      } else {
-        console.log('new User Try to Login');
-
-        //so its first log may register or not that what we will check
-        //first test if that is its number using fb account Kit
-        LoginPage.loader.dismiss();
-        this.showFaceBookAccountKit();
-      }
-    }, (error) => {
-      console.error("Unable to execute sql", error);
-    });
 
 
-  }
 
 
-  showAlert() {
-    let alert = this.alertCtrl.create({
-      title: '',
-      subTitle: ' تأكد من اتصال الانترنت  ثم حاول مجددا',
-      buttons: ['رجوع']
-    });
-    alert.present();
-  }
 
-
-  static fbAccountFailedAlert(message: string) {
+  static erroralert(message: string) {
     let alert = LoginPage.sstaticAlert.create({
       title: message,
       subTitle: ''
@@ -294,6 +221,8 @@ export class LoginPage {
   }
 
   sendMessage() {
+    this.sendingError=false;
+
  let mobile=this.countryCode+this.mobilNumber;
     console.log(this.countryCode+""+this.mobilNumber)
           this.loadingsrc = "assets/svg/ring.svg";
@@ -305,16 +234,27 @@ export class LoginPage {
     //   this.loadingDisplay = "none";
 
     // }, 1000)
-    this.verifyService.sendVeifyCode(mobile,this.lang);
+    this.verifyService.sendVeifyCode(mobile,this.lang).then((response)=>{
+if(response.sent=='true'){
+      this.loadingsrc = "assets/svg/correct.svg";
+          setTimeout(() => {
+          this.verifiyDisplay = "block";
+      this.loadingDisplay = "none";
+    }, 1000)
+
+}else{
+        this.loadingsrc = "assets/svg/error.svg";
+this.sendingError=true;
+}
+    }).catch((e)=>{
+        this.loadingsrc = "assets/svg/error.svg";
+this.sendingError=true;
+
+    });
   }
 
   enableverifyButton() {
-    console.log(this.code);
-    if (this.code.length == 4) {
-      this.verifybuttonEnabled = false;
-    } else {
-      this.verifybuttonEnabled = true;
-    }
+    this.verifybuttonEnabled =(this.code+"").length != 4;
   }
 
 
@@ -322,6 +262,7 @@ export class LoginPage {
     this.verifiyDisplay = "none";
     this.loadingDisplay = "none";
     this.mainDisplay = "block";
+    this.code='';
 
   }
 
@@ -333,11 +274,47 @@ export class LoginPage {
             if(code=='0'){
 
       }else{
+        if(code=='+20'){
+this.flagName="assets/svg/egypt.svg";
+        }else{
+this.flagName="assets/svg/saudi.svg";
+        }
         this.countryCode=code;
       }
    });
     modal.present();
   }
+
+verifyCode(){
+    console.log(this.code);
+      this.loadingsrc = "assets/svg/ring.svg";
+
+      this.verifyService.verifyCode(this.countryCode+this.mobilNumber,this.code).then((response)=>{
+        console.log(response);
+if(response.verified=='true'){
+      this.loadingsrc = "assets/svg/correct.svg";
+      this.verifiyDisplay = "block";
+      this.loadingDisplay = "none";
+      setTimeout(()=>{
+LoginPage.loginCallback(this.countryCode+this.mobilNumber);
+      },1000)
+      
+}else{
+      this.loadingsrc = "assets/svg/error.svg";
+
+
+}
+    }).catch((e)=>{
+      this.loadingsrc = "assets/svg/error.svg";
+
+    });
+}
+enablesendbutton(){
+ this.sendEnabled=(this.mobilNumber+"").length>4;
+   
+ 
+}
+
 }
 
 

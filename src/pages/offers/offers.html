@@ -1,116 +1,63 @@
-<!--
-  Generated template for the Offers page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
- <ion-navbar >
-   
-   <button ion-button icon-only menuToggle class="menuIcon">
-      <ion-icon name="menu" ></ion-icon> 
-    </button>
-          
-    <ion-title  >
-      <div id="myCustomeTitle">
-     <ion-row class="head-row">
-      <ion-col width-50 class="head-col headIconCol">
-       <span class="icon-icon headIcon"> </span>   
-      </ion-col>
-        <ion-col width-50 class="head-col headTitleCol">
-<ion-row class="head-row">
-  <ion-col width-100 class="head-col">
-       <span class="titleSpan">{{appTitle}}</span>
-  </ion-col>
-</ion-row>
-<ion-row class="head-row">
-    <ion-col width-100 class="head-col">
- <span class="subtitle">{{appsubTitle}}</span>
-  </ion-col>
-</ion-row>
-      </ion-col>
-     </ion-row>
-      </div>
-  
- 
- </ion-title>
-               <!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
-
-  </ion-navbar>
 
 
+<ion-header [@bounce]="bounceState">
+<herafieNav  withMenu=true></herafieNav>
+   <ion-toolbar >
+<ion-label  class="title"  ngClass="{{titlestyelClass}}">{{'offers.title'| translate }}
+</ion-label> 
+ </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
+  <div id="allOffers" [style.display]="allOffer">
 
-
-<ion-content padding>
-    <div class="headline">
-<ion-label style="    direction: rtl;
-    width: 90%; font-size:140%;">العروض</ion-label>
-
-</div>
-<ion-list>
-  <ion-item class="singleUnitPrice">
+    <ion-card style="text-align: center;    text-align: center;
+    background: #b9f37c;" *ngFor="let notification of notifications" [@fade]="fadeState">
+  <ion-card-header>
+{{notification.title}}  </ion-card-header>
+  <ion-card-content>
+  {{notification.body}}
+  </ion-card-content>
+</ion-card>
+<!--<ion-list>
+  <ion-item  *ngFor="let notification of notifications" class="singleUnitPrice" ngClass="{{titlestyelClass}}" (click)="displayOffer(notification)">
     <ion-avatar item-left>
   <ion-icon name="briefcase"></ion-icon>
     </ion-avatar>
    <ion-row class="row">
-     <ion-col width-67 class="ion-col desc">
-    <h2>سباكة</h2>
-    <p>جميع انواعها</p>
+     <ion-col width-100 class="ion-col desc">
+    <h2>{{notification.title}}</h2>
+    <p>{{notification.body}}</p>
      </ion-col>
-          <ion-col width-33 class="ion-col " id="pricCol">
-<div class="pricesDiv oldprice">
-    <span>
-    100
-    </span>
-      <span>
-     ريال
-    </span>
-</div>
-<div class="pricesDiv newprice">
-    <span>
-    100
-    </span>
-      <span>
-     ريال
-    </span>
-</div>
-         </ion-col>
-   </ion-row>
-  </ion-item>
 
-  <ion-item class="singleUnitPrice">
-    <ion-avatar item-left>
-  <ion-icon name="briefcase"></ion-icon>
-    </ion-avatar>
-   <ion-row class="row">
-     <ion-col width-67 class="ion-col desc">
-    <h2>سباكة</h2>
-    <p>جميع انواعها</p>
-     </ion-col>
-          <ion-col width-33 class="ion-col " id="pricCol">
-<div class="pricesDiv oldprice">
-    <span>
-    100
-    </span>
-      <span>
-     ريال
-    </span>
-</div>
-<div class="pricesDiv newprice">
-    <span>
-    100
-    </span>
-      <span>
-     ريال
-    </span>
-</div>
-         </ion-col>
    </ion-row>
   </ion-item>
-</ion-list>
+</ion-list>-->
+  </div>
+<div id="singleOffer"  [style.display]="singleOffer">
+  <div *ngIf="selectNotification">
+
+<ion-card style="text-align: center;">
+  <ion-card-header>
+{{selectNotification.title}}  </ion-card-header>
+  <ion-card-content>
+  {{selectNotification.body}}
+  </ion-card-content>
+</ion-card>
+
+     <button ion-button color="secondary" clear (click)="bakToAll()" style="width: 100%;">
+     <span class="button-inner" style="    font-size: 70%;
+    color: #3abaa2;
+    ">
+    <span style="    border-bottom-color: #3abaa2;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;">
+      {{'offers.back' | translate }} 
+    </span>
+     </span>
+      </button>
+  </div>
+</div>
+
 </ion-content>

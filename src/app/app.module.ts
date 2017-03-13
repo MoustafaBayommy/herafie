@@ -11,7 +11,6 @@ import { ServicesPage } from '../pages/pages';
 import { WelcomePage } from '../pages/pages';
 import { RatingPage } from '../pages/pages';
 import { Ionic2RatingModule } from 'ionic2-rating';
-// import { DatePickerModule } from 'ng2-datepicker';
 import {HttpModule}from '@angular/http';
 import {AdressService} from '../pages/pages';
 import {PlaceDirective} from '../components/place/place'
@@ -42,12 +41,30 @@ import {HerafieNavComponnent} from '../components/herafieNav/herafieNav.componen
 import {MenuComponent} from '../components/menu/menu.component';
 import {TranslateModule,TranslateStaticLoader,TranslateLoader} from 'ng2-translate/ng2-translate';
 import {Http}from '@angular/http';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
 
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '34d5326a'
+  },
+  'push': {
+    'sender_id': '414279446493',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#ff0000'
+      }
+    }
+  }
+};
 @NgModule({
   declarations: [
     MyApp,
@@ -85,7 +102,8 @@ Countries
       useFactory: (createTranslateLoader),
       deps: [Http]
     }
-        )
+        ),  
+          CloudModule.forRoot(cloudSettings)
 
 
   ],

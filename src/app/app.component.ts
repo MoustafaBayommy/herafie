@@ -24,7 +24,9 @@ import    * as config   from '../herafie.config.ts';
 import {TranslateService} from 'ng2-translate/ng2-translate';
 import {OrderService} from '../providers/order.server';
 import { LoadingPagePage } from '../pages/pages';
-
+import { AppSqlTableService } from '../providers/app-sql-table-service';
+import { User } from '../models/user';
+import { Push, PushToken} from '@ionic/cloud-angular';
 
 
 
@@ -41,10 +43,10 @@ export class MyApp {
 
   appTitle:string;
   appsubTitle:string;
-  rootPage: any =LoginPage;
+  rootPage: any =WelcomePage;
 
 
-  constructor(public platform: Platform, public translate: TranslateService) {
+  constructor(public platform: Platform, public translate: TranslateService,public appSqlTableService: AppSqlTableService,public push: Push) {
     console.log(navigator.language.split('-')[0]);
     OrderService.lang=navigator.language.split('-')[0];
 OrderService.lang="ar";
@@ -56,20 +58,75 @@ this.translate.use(OrderService.lang);
 
   }
 
-  initializeApp() {
 
-    
-      
+  initializeApp() {
     this.platform.ready().then(() => {
        StatusBar.styleDefault();
-      // Splashscreen.hide(); 
+this.test();
+    //    this.push.register().then((t: PushToken) => {
+    //     return this.push.saveToken(t);
+    //   }).then((t: PushToken) => {
+    //     console.log('Token saved:', t.token);
+    //   });
+    
+
+    //    AppSqlTableService.openDataBase().then(()=>{
+    //     AppSqlTableService.CreateTableIFnOTeXIST().then((data) => {
+
+    //       console.log('open database and test if table exist ' + data);
+
+    //         this.isUserAlreadyLogged();
+      
+    //     }, (error) => {
+    //       console.error("Unable to execute sql", error);
+    //       this.platform.exitApp();
+    //     });
+    // }
+    // );
+       });
 
    
-    });
+    // });
   }
 
 
+test(){
+                  this.nav.setRoot(PickDatePage);
+      Splashscreen.hide(); 
 
+}
+
+
+  isUserAlreadyLogged() {
+    AppSqlTableService.selectAll().then((data) => {
+      console.log('returned Data from sqlLite ' + data.rows);
+      if (data.rows.length > 0) {
+        //  for(var i = 0; i < data.rows.length; i++) {
+        //                 this.people.push({firstname: data.rows.item(0).firstname, lastname: data.rows.item(i).lastname});
+        //             }
+        console.log('user ', data.rows.item(0).mobil, ' Logged In Before');
+        //so user loged before
+        //set current user data
+        var currentUser: User = new User();
+        currentUser.mobile = data.rows.item(0).mobil;
+        // currentUser
+        OrderService.user = currentUser;
+       this.nav.setRoot(WelcomePage);
+      } else {
+
+         this.nav.setRoot(LoginPage);
+
+        console.log('new User Try to Login');
+
+        //so its first log may register or not that what we will check
+        //first test if that is its number using fb account Kit
+      }
+    }, (error) => {
+      console.error("Unable to execute sql", error);
+    });
+
+
+  }
 
   
 }

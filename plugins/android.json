@@ -13,6 +13,9 @@
         "com.megster.cordova.FileChooser": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
@@ -37,6 +40,9 @@
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
+        "cordova-plugin-request-location-accuracy": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
@@ -55,7 +61,11 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
-        "cordova-plugin-request-location-accuracy": {
+        "phonegap-plugin-push": {
+            "SENDER_ID": "414279446493",
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         }
     },

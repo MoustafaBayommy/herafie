@@ -6,7 +6,7 @@
 -->
 
 <ion-header [@bounce]="bounceState">
-    <herafieNav withMenu=true></herafieNav>
+    <herafieNav withMenu></herafieNav>
     <ion-toolbar>
         <ion-label class="title" ngClass="{{titlestyelClass}}"> {{'login.title' | translate }}
         </ion-label>
@@ -14,30 +14,25 @@
 </ion-header>
 
 
-<ion-content padding >
-  
- <div class="sendingNumber" style="    margin-top: 50px;" [style.display]="loadingDisplay">
+<ion-content padding>
+    <!--sending message  start-->
 
-<img src="{{loadingsrc}}" style="display:block;     width: 100px;   margin: auto;">
-<div style="    margin-top: 30px;
-    color: #9e9d9a;">
-    {{'login.sending' | translate }}
-</div>
- </div>
+    <div class="sendingNumber" style="    margin-top: 50px;" [style.display]="loadingDisplay">
 
- <div class="enterCode" [style.display]="verifiyDisplay">
-     <img src="assets/svg/comment.svg" style=" width: 100px;">
+        <img src="{{loadingsrc}}" style="display:block;     width: 100px;   margin: auto;">
+        <div style="    margin-top: 30px;
+    color: #9e9d9a;"  [style.display]="sendingError?'none':'block'">
+            {{'login.sending' | translate }}
+        </div>
 
-    <!--<input id="partitioned" type="text" maxlength="4" />-->
-<div style="color:#b2aeae">
-    <span>
-               {{'login.enter' | translate }}   
-    </span>
-</div>
-
-<input maxlength='4' value='0123' id="code"  [(ngModel)]="code" (keyup)="enableverifyButton()" />
-
- <button ion-button color="secondary" clear (click)="resent()">
+  <div style="    margin-top: 30px;
+    color: #9e9d9a;"   [style.display]="sendingError?'block':'none'">
+          <div style="    margin-top: 30px;
+    color: #9e9d9a;"  >
+            {{'login.errorduringSending' | translate }}
+        </div>
+    
+      <button ion-button color="secondary" clear (click)="resent()">
      <span class="button-inner" style="    font-size: 70%;
     color: #3abaa2;
     ">
@@ -48,47 +43,112 @@
     </span>
      </span>
       </button>
-<div class="send" style="    margin-top: 50px;">
+              </div>
 
-       <button ion-button color="secondary" clear [disabled]="verifybuttonEnabled">
+    </div>
+    <!--sending message  end-->
+
+
+    <!--enter Code Block-->
+    <div class="enterCode" [style.display]="verifiyDisplay">
+        <img src="assets/svg/hash.svg" style=" width: 75px;">
+
+        <!--<input id="partitioned" type="text" maxlength="4" />-->
+        <div style="color:#b2aeae">
+
+            <span>
+               {{'login.enter' | translate }}   
+    </span>
+        </div>
+
+     
+
+
+        <input maxlength='4' type="number"  id="code" [(ngModel)]="code" (keyup)="enableverifyButton()" />
+
+        <button ion-button color="secondary" clear (click)="resent()">
+     <span class="button-inner" style="    font-size: 70%;
+    color: #3abaa2;
+    ">
+    <span style="    border-bottom-color: #3abaa2;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;">
+      {{'login.resend' | translate }} 
+    </span>
+     </span>
+      </button>
+        <div class="send" style="    margin-top: 50px;">
+
+            <button ion-button color="secondary" clear [disabled]="verifybuttonEnabled" (click)="verifyCode()">
  
       {{'login.verifiy' | translate }} 
       </button>
-</div>
- </div>
-
-<div [style.display]="mainDisplay">
-    <div class="hint" ngClass="{{titlestyelClass}}">
-      <div>
-     <img src="assets/svg/comment2.svg" style=" width: 100px;" >
-      </div>
-       {{'login.verifyMobile' | translate }}   
+        </div>
     </div>
- <div class="inputes" ngClass="{{titlestyelClass}}">    
-<ion-row class="logRow">
-    <ion-col width-100 class="logCol">
-<ion-row class="logRow">
- 
-          <ion-item class="phone" ngClass="{{titlestyelClass}}">
-    <ion-label ngClass="{{titlestyelClass}}" floating >       {{'login.mobile' | translate }}   
-</ion-label>
-    <ion-input ngClass="{{titlestyelClass}}"  [(ngModel)]="mobilNumber" type="number"  id="data" ></ion-input>
-  </ion-item>
-         <ion-item  class="counry" ngClass="{{titlestyelClass}}" (click)="viewCountries()">
-    
-    <ion-input   [(ngModel)]="countryCode" readonly type="text" id="key"  class="data">
-   
-    </ion-input>
-         </ion-item>
-</ion-row>
-    </ion-col>
-</ion-row>
+    <!--enter Code Block End-->
 
-      </div>
-<div class="send">
- <button ion-button round  color="custome3" clear style="margin-top:30%;" id="login" (click)="sendMessage()">  
+
+    <!--main  start-->
+    <div [style.display]="mainDisplay">
+        <div class="hint" ngClass="{{titlestyelClass}}">
+            <div>
+                <img src="assets/svg/phone.svg" style=" width: 50px;
+    border: 0;
+    margin-left: 50px;
+    margin-bottom: 30px;">
+            </div>
+            <span style="display: block; 
+    text-decoration: underline;
+        margin-bottom: 7px;
+    font-size: 120%;">
+          {{'login.title' | translate }}
+    </span>
+            <span>
+            {{'login.verifyMobile' | translate }}
+    </span>
+        </div>
+        <div class="inputes" ngClass="{{titlestyelClass}}">
+            <ion-row class="logRow">
+                <ion-col width-100 class="logCol">
+                    <ion-row class="logRow">
+
+                        <ion-item class="phone" ngClass="{{titlestyelClass}}">
+                            <ion-label ngClass="{{titlestyelClass}}" stacked style="    font-size: 95%;
+    color: #636962;"> {{'login.mobile' | translate }}
+                            </ion-label>
+                            <ion-input ngClass="{{titlestyelClass}}" [(ngModel)]="mobilNumber" type="number" id="data"  (keyup)="enablesendbutton()"></ion-input>
+                        </ion-item>
+                        <ion-item class="counry" ngClass="{{titlestyelClass}}" (click)="viewCountries()">
+
+                            <!--<ion-input [(ngModel)]="countryCode" readonly type="text" id="key" class="data">
+
+                            </ion-input>-->
+
+                            <ion-label style="text-align: center;    direction: ltr;
+                     margin-bottom: 0px;">
+                                <span style="    font-size: 150%;">
+                      {{countryCode}}                             
+                      </span>
+                                <span>
+             <img src="{{flagName}}" style=" width: 25px;      position: relative;
+    top: .3em;">
+                      </span>
+
+                            </ion-label>
+                            <input type="number">
+                        </ion-item>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+
+        </div>
+        <div class="send">
+            <button ion-button round color="custome3" clear style="margin-top:30%;" id="login"  [disabled]="!sendEnabled"  (click)="sendMessage()">  
   <!--<ion-icon  style="font-size:120%; margin-right:10%;" name="ios-arrow-dropleft-outline"></ion-icon>-->
   {{'login.send' | translate }}</button>
-</div>
-</div>
+        </div>
+    </div>
+    <!--main  End-->
+
+
 </ion-content>

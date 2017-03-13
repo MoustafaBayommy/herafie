@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 import {trigger, state, style, transition, animate, keyframes } from '@angular/core';//for animation
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 import    * as config   from '../../herafie.config.ts';
 import { ContactUsPage } from '../pages';
+import { OffersPage } from '../pages';
+
 import { HowToUsePage }from '../pages';
 import { GetLocationPage } from '../pages';
 import { OrderService } from '../../providers/order.server';
+import { AppSqlTableService } from '../../providers/app-sql-table-service';
+import { Splashscreen } from "ionic-native";
+import { Push, PushToken} from '@ionic/cloud-angular';
+import { Notification } from '../../models/notification';
 
 /*
   Generated class for the Welcome page.
@@ -35,8 +41,8 @@ import { OrderService } from '../../providers/order.server';
       state('out', style({
         transform: 'translate3d(150%, 0, 0)'
       })),
-      transition('in => out', animate('100ms ease-in')),
-      transition('out => in', animate('100ms ease-out'))
+      transition('in => out', animate('200ms ease-in')),
+      transition('out => in', animate('200ms ease-out'))
     ])
   ,
       trigger('bounce', [
@@ -72,15 +78,34 @@ flipState: String = 'notFlipped';
 flyState: String = 'out';
 fadeState: String = 'invisible';
 bounceState:String="noBounce";
+numberOfUnreadedNotification:number=0;
+latestNotification:Notification;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public platform: Platform,public navCtrl: NavController, public navParams: NavParams, public push: Push) {
 
         this.titlestyelClass="welcome_"+OrderService.lang;
 
+  this.latestNotification={title:"سباك محصلش",body:"دلوقتى تقدر تعمل احسن سباكة بخصم 20% فى الميه لو اتكلمت دلوقتى حالا",isReaded:0,date:'22-10-2015'};
+ this.numberOfUnreadedNotification=5;
+      this.push.rx.notification()
+      .subscribe((msg) => {
+        console.log(msg);
+        // this.navCtrl.push(OffersPage);
+      //  let notification:Notification=new Notification();
+      //   AppSqlTableService.CreateNotificationTableIFnOTeXIST().then(()=>{
+      //      AppSqlTableService.insertNewNotification(notification).then(()=>{
+      //  alert(msg);
+
+      //      })
+      //   });
+
+      });
+    
   }
 
   ionViewDidLoad() {
-    
+        Splashscreen.hide();
+
     this.bounceState = 'bouncing';  
   
     this.flipState="flipped";
@@ -92,6 +117,9 @@ bounceState:String="noBounce";
 
   setInterval(() => {
     this.fadeState =  'visible'; 
+    setTimeout(()=>{
+this.flyState="in";
+    },800)
 
     }, 300);
     console.log('ionViewDidLoad WelcomePage');
@@ -107,6 +135,11 @@ bounceState:String="noBounce";
   }
 goToContactUs(){
   this.navCtrl.push(ContactUsPage);
+
+}
+
+openNotifications(){
+    this.navCtrl.push(OffersPage);
 
 }
 }

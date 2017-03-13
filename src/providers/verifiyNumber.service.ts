@@ -20,7 +20,8 @@ constructor(private http:Http){
 
 }
 sendVeifyCode(mobile:String,lang:string):Promise<any>{
-    
+    mobile=mobile.split('+')[1];
+    console.log(mobile);
     
    return this.http.get(`${this.serverUrl}clients/sendVerifyMessage?mobile=${mobile}&&lang=${lang}`)
     .toPromise().then((response:any)=>{
@@ -31,8 +32,10 @@ sendVeifyCode(mobile:String,lang:string):Promise<any>{
 }
 
 
-verifyCode(mobil:String,code:string):Promise<any>{
-   return this.http.get(`${this.serverUrl}clients/verifySendedCode?mobile=${mobil}&&code=${code}`)
+verifyCode(mobile:String,code:string):Promise<any>{
+          mobile=mobile.split('+')[1];
+
+   return this.http.get(`${this.serverUrl}clients/verifySendedCode?mobile=${mobile}&&code=${code}`)
     .toPromise().then((response:any)=>{
 
        return  response.json();
