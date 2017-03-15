@@ -63,9 +63,9 @@
 
      
 
-
-        <input maxlength='4' type="number"  id="code" [(ngModel)]="code" (keyup)="enableverifyButton()" />
-
+<div style="padding: 10%;">
+        <input type="number"  id="code" [(ngModel)]="code" (keyup)="enableverifyButton()"   maxlength="4"/>
+</div>
         <button ion-button color="secondary" clear (click)="resent()">
      <span class="button-inner" style="    font-size: 70%;
     color: #3abaa2;

@@ -24,7 +24,10 @@ var n = elms.length;
                     <span class="fa {{col.iconName}}" [ngClass]="col.className"></span>
                 </ion-row>
                 <ion-row class="ionic-labels-row">
-                    <ion-label class="labels apartment" [ngClass]="col.className">{{ col.title | translate }}</ion-label>
+                    <ion-label class="labels apartment" [ngClass]="col.className">
+                        <span [innerHTML]="col.title | translate">
+        </span>
+                    </ion-label>
                 </ion-row>
             </ion-col>
         </ion-row>

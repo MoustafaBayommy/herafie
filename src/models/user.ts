@@ -8,6 +8,7 @@ email:string;
 neighborhood:Neigbouhood;
 city:string;
 knownFrom:string;
+notifiy:boolean;
 
 
 } ;

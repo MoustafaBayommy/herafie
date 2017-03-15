@@ -13,6 +13,7 @@ import { AppSqlTableService } from '../../providers/app-sql-table-service';
 import { Splashscreen } from "ionic-native";
 import { Push, PushToken} from '@ionic/cloud-angular';
 import { Notification } from '../../models/notification';
+import { Badge } from 'ionic-native';
 
 /*
   Generated class for the Welcome page.
@@ -78,29 +79,62 @@ flipState: String = 'notFlipped';
 flyState: String = 'out';
 fadeState: String = 'invisible';
 bounceState:String="noBounce";
-numberOfUnreadedNotification:number=0;
-latestNotification:Notification;
+static numberOfUnreadedNotification:number=0;
+static latestNotification:Notification;
 
   constructor(public platform: Platform,public navCtrl: NavController, public navParams: NavParams, public push: Push) {
 
         this.titlestyelClass="welcome_"+OrderService.lang;
 
-  this.latestNotification={title:"سباك محصلش",body:"دلوقتى تقدر تعمل احسن سباكة بخصم 20% فى الميه لو اتكلمت دلوقتى حالا",isReaded:0,date:'22-10-2015'};
- this.numberOfUnreadedNotification=5;
+  // this.latestNotification={title:"سباك محصلش",body:"دلوقتى تقدر تعمل احسن سباكة بخصم 20% فى الميه لو اتكلمت دلوقتى حالا",isReaded:0,date:'22-10-2015'};
+
       this.push.rx.notification()
       .subscribe((msg) => {
+        alert('recieved');
         console.log(msg);
         // this.navCtrl.push(OffersPage);
-      //  let notification:Notification=new Notification();
-      //   AppSqlTableService.CreateNotificationTableIFnOTeXIST().then(()=>{
-      //      AppSqlTableService.insertNewNotification(notification).then(()=>{
-      //  alert(msg);
-
-      //      })
-      //   });
+        
+       let notification:Notification=new Notification();
+       notification.title=msg.title;
+       notification.body=msg.text;
+        AppSqlTableService.CreateNotificationTableIFnOTeXIST().then(()=>{
+           AppSqlTableService.insertNewNotification(notification).then(()=>{
+             WelcomePage.latestNotification=notification;
+             console.log(WelcomePage.latestNotification);
+          AppSqlTableService.countNotificationsBasedOnState('new').then((data)=>{
+        if(data.rows.length>0){
+   WelcomePage.numberOfUnreadedNotification=data.rows.length;
+        }
+   
+      }).catch((error)=>{
 
       });
+
+           })
+        });
+
+      });
+
+WelcomePage.getUnReadedNottifications()
+
+      
     
+  }
+
+   static getUnReadedNottifications(){
+          AppSqlTableService.countNotificationsBasedOnState('new').then((data)=>{
+        if(data.rows.length>0){
+   WelcomePage.numberOfUnreadedNotification=data.rows.length;
+   Badge.set(WelcomePage.numberOfUnreadedNotification);
+           WelcomePage.latestNotification={ title: data.rows.item(0).title, body: data.rows.item(0).body, date: "", isReaded: 0 };
+
+     
+        }
+   
+      }).catch((error)=>{
+
+      });
+
   }
 
   ionViewDidLoad() {
@@ -140,6 +174,16 @@ goToContactUs(){
 
 openNotifications(){
     this.navCtrl.push(OffersPage);
+    Badge.clear();
+
 
 }
+
+get staticNumberOfUnreadedNotification() {
+    return WelcomePage.numberOfUnreadedNotification
+  }
+
+  get staticLatestNotification() {
+    return WelcomePage.latestNotification
+  }
 }

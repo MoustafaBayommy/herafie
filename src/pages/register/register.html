@@ -86,7 +86,7 @@
   <ion-col width-100 class=" formcol" ngClass="{{titlestyelClass}}">
     <ion-item ngClass="{{titlestyelClass}}">
     <ion-label floating>{{'register.email' | translate }}</ion-label>
-    <ion-input type="email" [formControl]="myForm.controls['email']"></ion-input>
+    <ion-input type="email" [formControl]="myForm.controls['email']" pattern=".+@.+"></ion-input>
   </ion-item>
   <div *ngIf="email.hasError('required')"
  class="ui error message">{{'register.required' | translate }}
@@ -128,7 +128,7 @@
     <!--</ion-item>-->
 
 <ion-row  class="buttonRow" style="margin-bottom: 30px;margin-top: 50px;">
-   <button   ion-button color="safety" clear  type="submit" style="font-size: 80%;">
+   <button   ion-button color="safety" clear  type="submit" style="font-size: 80%;"  [disabled]="!myForm.valid">
      {{'register.button' | translate }}</button>
 
 </ion-row>

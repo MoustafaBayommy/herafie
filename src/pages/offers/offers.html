@@ -10,13 +10,45 @@
 
 
 <ion-content padding>
+
+    <div class="loading" style="    margin-top: 50px;" [style.display]="loadingDisplay">
+
+        <img src="{{loadingsrc}}" style="display:block;     width: 100px;   margin: auto;">
+        <div style="    margin-top: 30px;
+    color: #9e9d9a;"  [style.display]="sendingError?'none':'block'">
+            {{'offers.loading' | translate }}
+        </div>
+
+  <div style="    margin-top: 30px;
+    color: #9e9d9a;"   [style.display]="sendingError?'block':'none'">
+          <div style="    margin-top: 30px;
+    color: #9e9d9a;"  >
+            {{'offers.error' | translate }}
+        </div>
+    
+ 
+              </div>
+
+    </div>
+<div [style.display]="mainDisplay">
   <div id="allOffers" [style.display]="allOffer">
 
     <ion-card style="text-align: center;    text-align: center;
-    background: #b9f37c;" *ngFor="let notification of notifications" [@fade]="fadeState">
-  <ion-card-header>
-{{notification.title}}  </ion-card-header>
-  <ion-card-content>
+        background: rgb(255, 255, 255);
+    color: #f3a413;" *ngFor="let notification of notifications" [@fade]="fadeState">
+  <ion-card-header style=" 
+         padding: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #23b6e8;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #9fdb61;
+    ">
+{{notification.title}}   <ion-icon name="ios-color-wand-outline" style="    color: #a4dd68;
+    font-size: 230%;"></ion-icon>
+ </ion-card-header>
+  <ion-card-content style="padding-top: 10px;">
   {{notification.body}}
   </ion-card-content>
 </ion-card>
@@ -59,5 +91,5 @@
       </button>
   </div>
 </div>
-
+</div>
 </ion-content>

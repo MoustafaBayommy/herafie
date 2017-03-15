@@ -8,7 +8,13 @@
     font-family: ReemKufi-Regular;
     src: url('assets/fonts/ReemKufi-Regular.ttf');
 }
+body > ion-app > ng-component > ion-nav > page-pick-date > ion-header > herafienav > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div{   
+     text-align: right;
 
+}
+img{
+    width: 3em;
+}
 </style>
 <ion-navbar style="    height: 70px;
     /* height: 150%; */
@@ -19,8 +25,15 @@
       <ion-icon name="menu" ></ion-icon> 
     </button>
 
-<ion-title style="    padding-right: 10%;">
-  <div  style="      padding: 0px;
+<ion-title >
+    <div style=" padding: 0px;
+    margin: 0px;
+    text-align: right;
+    position: relative;
+top: 7px;">
+    <img src="img/icon.png" >
+    </div>
+  <!--<div  style="      padding: 0px;
     margin: 0px;
     text-align: right;
     position: relative;
@@ -38,7 +51,7 @@ color: #2da720;
     font-family: ReemKufi-Regular;
    padding-top: 4px;">
 <span >{{appsubTitle}}</span>
-  </div>
+  </div>-->
 </ion-title>
 <!--<ion-title style="font-size:70%;">يجعل حياتك أسهل</ion-title>-->
 </ion-navbar>

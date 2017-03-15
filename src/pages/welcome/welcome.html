@@ -15,7 +15,7 @@
 
 <ion-content [@fade]="fadeState" padding style="text-align:center">
 
-   <ion-list   [@flyInOut]="flyState">
+   <ion-list   [@flyInOut]="flyState" *ngIf="staticNumberOfUnreadedNotification>0">
 
     <!--<ion-list-header ngClass="{{titlestyelClass}}" class="nheader">
               <div class="date" ngClass="{{titlestyelClass}}">{{'welcome.prices' | translate }}</div>            
@@ -27,10 +27,10 @@
       <ion-avatar item-left>
         <img src="assets/svg/gift.svg">
       </ion-avatar>
-                  <span class="counter" ngClass="{{titlestyelClass}}">{{numberOfUnreadedNotification}}</span>
+                  <span class="counter" ngClass="{{titlestyelClass}}">{{staticNumberOfUnreadedNotification}}</span>
 
-      <h2 style="text-decoration: underline;" ngClass="{{titlestyelClass}}" >{{latestNotification.title}}</h2>
-      <p ngClass="{{titlestyelClass}}">{{latestNotification.body}}</p>
+      <h2 style="text-decoration: underline;" ngClass="{{titlestyelClass}}" >{{staticLatestNotification.title}}</h2>
+      <p ngClass="{{titlestyelClass}}">{{staticLatestNotification.body}}</p>
       <!--<ion-note item-right>1:12 pm</ion-note>-->
     </ion-item>
     </ion-list>

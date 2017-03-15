@@ -48,6 +48,8 @@ export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, 'assets/i18n', '.json');
 }
 
+
+
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': '34d5326a'
@@ -135,6 +137,8 @@ DonePropOverPage,AboutAppPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AdressService,LoginService,OrderService,MyOrdersService
   ,ConnectivityService,AppSqlTableService,VerifiyNumberService
-  ]
+  ],
+      // pipes : [EscapeHtmlPipe]
+
 })
 export class AppModule {}

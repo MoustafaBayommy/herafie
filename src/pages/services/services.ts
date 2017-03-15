@@ -82,7 +82,7 @@ export class ServicesPage {
       iconName: 'fa-wrench',
       className: 'nonActive'
 
-    }], [{
+    }, {
       id: 0,
       name: 'نظافة',
       title: 'mainservices.Clean.title',
@@ -96,7 +96,7 @@ export class ServicesPage {
       title: 'mainservices.Restoration_finishing.title',
       iconName: 'icon-key-1',
       className: 'nonActive'
-    }], [{
+    }, {
       id: 0,
       name: 'إلكترونيات',
       title: 'mainservices.Electronics.title',

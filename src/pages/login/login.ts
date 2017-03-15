@@ -67,8 +67,8 @@ export class LoginPage {
   lang: string;
   bounceState: String = "noBounce";
   loadingDisplay: string = "none";
-  verifiyDisplay: string = "none";
-  mainDisplay: string = "block";
+  verifiyDisplay: string = "block";
+  mainDisplay: string = "none";
   code: string;
   loadingsrc: string = "assets/svg/ring.svg";
     flagName: string = "assets/svg/egypt.svg";
@@ -174,6 +174,10 @@ LoginPage.translateStatic=this.translate;
           console.log('result returned From Server ' + result);
 
           if (result.isClient === 'true') {
+           OrderService.user.name=result.name;
+           OrderService.user.neighborhood=result.neighborhood;
+            OrderService.user.email=result.email;
+            OrderService.user.notifiy=(result.notifiy==='1');
             console.log('the user is already register ');
 
             LoginPage.craeteUserInTableThenLogeed()

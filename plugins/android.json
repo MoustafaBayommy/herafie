@@ -67,6 +67,9 @@
         },
         "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-badge": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
         }
     },
     "dependent_plugins": {
@@ -74,6 +77,9 @@
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.herfa743096"
+        },
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.ionicframework.herfa743096"
         }
     }

@@ -39,7 +39,7 @@
     "mainservices": {
         "title": "اختر نوع الخدمه",
         "Clean": {
-            "name": "قسم النظافه",
+            "name": " النظافه",
             "services": {
                 "Genral_Clean": "نظافة عامة",
                 "Laminate_Floor": "تلميع أرضيات",
@@ -50,7 +50,7 @@
             }
         },
         "Maintenance": {
-            "title": "قسم الصيانه",
+            "title": " الصيانه",
             "services": {
                 "Foundries": "سباكة",
                 "Electricity": "كهرباء",
@@ -59,7 +59,7 @@
             }
         },
         "Restoration_finishing": {
-            "title": "قسم الترميم  والتشطيب",
+            "title": " الترميم  <br> والتشطيب",
             "services": {
                 "Installing_floors": "تركيب أرضيات",
                 "Paint": "دهانات",
@@ -68,12 +68,12 @@
             }
         },
         "Electronics": {
-            "title": "قسم الإلكترونيات",
+            "title": " الإلكترونيات",
             "services": {
-                "security_cameras": "'أنظمة مراقبة كامیرات",
-                "Networks_phone": "'شبكات و سنترالات",
+                "security_cameras": "'أنظمة مراقبة <br> كامیرات",
+                "Networks_phone": "'شبكات  <br>و سنترالات",
                 "sound_systems": "أنظمة صوت",
-                "computers": "الحاسب وتوابعة",
+                "computers": "الحاسب  <br>وتوابعة",
                 "others": "اخرى"
             }
         }
@@ -236,11 +236,19 @@
     },
       "setting":{
     "title":"الإعدادت",
-    "notification":"إستقبال إشعارات"
+    "notification":"إستقبال إشعارات",
+    "button":"تحديث",
+          "getting":"جارى تحميل بياناتك...",
+    "loading":"جارى تحديث حسابك...",
+    "done":"تم التحديث بنجاح"
+    
   },
 "offers":{
     "title":"إشعارات",
-    "back":"عوده الى كل الإشعارات"
+    "back":"عوده الى كل الإشعارات",
+        "loading":"جارى التحميل ...",
+    "error":"خطأ!"
 }
+
 
 }

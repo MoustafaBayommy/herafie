@@ -38,4 +38,23 @@ console.log('sending request ......');
     });
   }
 
+   static updateUserData(user:User):Promise<any>{
+  
+   let  param:any={
+'mobile':user.mobile+'',
+'name':user.name+'',
+'neighborhood':user.neighborhood+'',
+'email':user.email+'',
+'notifiy':user.notifiy
+     }
+console.log(param);
+       return LoginService.staticHttp.post(`${LoginService.serverUrl}clients/update`,param)
+    .toPromise().then((response:any)=>{
+        console.log('return from server.....');
+
+      //  true;
+       return  response.json();
+    });
+  }
+
 }

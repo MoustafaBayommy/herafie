@@ -31,15 +31,24 @@ export class AppSqlTableService {
             });
   }
   static CreateTableIFnOTeXIST(){     
-      return AppSqlTableService.appDataBase.executeSql("CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY AUTOINCREMENT, mobil TEXT)", {});
+      return AppSqlTableService.appDataBase.executeSql("CREATE TABLE IF NOT EXISTS User (id INTEGER PRIMARY KEY AUTOINCREMENT, mobil TEXT,name TEXT,neighborhood TEXT,email TEXT,notifiy INTEGER)", {});
             
   }
   static insertNewUser(user:User){
-
-    console.log('user '+user);
- return AppSqlTableService.appDataBase.executeSql(`INSERT INTO User (mobil) VALUES (${user.mobile})`, []);
+let notifiy:number=user.notifiy?1:0;
+    console.log('user '+JSON.stringify(user));
+ return AppSqlTableService.appDataBase.executeSql(`INSERT INTO User (mobil,name,neighborhood,email,notifiy) VALUES ('${user.mobile}','${user.name}','${user.neighborhood}','${user.email}',${notifiy})`, []);
   }
   
+
+    static updateUser(user:User){
+let notifiy:number=user.notifiy?1:0;
+
+    console.log('user '+user);
+ return AppSqlTableService.appDataBase.executeSql(`UPDATE User
+SET  name =' ${user.name}', neighborhood = '${user.neighborhood}',email='${user.email}',notifiy=${notifiy}
+  WHERE mobil= '${user.mobile}'`, []);
+  }
 
   static selectAll(){
 return AppSqlTableService.appDataBase.executeSql(`SELECT * FROM User`, {})
@@ -52,17 +61,22 @@ return AppSqlTableService.appDataBase.executeSql(`SELECT * FROM User`, {})
   }
 
   static insertNewNotification(notification:Notification){     
-      return AppSqlTableService.appDataBase.executeSql(`INSERT INTO notification [('title', 'body', 'isReaded')]  VALUES (${notification.title}, ${notification.body},${0});`, {});
+      return AppSqlTableService.appDataBase.executeSql(`INSERT INTO notification ('title', 'body', 'isReaded') VALUES ('${notification.title}', '${notification.body}',0);`, {});
             
   }
 
+   static setAllNotificationReaded(){     
+      return AppSqlTableService.appDataBase.executeSql(`UPDATE notification
+SET  isReaded =1`, [])
+  }
+
   static getNotifications(fromId:number){
-return AppSqlTableService.appDataBase.executeSql(`SELECT * FROM notification  WHERE id>${fromId} ORDER BY ID  DESC LIMIT 10;`, {})
+return AppSqlTableService.appDataBase.executeSql(`SELECT * FROM notification  WHERE id>${fromId} ORDER BY id  DESC LIMIT 10;`, {})
   }
 
 
   static countNotificationsBasedOnState(state:string){
     let stat=state==='new'?0:1;
-return AppSqlTableService.appDataBase.executeSql(`SELECT * FROM notification   WHERE isReaded=${stat}`, {})
+return AppSqlTableService.appDataBase.executeSql(`SELECT * FROM notification   WHERE isReaded=${stat} ORDER BY id DESC`, {})
   }
 }

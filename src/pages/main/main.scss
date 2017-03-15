@@ -20,8 +20,31 @@ margin: auto;
 }
 .labels{
     font-size: 110%;
-    // padding: 10px;
-    // color: #000;
+
+
+}
+
+
+@-webkit-keyframes floatTextltr{
+  from {
+    left: 00%;
+  }
+
+  to {
+    /* left: auto; */
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes floatTextrtl{
+  from {
+    right: 00%;
+  }
+
+  to {
+    /* left: auto; */
+    right: 100%;
+  }
 }
 // ion-row{
 //         margin: auto;

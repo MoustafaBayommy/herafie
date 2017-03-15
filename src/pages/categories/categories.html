@@ -7,7 +7,10 @@
 <ion-header [@bounce]="bounceState">
     <herafieNav withMenu=true></herafieNav>
     <ion-toolbar>
-        <ion-label class="title" ngClass="{{titlestyelClass}}">{{mainService | translate }} {{'services' | translate }}
+        <ion-label class="title" ngClass="{{titlestyelClass}}" >
+             <!--{{'services' | translate }}-->
+        <span [innerHTML]="mainService | translate">
+        </span>
         </ion-label>
     </ion-toolbar>
 </ion-header>
@@ -21,7 +24,11 @@
   <span class="fa {{col.iconName}}" [ngClass]="col.className"></span>
 </ion-row>
 <ion-row class="ionic-labels-row">
-    <ion-label  class="labels apartment" [ngClass]="col.className" >{{ col.title | translate }}</ion-label>
+    <ion-label  class="labels apartment" [ngClass]="col.className"  >
+        <span [innerHTML]="col.title | translate">
+
+        </span>
+        </ion-label>
 </ion-row>
 </ion-col>
 </ion-row>

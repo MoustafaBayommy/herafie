@@ -12,14 +12,75 @@
  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
 
-<ion-list style="margin-top:20px; ">
-  <ion-item style="border-bottom-style: solid;
+<form [formGroup]="myForm" (ngSubmit)="update(myForm.value)"  [@fade]="fadState" style="padding:0px;margin:0 auto;">
+
+ <ion-row class="elementRow" >
+  <ion-col width-100 class=" formcol">
+    <ion-item ngClass="{{titlestyelClass}}">
+    <ion-label floating>{{'register.name' | translate }}</ion-label>
+    <ion-input type="text" [formControl]="myForm.controls['name']"></ion-input>
+  </ion-item>
+  <div *ngIf="name.hasError('required')"
+ class="ui error message">{{'register.required' | translate }}
+</div>
+  </ion-col>
+</ion-row>
+
+ <ion-row class="elementRow" >
+  <ion-col width-100 class=" formcol labelsList" ngClass="{{titlestyelClass}}">
+    <ion-row class="labelRow">
+    <ion-label >{{'register.neigh' | translate }}</ion-label>
+    </ion-row>
+    <ion-row class="iteamRow">
+      <ion-item ngClass="{{titlestyelClass}}">
+   <ion-select  interface="action-sheet"  [formControl]="myForm.controls['neighborhood']" okText="{{'select'| translate}}" cancelText="{{'cancel'| translate}}" placeholder="{{'register.neighs.almusaffala'| translate}}">
+      <ion-option *ngFor="let neighbour of neigbouhoods" value="{{neighbour.name}}" >{{neighbour.title | translate }}</ion-option>
+    </ion-select>
+      </ion-item>
+    </ion-row>
+           <div *ngIf="neighborhood.hasError('required')"
+ class="ui error message">{{'register.required' | translate }}
+</div>
+  </ion-col>
+</ion-row>
+<ion-row class="elementRow" >
+  <ion-col width-100 class=" formcol" ngClass="{{titlestyelClass}}">
+    <ion-item ngClass="{{titlestyelClass}}">
+    <ion-label floating>{{'register.email' | translate }}</ion-label>
+    <ion-input type="email" [formControl]="myForm.controls['email']" pattern=".+@.+"></ion-input>
+  </ion-item>
+  <div *ngIf="email.hasError('required')"
+ class="ui error message">{{'register.required' | translate }}
+</div>
+  </ion-col>
+</ion-row>
+
+<ion-row class="elementRow" >
+  <ion-col width-100 class=" formcol" ngClass="{{titlestyelClass}}">
+   <ion-item style="border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: #e8e5e4;"  ngClass="{{titlestyelClass}}" [@fade]="fadState">
+        margin-top: 40px;
+    border-bottom-color: #e8e5e4;"  ngClass="{{titlestyelClass}}">
   <ion-label> {{'setting.notification'| translate }}</ion-label>
-  <ion-toggle color="secondary" [(ngModel)]="notifiy"></ion-toggle>
+  <ion-toggle color="secondary"   [(ngModel)]="notifiy" [ngModelOptions]="{standalone: true}"></ion-toggle>
 </ion-item>
-</ion-list>
+  </ion-col>
+</ion-row>
+
+<ion-row  class="buttonRow" style="margin-bottom: 30px;margin-top: 50px;">
+   <button   ion-button color="safety" clear  type="submit" style="font-size: 80%;"  [disabled]="!myForm.valid">
+     {{'setting.button' | translate }}</button>
+
+</ion-row>
+</form>
+
+
+
+
+<!--<ion-list style="margin-top:20px; ">
+  
+
+</ion-list>-->
 </ion-content>

@@ -57,11 +57,11 @@
       }
     },
     "Restoration_finishing": {
-      "title": "Restoration and finishing",
+      "title": "Restoration<br>& finishing",
       "services": {
         "Installing_floors": "Installing floors",
         "Paint": "Paints",
-        "roof_scenery": "Roofs&Scenery",
+        "roof_scenery": "Roofs & Scenery",
         "others": "others"
       }
     },
@@ -69,7 +69,7 @@
       "title": "Electronics",
       "services": {
         "security_cameras": "security cameras",
-        "Networks_phone": "Networks&Telephone Systems",
+        "Networks_phone": "Networks& <br>Telephone Systems",
         "sound_systems": "Sound Systems",
         "computers": "Computers",
         "others": "others"
@@ -231,10 +231,16 @@
   },
   "setting":{
     "title":"Setting",
-    "notification":"Notifications"
+    "notification":"Notifications",
+    "button":"Update",
+      "getting":"getting your account  data...",
+    "loading":"updating your  account...",
+    "done":"your account Update sucessfully"
   },
 "offers":{
     "title":"Notifications",
-    "back":"back to Notifications "
+    "back":"back to Notifications ",
+    "loading":"loading...",
+    "error":"error.."
 }
 }

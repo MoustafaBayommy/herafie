@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { PickDatePage } from '../pages.ts';
 import * as config from '../../herafie.config.ts';
 import { OrderService } from '../../providers/order.server';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/core';//for animation
+import { trigger, state, style, transition, animate, keyframes} from '@angular/core';//for animation
 
 
 interface Col {
@@ -23,7 +23,8 @@ interface Col {
 */
 @Component({
   selector: 'page-categories',
-  templateUrl: 'categories.html',
+  templateUrl: 'categories.html'
+,
   animations: [trigger('bounce', [
     state('bouncing', style({
       transform: 'translate3d(0,0,0)'
@@ -67,16 +68,16 @@ export class CategoriesPage {
   maintainRows: [Col[]] = [[
     {
       id: 0,
-      name: "mainservices.Maintenance.sevices.Foundries",
-      title: 'سباكة',
+      name: "سباكة",
+      title: 'mainservices.Maintenance.services.Foundries',
       iconName: 'icon-tap',
       className: 'nonActive',
       grupName: 'mainservices.Maintenance.title'
-    }],
-  [{
+    },
+  {
     id: 1,
-    name: "mainservices.Maintenance.sevices.Electricity",
-    title: 'كهربا',
+    name: "كهربا",
+    title: 'mainservices.Maintenance.services.Electricity',
     iconName: 'fa-plug',
     className: 'nonActive',
     grupName: 'قسم الصيانة'
@@ -84,17 +85,17 @@ export class CategoriesPage {
     , [
     {
       id: 3,
-      name: "mainservices.Maintenance.sevices.air_conditioning",
-      title: 'تكييف',
+      name: "تكييف",
+      title: 'mainservices.Maintenance.services.air_conditioning',
       iconName: 'icon-air-conditionernew',
       className: 'nonActive',
       grupName: 'قسم الصيانة'
 
-    }], [{
+    }, {
 
       id: 2,
-      name: "mainservices.Maintenance.sevices.others",
-      title: 'أخرى',
+      name: "أخرى",
+      title: 'mainservices.Maintenance.services.others',
       iconName: 'icon-magic-wandnew',
       className: 'nonActive',
       grupName: ''
@@ -109,8 +110,8 @@ export class CategoriesPage {
       iconName: 'icon-wiping-swipe-for-floors',
       className: 'nonActive',
       grupName: 'قسم النظافة'
-    }],
-  [{
+    },
+  {
     id: 1,
     title: "mainservices.Clean.services.Laminate_Floor",
     name: 'تلمیع الارضیات',
@@ -127,7 +128,7 @@ export class CategoriesPage {
       className: 'nonActive',
       grupName: 'قسم النظافة'
 
-    }], [
+    }, 
     {
       id: 3,
       title: "mainservices.Clean.services.Inlay_Tanks",
@@ -146,8 +147,8 @@ export class CategoriesPage {
       className: 'nonActive',
       grupName: 'قسم النظافة'
 
-    }],
-  [{
+    },
+  {
 
     id: 2,
     title: "mainservices.Clean.services.others",
@@ -158,6 +159,8 @@ export class CategoriesPage {
   }
   ]
   ];
+
+
   fixRows: [Col[]] = [[
     {
       id: 0,
@@ -166,8 +169,8 @@ export class CategoriesPage {
       iconName: 'icon-tilesnew',
       className: 'nonActive',
       grupName: 'قسم الترميم والتشطيب'
-    }],
-  [{
+    },
+  {
     id: 1,
     name: 'دھانات',
     title: "mainservices.Restoration_finishing.services.Paint",
@@ -184,8 +187,8 @@ export class CategoriesPage {
       className: 'nonActive',
       grupName: 'قسم النظافة'
 
-    }],
-  [{
+    },
+  {
 
     id: 2,
     title: "mainservices.Restoration_finishing.services.others",
@@ -196,6 +199,8 @@ export class CategoriesPage {
   }
   ]
   ];
+
+
   elecronicRows: [Col[]] = [[
     {
       id: 0,
@@ -204,8 +209,8 @@ export class CategoriesPage {
       iconName: 'icon-casino-cctvnew',
       className: 'nonActive',
       grupName: 'قسم الإلكترونيات'
-    }],
-  [{
+    },
+  {
     id: 1,
     title: "mainservices.Electronics.services.Networks_phone",
     name: 'شبكات و سنترالات',
@@ -222,8 +227,7 @@ export class CategoriesPage {
       className: 'nonActive',
       grupName: 'قسم الإلكترونيات'
 
-    }],
-  [
+    },
     {
       id: 3,
       title: "mainservices.Electronics.services.computers",
