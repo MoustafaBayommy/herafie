@@ -48,13 +48,26 @@
     </div>
     <!--sending message  end-->
 
+ <!--verify code loading-->
+ <div class="sendingNumber" style="    margin-top: 50px;" [style.display]="veridyloadingDisplay">
+
+        <img src="{{loadingsrc}}" style="display:block;     width: 100px;   margin: auto;">
+        <div style="    margin-top: 30px;
+    color: #9e9d9a;"  [style.display]="sendingError?'none':'block'">
+            {{'login.verifiying' | translate }}
+        </div>
+
+
+    </div>
+     <!--verify code loading End-->
+
 
     <!--enter Code Block-->
     <div class="enterCode" [style.display]="verifiyDisplay">
-        <img src="assets/svg/hash.svg" style=" width: 75px;">
+        <img src="assets/svg/password.svg" style=" width: 70px;margin-top:10px;">
 
         <!--<input id="partitioned" type="text" maxlength="4" />-->
-        <div style="color:#b2aeae">
+        <div style="color:#b2aeae;margin-top:5px;">
 
             <span>
                {{'login.enter' | translate }}   
@@ -64,7 +77,7 @@
      
 
 <div style="padding: 10%;">
-        <input type="number"  id="code" [(ngModel)]="code" (keyup)="enableverifyButton()"   maxlength="4"/>
+        <input type="number"  id="code" [(ngModel)]="code" (keyup)="enableverifyButton()"    maxlength="4"/>
 </div>
         <button ion-button color="secondary" clear (click)="resent()">
      <span class="button-inner" style="    font-size: 70%;
@@ -89,28 +102,28 @@
 
 
     <!--main  start-->
-    <div [style.display]="mainDisplay">
+    <div [style.display]="mainDisplay" style="margin-top:20px;">
         <div class="hint" ngClass="{{titlestyelClass}}">
             <div>
-                <img src="assets/svg/phone.svg" style=" width: 50px;
+                <img src="assets/svg/phone.svg" style=" width: 70px;
     border: 0;
     margin-left: 50px;
-    margin-bottom: 30px;">
+    margin-bottom: 15px;">
             </div>
             <span style="display: block; 
     text-decoration: underline;
-        margin-bottom: 7px;
-    font-size: 120%;">
+        margin-bottom: 3px;
+    font-size: 110%;">
           {{'login.title' | translate }}
     </span>
-            <span>
+            <span style="font-size: 90%">
             {{'login.verifyMobile' | translate }}
     </span>
         </div>
         <div class="inputes" ngClass="{{titlestyelClass}}">
             <ion-row class="logRow">
                 <ion-col width-100 class="logCol">
-                    <ion-row class="logRow">
+                    <ion-row class="logRow" style="margin-top:20px;">
 
                         <ion-item class="phone" ngClass="{{titlestyelClass}}">
                             <ion-label ngClass="{{titlestyelClass}}" stacked style="    font-size: 95%;

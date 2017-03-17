@@ -8,10 +8,11 @@
     },
     "login":{
   "title":"Mobile number verification",
-  "verifyMobile":"verification messange will  be sent to your phone",
+  "verifyMobile":"verification message will  be sent to your phone",
   "mobile":"Phone Number",
   "send":"Send",
   "sending":"sending your verification code",
+  "verifiying":"code verification",
   "enter":"Enter you  verification code",
   "verifiy":"Verifiy",
   "resend":"Resend",

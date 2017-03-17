@@ -45,7 +45,7 @@ export class MyApp {
 
   appTitle:string;
   appsubTitle:string;
-  rootPage: any =MainPage;
+  // rootPage: any =LoginPage;
 
 
   constructor(public platform: Platform, public translate: TranslateService,public appSqlTableService: AppSqlTableService,public push: Push) {
@@ -62,7 +62,7 @@ this.translate.use(OrderService.lang);
 
 
   initializeApp() {
- let test:boolean=true;
+ let test:boolean=false;
     if(!test){
     this.platform.ready().then(() => {
        StatusBar.styleDefault();

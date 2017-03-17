@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,ViewController, NavParams, LoadingController, AlertController, Platform,ModalController} from 'ionic-angular';
+import { NavController, ViewController, NavParams, LoadingController, AlertController, Platform, ModalController } from 'ionic-angular';
 import { RegisterPage } from '../pages';
 // import {LoadingModal} from '../../components/loading-modal/loading-modal';
 import { GetLocationPage } from '../pages';
@@ -66,17 +66,18 @@ export class LoginPage {
   titlestyelClass: string;
   lang: string;
   bounceState: String = "noBounce";
+  veridyloadingDisplay: string = "none";
   loadingDisplay: string = "none";
-  verifiyDisplay: string = "block";
-  mainDisplay: string = "none";
+  verifiyDisplay: string = "none";
+  mainDisplay: string = "block";
   code: string;
   loadingsrc: string = "assets/svg/ring.svg";
-    flagName: string = "assets/svg/egypt.svg";
+  flagName: string = "assets/svg/egypt.svg";
 
   verifybuttonEnabled: boolean = true;
-  sendingError:boolean=false;
-  sendEnabled:boolean=false;
- static translateStatic:TranslateService;
+  sendingError: boolean = false;
+  sendEnabled: boolean = false;
+  static translateStatic: TranslateService;
   constructor(
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
@@ -88,33 +89,33 @@ export class LoginPage {
     orderService: OrderService,
     public appSqlTableService: AppSqlTableService,
     public verifyService: VerifiyNumberService,
-     public  translate:TranslateService
+    public translate: TranslateService
   ) {
     this.lang = OrderService.lang;
     this.titlestyelClass = "login_" + OrderService.lang;
     this.appTitle = config.data.appTitle;
     this.appsubTitle = config.data.appSubTitle;
-     
+
 
     LoginPage.staticPlatForm = this.platform;
     LoginPage.sstaticAlert = this.alertCtrl;
-LoginPage.translateStatic=this.translate;
+    LoginPage.translateStatic = this.translate;
 
-      LoginPage.translateStatic.get('login.loading.message').subscribe(
-  value => {
-   LoginPage.loader = this.loadingCtrl.create({
-      content:value
-    });
-
+    LoginPage.translateStatic.get('login.loading.message').subscribe(
+      value => {
+        LoginPage.loader = this.loadingCtrl.create({
+          content: value
         });
-  
+
+      });
+
 
     LoginPage.stnavCtrl = this.navCtrl;
     //         this.platform.ready().then(() => {
 
 
 
-    
+
 
 
 
@@ -165,42 +166,42 @@ LoginPage.translateStatic=this.translate;
 
 
   static loginCallback(mobile) {
-    if(typeof OrderService.user=='undefined'||OrderService.user==null){
-       OrderService.user=new User();
+    if (typeof OrderService.user == 'undefined' || OrderService.user == null) {
+      OrderService.user = new User();
     }
-        OrderService.user.mobile =mobile.substring(1);
-        LoginPage.loader.present();
-        LoginService.isUser(`${OrderService.user.mobile}`).then(result => {
-          console.log('result returned From Server ' + result);
+    OrderService.user.mobile = mobile.substring(1);
+    LoginPage.loader.present();
+    LoginService.isUser(`${OrderService.user.mobile}`).then(result => {
+      console.log('result returned From Server ' + result);
 
-          if (result.isClient === 'true') {
-           OrderService.user.name=result.name;
-           OrderService.user.neighborhood=result.neighborhood;
-            OrderService.user.email=result.email;
-            OrderService.user.notifiy=(result.notifiy==='1');
-            console.log('the user is already register ');
+      if (result.isClient === 'true') {
+        OrderService.user.name = result.name;
+        OrderService.user.neighborhood = result.neighborhood;
+        OrderService.user.email = result.email;
+        OrderService.user.notifiy = (result.notifiy === '1');
+        console.log('the user is already register ');
 
-            LoginPage.craeteUserInTableThenLogeed()
-          } else {
-            console.log('the user is never register ');
-            LoginPage.loader.dismiss();
-            LoginPage.signup();
-          }
+        LoginPage.craeteUserInTableThenLogeed()
+      } else {
+        console.log('the user is never register ');
+        LoginPage.loader.dismiss();
+        LoginPage.signup();
+      }
 
-        }, err => {
+    }, err => {
 
 
-       LoginPage.translateStatic.get('login.alert').subscribe(
-  value => {
- LoginPage.loader.dismiss();
- LoginPage.erroralert(value.networkError);
+      LoginPage.translateStatic.get('login.alert').subscribe(
+        value => {
+          LoginPage.loader.dismiss();
+          LoginPage.erroralert(value.networkError);
 
         });
-        })
+    })
 
 
-    
- 
+
+
 
   }
 
@@ -225,12 +226,12 @@ LoginPage.translateStatic=this.translate;
   }
 
   sendMessage() {
-    this.sendingError=false;
+    this.sendingError = false;
 
- let mobile=this.countryCode+this.mobilNumber;
-    console.log(this.countryCode+""+this.mobilNumber)
-          this.loadingsrc = "assets/svg/ring.svg";
-    this.mainDisplay = "none";
+    let mobile = this.countryCode + this.mobilNumber;
+    console.log(this.countryCode + "" + this.mobilNumber)
+    this.loadingsrc = "assets/svg/ring.svg";
+    this.hideAll();
     this.loadingDisplay = "block";
     // setTimeout(() => {
     //   this.loadingsrc = "assets/svg/correct.svg";
@@ -238,86 +239,105 @@ LoginPage.translateStatic=this.translate;
     //   this.loadingDisplay = "none";
 
     // }, 1000)
-    this.verifyService.sendVeifyCode(mobile,this.lang).then((response)=>{
-if(response.sent=='true'){
-      this.loadingsrc = "assets/svg/correct.svg";
-          setTimeout(() => {
+    this.verifyService.sendVeifyCode(mobile, this.lang).then((response) => {
+      if (response.sent == 'true') {
+        this.loadingsrc = "assets/svg/correct.svg";
+        setTimeout(() => {
           this.verifiyDisplay = "block";
-      this.loadingDisplay = "none";
-    }, 1000)
+          this.loadingDisplay = "none";
+        }, 1000)
 
-}else{
+      } else {
         this.loadingsrc = "assets/svg/error.svg";
-this.sendingError=true;
-}
-    }).catch((e)=>{
-        this.loadingsrc = "assets/svg/error.svg";
-this.sendingError=true;
+        this.sendingError = true;
+      }
+    }).catch((e) => {
+      this.loadingsrc = "assets/svg/error.svg";
+      this.sendingError = true;
 
     });
   }
 
   enableverifyButton() {
-    this.verifybuttonEnabled =(this.code+"").length != 4;
+    console.log((this.code + "").length != 4);
+    this.verifybuttonEnabled = (this.code + "").length != 4;
   }
 
 
   resent() {
-    this.verifiyDisplay = "none";
-    this.loadingDisplay = "none";
+  this.hideAll();
     this.mainDisplay = "block";
-    this.code='';
+    this.code = '';
 
   }
 
-  viewCountries(){
+  viewCountries() {
     console.log('fgdh');
-  let modal = this.modalCtrl.create(Countries);
+    let modal = this.modalCtrl.create(Countries);
     modal.onDidDismiss(code => {
       console.log(code);
-            if(code=='0'){
+      if (code == '0') {
 
-      }else{
-        if(code=='+20'){
-this.flagName="assets/svg/egypt.svg";
-        }else{
-this.flagName="assets/svg/saudi.svg";
+      } else {
+        if (code == '+20') {
+          this.flagName = "assets/svg/egypt.svg";
+        } else {
+          this.flagName = "assets/svg/saudi.svg";
         }
-        this.countryCode=code;
+        this.countryCode = code;
       }
-   });
+    });
     modal.present();
   }
 
-verifyCode(){
+  verifyCode() {
+
     console.log(this.code);
-      this.loadingsrc = "assets/svg/ring.svg";
+    this.loadingsrc = "assets/svg/ring.svg";
+    this.hideAll();
+    this.veridyloadingDisplay = "block";
 
-      this.verifyService.verifyCode(this.countryCode+this.mobilNumber,this.code).then((response)=>{
-        console.log(response);
-if(response.verified=='true'){
-      this.loadingsrc = "assets/svg/correct.svg";
-      this.verifiyDisplay = "block";
-      this.loadingDisplay = "none";
-      setTimeout(()=>{
-LoginPage.loginCallback(this.countryCode+this.mobilNumber);
-      },1000)
-      
-}else{
+    this.verifyService.verifyCode(this.countryCode + this.mobilNumber, this.code).then((response) => {
+      console.log(response);
+      if (response.verified == 'true') {
+        this.loadingsrc = "assets/svg/correct.svg";
+        // this.verifiyDisplay = "block";
+        // this.loadingDisplay = "none";
+        setTimeout(() => {
+          LoginPage.loginCallback(this.countryCode + this.mobilNumber);
+        }, 1000)
+
+      } else {
+        this.loadingsrc = "assets/svg/error.svg";
+        setTimeout(() => {
+          this.hideAll();
+          this.verifiyDisplay = "block";
+        }, 1000)
+
+
+      }
+    }).catch((e) => {
       this.loadingsrc = "assets/svg/error.svg";
-
-
-}
-    }).catch((e)=>{
-      this.loadingsrc = "assets/svg/error.svg";
+      setTimeout(() => {
+        this.hideAll();
+        this.verifiyDisplay = "block";
+      }, 1000)
 
     });
-}
-enablesendbutton(){
- this.sendEnabled=(this.mobilNumber+"").length>4;
-   
- 
-}
+  }
+  enablesendbutton() {
+    this.sendEnabled = (this.mobilNumber + "").length > 4;
+
+
+  }
+
+  hideAll() {
+    this.veridyloadingDisplay = "none";
+    this.loadingDisplay = "none";
+    this.verifiyDisplay = "none";
+    this.mainDisplay = "none";
+  }
+
 
 }
 

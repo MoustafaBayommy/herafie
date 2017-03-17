@@ -11,14 +11,14 @@
         </ion-label>
     </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content style="margin-top: 20px">
 
     <!--<script type="text/javascript"> var elms = document.getElementsByClassName("ion-col"); 
 var n = elms.length;
  function changeColor(color) { for(var i = 0; i < n; i ++) { elms[i].style.backgroundColor = color; } } for(var i = 0; i < n; i ++) { elms[i].onmouseover = function() { changeColor("yellow"); }; elms[i].onmouseout = function() { changeColor("white"); }; } </script>-->
 
     <div class="ionicrow">
-        <ion-row *ngFor="let row of rows" class="ionicrow">
+        <ion-row *ngFor="let row of rows" class="ionicrow" >
             <ion-col *ngFor="let col of row" width-100 class="ion-col" (click)="selecteService(col);" [@fade]="fadeState">
                 <ion-row class="ionic-icon-row">
                     <span class="fa {{col.iconName}}" [ngClass]="col.className"></span>

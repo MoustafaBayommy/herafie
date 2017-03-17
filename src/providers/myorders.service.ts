@@ -32,9 +32,11 @@ getMyOrders(mobil:String):Promise<any>{
 
 
 sendMyOrder(order:Order):Promise<any>{
-        console.log(order);
+        console.log('sending ... '+order.descriptionFile);
    return this.http.post(`${this.serverUrl}orders`,order)
     .toPromise().then((response:any)=>{
+   console.log(response);
+      console.log(response.json());
 
        return  response.json();
         });
@@ -54,15 +56,15 @@ sendRating(rate:Rate):Promise<any>{
 }
 
 uploadFile(path:string):Promise<any>{
-        
+       
             const fileTransfer = new Transfer();
   var options: any;
-
+console.log('uploading files '+path);
   options = {
      fileKey: 'file',
           chunkedMode: false,
 
-        //   fileName: 'name.jpg',
+          fileName: 'file.'+ path.split('.')[1],
 mimeType:'application/octet-stream',
         // headers: {
         //             Connection: "close"
@@ -75,7 +77,7 @@ mimeType:'application/octet-stream',
     if (progressEvent.lengthComputable) {
         console.log(progressEvent.loaded / progressEvent.total);
     } else {
-            console.log('uploading..');
+                    console.log('uploading..');
     }
 };
  
